@@ -1,1 +1,1 @@
-semantic_coherence_public_release.tar.gz  aae397bcc3d4042488866853dd048ea43479a87bc8e4ed4c4e0fb394ddb421fc
+semantic_coherence_public_release.tar.xz  e1d1b735927982bc108bea7b32442594b78500d5c4238f74cc4c55bda0abfc25
