@@ -1,17 +1,16 @@
-name: Finalize reproducibility bundle
+name: Install final reproducibility documentation
 
 on:
   push:
     branches: [repro-finalization-20260915]
     paths:
       - '.github/workflows/finalize-repro-bundle.yml'
-  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  finalize:
+  finalize-docs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -19,54 +18,33 @@ jobs:
           ref: repro-finalization-20260915
           fetch-depth: 0
 
-      - name: Download verified release archive
+      - name: Download and verify final documentation bundle
         env:
-          RELEASE_URL: "https://sdmntprdenmarkeast.oaiusercontent.com/files/00000000-f08c-8210-82f4-8e965460721a/raw?se=2026-09-15T11%3A48%3A33Z&sp=r&sv=2026-02-06&sr=b&scid=829bd7bc-18dd-5239-ba2f-448cbdf6cbd3&skoid=b5d2651b-fef3-4bb0-a03b-ca59cc22929b&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-15T04%3A23%3A48Z&ske=2026-09-16T04%3A23%3A48Z&sks=b&skv=2026-02-06&sig=XpBl/8uTgNQftPEoUwrSnTUzMflK7E43RNRofcuEd4k%3D"
+          DOCS_URL: "https://sdmntpritalynorth.oaiusercontent.com/files/00000000-984c-8246-8683-ac24321f2de8/raw?se=2026-09-15T11%3A52%3A19Z&sp=r&sv=2026-02-06&sr=b&scid=1b4bd24f-c0cd-5a0c-98c1-53a9e9681460&skoid=b5d2651b-fef3-4bb0-a03b-ca59cc22929b&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-15T06%3A05%3A59Z&ske=2026-09-16T06%3A05%3A59Z&sks=b&skv=2026-02-06&sig=XJsB3CXKI/yrXiOgXqkcYS0AZAZl4086e//Bz3AU5Kg%3D"
         run: |
-          curl --fail --location --retry 3 "$RELEASE_URL" -o semantic_coherence_public_release.tar.xz
-          echo "a68f1be48e32b28a683431b093649999c9fb7f19af2130d87fca5f03f9f9260d  semantic_coherence_public_release.tar.xz" | sha256sum -c -
-          test "$(stat -c%s semantic_coherence_public_release.tar.xz)" = "641012"
+          curl --fail --location --retry 3 "$DOCS_URL" -o /tmp/github_final_docs.tar.gz
+          echo "18d00b2374395b73f331de39a705b6bbdbe9e46bda6d1b00d10a9648bb0ed289  /tmp/github_final_docs.tar.gz" | sha256sum -c -
+          test "$(stat -c%s /tmp/github_final_docs.tar.gz)" = "11111"
 
-      - name: Build text-safe transport parts
+      - name: Install final public files and self-remove workflow
         run: |
-          python - <<'PY'
-          from pathlib import Path
-          import base64
-          archive = Path('semantic_coherence_public_release.tar.xz').read_bytes()
-          b64 = base64.b64encode(archive).decode('ascii')
-          out = Path('release_bundle')
-          out.mkdir(exist_ok=True)
-          for p in out.glob('semantic_coherence_public_release.tar*.part*'):
-              p.unlink()
-          chunks = [b64[i:i+10000] for i in range(0, len(b64), 10000)]
-          for i, chunk in enumerate(chunks, 1):
-              (out / f'semantic_coherence_public_release.tar.xz.b64.part{i:04d}').write_text(chunk, encoding='ascii')
-          assert len(chunks) == 86
-          assert sum(len(p.read_text()) for p in sorted(out.glob('semantic_coherence_public_release.tar.xz.b64.part*'))) == len(b64)
-          PY
+          tar -xzf /tmp/github_final_docs.tar.gz -C .
+          python -m py_compile UNPACK_RELEASE.py
+          grep -q "EXPECTED_PARTS = 86" UNPACK_RELEASE.py
+          grep -q "a68f1be48e32b28a683431b093649999c9fb7f19af2130d87fca5f03f9f9260d" BUNDLE_SHA256.txt
+          test -f docs/RELEASE_VERIFICATION.json
+          test -f docs/REPRODUCIBILITY.md
+          test -f SOURCE_BINARY_HASHES.csv
+          test -f PUBLIC_METRICS_RECOMPUTED.csv
+          test -f LICENSE
+          test -f DATA_LICENSE.md
+          rm -f .github/workflows/finalize-repro-bundle.yml
+          rm -rf __pycache__
 
-      - name: Verify round trip
+      - name: Commit final documentation state
         run: |
-          python - <<'PY'
-          from pathlib import Path
-          import base64, hashlib
-          parts = sorted(Path('release_bundle').glob('semantic_coherence_public_release.tar.xz.b64.part*'))
-          assert len(parts) == 86, len(parts)
-          raw = base64.b64decode(''.join(p.read_text() for p in parts), validate=True)
-          assert hashlib.sha256(raw).hexdigest() == 'a68f1be48e32b28a683431b093649999c9fb7f19af2130d87fca5f03f9f9260d'
-          assert len(raw) == 641012
-          print('PASS: 86 parts reconstruct the verified archive')
-          PY
-
-      - name: Commit generated transport
-        run: |
-          rm -f semantic_coherence_public_release.tar.xz
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A release_bundle
-          if git diff --cached --quiet; then
-            echo "No transport changes to commit"
-          else
-            git commit -m "Finalize verified reproducibility bundle transport"
-            git push origin HEAD:repro-finalization-20260915
-          fi
+          git add -A
+          git commit -m "Install final reproducibility documentation and remove transient workflow"
+          git push origin HEAD:repro-finalization-20260915
