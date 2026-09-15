@@ -5,7 +5,7 @@ import hashlib
 import tarfile
 import tempfile
 
-EXPECTED_SHA256 = "a68f1be48e32b28a683431b093649999c9fb7f19af2130d87fca5f03f9f9260d"
+EXPECTED_SHA256 = "69ce2a52c201424d8939d1a997dc3bd34854a2822131c6bc69a791b47635ce3e"
 EXPECTED_PARTS = 86
 ROOT = Path(__file__).resolve().parent
 PART_DIR = ROOT / "release_bundle"

@@ -103,7 +103,7 @@ The complete release is stored as 86 ordered Base64 text fragments under `releas
 
 Expected archive SHA-256:
 
-`a68f1be48e32b28a683431b093649999c9fb7f19af2130d87fca5f03f9f9260d`
+`69ce2a52c201424d8939d1a997dc3bd34854a2822131c6bc69a791b47635ce3e`
 
 The same value is stored in `BUNDLE_SHA256.txt` and enforced by `UNPACK_RELEASE.py`.
 
