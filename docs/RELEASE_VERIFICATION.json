@@ -1,0 +1,47 @@
+{
+  "release_status": "PASS_NUMERICAL_REPRODUCIBILITY_WITH_EXPLICIT_HISTORICAL_RERUN_BOUNDARIES",
+  "raw_generated_outputs": 720,
+  "prompt_clusters": 120,
+  "historical_annotator_workbooks": 3,
+  "round1_senior_adjudication_cases": 423,
+  "m3_primary_oof_files": 12,
+  "m3_stability_additional_oof_files": 8,
+  "m4_forced_oof_files": 12,
+  "target_populations": {
+    "T1": 720,
+    "T2": 474,
+    "T3": 460,
+    "T4": 474
+  },
+  "verified_primary_macro_f1": {
+    "M3_C": {
+      "T1": 0.655264,
+      "T2": 0.777201,
+      "T3": 0.790805,
+      "T4": 0.636871
+    },
+    "M4_C": {
+      "T1": 0.741073,
+      "T2": 0.609381,
+      "T3": 0.529736,
+      "T4": 0.390764
+    }
+  },
+  "verified_krippendorff_alpha": {
+    "fine_primary": 0.703147,
+    "collapsed_family": 0.73053,
+    "boundary_zone": 0.723208,
+    "severity_ordinal": 0.783965
+  },
+  "non_reproducible_bit_for_bit": [
+    "five original SLM generation checkpoints because immutable revision/template/tokenization/stopping details were not fully retained",
+    "historical M0/M1/M2 training executable because original training script was not retained"
+  ],
+  "github_transport": {
+    "format": "Base64 fragments",
+    "parts": 86,
+    "archive_bytes": 641012,
+    "archive_sha256": "a68f1be48e32b28a683431b093649999c9fb7f19af2130d87fca5f03f9f9260d",
+    "roundtrip_status": "PASS"
+  }
+}

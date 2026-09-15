@@ -1,21 +1,51 @@
 #!/usr/bin/env python3
 from pathlib import Path
-import base64, hashlib, tarfile, tempfile
-EXPECTED_SHA256 = "e1d1b735927982bc108bea7b32442594b78500d5c4238f74cc4c55bda0abfc25"
+import base64
+import hashlib
+import tarfile
+import tempfile
+
+EXPECTED_SHA256 = "a68f1be48e32b28a683431b093649999c9fb7f19af2130d87fca5f03f9f9260d"
+EXPECTED_PARTS = 86
 ROOT = Path(__file__).resolve().parent
 PART_DIR = ROOT / "release_bundle"
-parts = sorted(PART_DIR.glob("semantic_coherence_public_release.tar.xz.b64.part*"))
-if not parts:
-    raise SystemExit(f"No release parts found under {PART_DIR}")
+PART_GLOB = "semantic_coherence_public_release.tar.xz.b64.part*"
+
+parts = sorted(PART_DIR.glob(PART_GLOB))
+if len(parts) != EXPECTED_PARTS:
+    raise SystemExit(
+        f"Expected {EXPECTED_PARTS} release fragments under {PART_DIR}, found {len(parts)}: "
+        + ", ".join(p.name for p in parts)
+    )
+
+names = [p.name for p in parts]
+expected_names = [f"semantic_coherence_public_release.tar.xz.b64.part{i:04d}" for i in range(1, EXPECTED_PARTS + 1)]
+if names != expected_names:
+    raise SystemExit("Release fragment sequence is incomplete or misordered.")
+
 text = "".join(p.read_text(encoding="ascii").strip() for p in parts)
-data = base64.b64decode(text, validate=True)
+try:
+    data = base64.b64decode(text, validate=True)
+except Exception as exc:
+    raise SystemExit(f"Base64 reconstruction failed: {exc}") from exc
+
 got = hashlib.sha256(data).hexdigest()
 if got != EXPECTED_SHA256:
-    raise SystemExit(f"SHA-256 mismatch: {got}")
+    raise SystemExit(f"SHA-256 mismatch: expected {EXPECTED_SHA256}, got {got}")
+
 with tempfile.NamedTemporaryFile(suffix=".tar.xz", delete=False) as tmp:
-    tmp.write(data); temp_path = Path(tmp.name)
-with tarfile.open(temp_path, "r:xz") as tf:
-    tf.extractall(ROOT)
-temp_path.unlink(missing_ok=True)
-print(f"PASS: extracted {len(parts)} parts; SHA-256={got}")
-print("Run: python code/analysis/reproduce_public_metrics.py")
+    tmp.write(data)
+    temp_path = Path(tmp.name)
+
+try:
+    with tarfile.open(temp_path, "r:xz") as tf:
+        try:
+            tf.extractall(ROOT, filter="data")
+        except TypeError:  # Python < 3.12
+            tf.extractall(ROOT)
+finally:
+    temp_path.unlink(missing_ok=True)
+
+print(f"PASS: reconstructed and extracted {len(parts)} fragments")
+print(f"SHA-256: {got}")
+print("Next: python code/analysis/reproduce_public_metrics.py")
