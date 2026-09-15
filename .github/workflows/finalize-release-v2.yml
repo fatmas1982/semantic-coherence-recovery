@@ -1,241 +1,110 @@
 name: Finalize corrected reproducibility release v2
-
 on:
   push:
-    paths:
-      - '.github/workflows/finalize-release-v2.yml'
-
+    paths: ['.github/workflows/finalize-release-v2.yml']
 permissions:
   contents: write
-
 jobs:
   finalize:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
+        with: {fetch-depth: 0}
       - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Rebuild and verify corrected release bundle
+        with: {python-version: '3.11'}
+      - name: Install verification dependencies
+        run: python -m pip install -q pandas scikit-learn
+      - name: Rebuild and verify corrected release
         shell: bash
         run: |
           set -euo pipefail
           python - <<'PY'
           from pathlib import Path
-          import base64, csv, hashlib, io, json, os, re, shutil, subprocess, sys, tarfile, tempfile
-
-          ROOT = Path.cwd()
-          PART_DIR = ROOT / 'release_bundle'
-          PART_PREFIX = 'semantic_coherence_public_release.tar.xz.b64.part'
-          OVERLAY_SHA = 'a95b0eb609c001a3dc54f5a60a8bdd3c8237aa7009b63ddddb0a1e82f652fb51'
-          EXPECTED_PARTS = 86
-          CHUNK = 10_000
-
-          def sha256_bytes(data: bytes) -> str:
-              return hashlib.sha256(data).hexdigest()
-
-          def safe_extract(tf, dest):
-              try:
-                  tf.extractall(dest, filter='data')
-              except TypeError:
-                  tf.extractall(dest)
-
-          def rebuild_manifest(work: Path):
-              rows = []
-              for p in sorted(work.rglob('*')):
-                  if not p.is_file() or p.name == 'SHA256SUMS.csv':
-                      continue
-                  rel = p.relative_to(work).as_posix()
-                  data = p.read_bytes()
-                  rows.append((rel, len(data), sha256_bytes(data)))
-              out = work / 'SHA256SUMS.csv'
-              with out.open('w', encoding='utf-8', newline='') as f:
-                  w = csv.writer(f)
-                  w.writerow(['path','bytes','sha256'])
-                  w.writerows(rows)
+          import base64,csv,hashlib,json,re,shutil,subprocess,sys,tarfile,tempfile
+          R=Path.cwd(); D=R/'release_bundle'; P='semantic_coherence_public_release.tar.xz.b64.part'
+          O='a95b0eb609c001a3dc54f5a60a8bdd3c8237aa7009b63ddddb0a1e82f652fb51'; N=86
+          H=lambda b:hashlib.sha256(b).hexdigest()
+          def ext(tf,d):
+              try: tf.extractall(d,filter='data')
+              except TypeError: tf.extractall(d)
+          def manifest(w):
+              rows=[]
+              for p in sorted(w.rglob('*')):
+                  if p.is_file() and p.name!='SHA256SUMS.csv':
+                      b=p.read_bytes(); rows.append((p.relative_to(w).as_posix(),len(b),H(b)))
+              with (w/'SHA256SUMS.csv').open('w',encoding='utf-8',newline='') as f:
+                  z=csv.writer(f); z.writerow(['path','bytes','sha256']); z.writerows(rows)
               return len(rows)
-
-          def verify_manifest(work: Path):
-              manifest = work / 'SHA256SUMS.csv'
-              with manifest.open('r', encoding='utf-8', newline='') as f:
-                  rows = list(csv.DictReader(f))
-              bad = []
-              for r in rows:
-                  p = work / r['path']
-                  if not p.is_file():
-                      bad.append((r['path'], 'missing'))
-                      continue
-                  data = p.read_bytes()
-                  if len(data) != int(r['bytes']) or sha256_bytes(data) != r['sha256']:
-                      bad.append((r['path'], 'mismatch'))
-              if bad:
-                  raise SystemExit(f'Manifest verification failed: {bad[:10]}')
+          def verify(w):
+              with (w/'SHA256SUMS.csv').open(encoding='utf-8',newline='') as f: rows=list(csv.DictReader(f))
+              bad=[]
+              for x in rows:
+                  p=w/x['path']
+                  if not p.is_file(): bad.append((x['path'],'missing')); continue
+                  b=p.read_bytes()
+                  if len(b)!=int(x['bytes']) or H(b)!=x['sha256']: bad.append((x['path'],'mismatch'))
+              if bad: raise SystemExit(f'manifest failure: {bad[:10]}')
               return len(rows)
-
-          def stale_claim_audit(work: Path):
-              forbidden = [
-                  'data/annotation/historical_full/',
-                  'not in the currently deposited package',
-                  'not reconstructed from missing files',
-                  'not reconstructed from unavailable files',
-                  'byte-identical public copy under data/annotation/historical_full/',
-                  'Exact historical A1/A2/A3 workbooks released',
-                  'Exact byte-identical historical workbook released',
-                  'P2_57_Submission_Candidate',
-              ]
-              hits = []
-              for p in sorted(work.rglob('*')):
-                  if not p.is_file() or p.suffix.lower() not in {'.md','.csv','.json','.py','.txt','.cff'}:
-                      continue
-                  try:
-                      text = p.read_text(encoding='utf-8')
-                  except UnicodeDecodeError:
-                      continue
-                  for s in forbidden:
-                      if s in text:
-                          hits.append((p.relative_to(work).as_posix(), s))
-              if hits:
-                  raise SystemExit(f'Stale-claim audit failed: {hits[:20]}')
-
-          old_parts = sorted(PART_DIR.glob(PART_PREFIX + '*'))
-          if len(old_parts) != EXPECTED_PARTS:
-              raise SystemExit(f'Expected {EXPECTED_PARTS} existing fragments, got {len(old_parts)}')
-          old_text = ''.join(p.read_text(encoding='ascii').strip() for p in old_parts)
-          old_data = base64.b64decode(old_text, validate=True)
-          expected_old = (ROOT/'BUNDLE_SHA256.txt').read_text(encoding='utf-8').split()[0]
-          if sha256_bytes(old_data) != expected_old:
-              raise SystemExit('Existing bundle hash does not match BUNDLE_SHA256.txt')
-
-          overlay_parts = sorted((ROOT/'.release_patch').glob('overlay.b64.part*'))
-          if len(overlay_parts) != 7:
-              raise SystemExit(f'Expected 7 overlay fragments, got {len(overlay_parts)}')
-          overlay_text = ''.join(p.read_text(encoding='ascii').strip() for p in overlay_parts)
-          overlay_data = base64.b64decode(overlay_text, validate=True)
-          if sha256_bytes(overlay_data) != OVERLAY_SHA:
-              raise SystemExit('Overlay SHA-256 mismatch')
-
-          with tempfile.TemporaryDirectory() as td_s:
-              td = Path(td_s)
-              work = td/'release'
-              work.mkdir()
-              old_arc = td/'old.tar.xz'
-              old_arc.write_bytes(old_data)
-              with tarfile.open(old_arc, 'r:xz') as tf:
-                  safe_extract(tf, work)
-
-              overlay_arc = td/'overlay.tar.xz'
-              overlay_arc.write_bytes(overlay_data)
-              with tarfile.open(overlay_arc, 'r:xz') as tf:
-                  safe_extract(tf, work)
-
-              for rel in [
-                  'paper/P2_57_Submission_Candidate_MANUSCRIPT.md',
-                  'paper/P2_57_Submission_Candidate_SUPPLEMENT.md',
-              ]:
-                  (work/rel).unlink(missing_ok=True)
-
-              required = [
-                  'data/annotation/historical_full_csv/A1/Annotation.csv',
-                  'data/annotation/historical_full_csv/A2/Annotation.csv',
-                  'data/annotation/historical_full_csv/A3/Annotation.csv',
-                  'data/annotation/historical_full_csv/ROUND1_ADJ/Adjudication.csv',
-                  'paper/P2_58_FINAL_SUBMISSION_READY_PENDING_AUTHOR_METADATA_MANUSCRIPT.md',
-                  'paper/P2_58_FINAL_SUBMISSION_READY_PENDING_AUTHOR_METADATA_SUPPLEMENT.md',
-              ]
-              for rel in required:
-                  if not (work/rel).is_file():
-                      raise SystemExit(f'Missing required corrected release file: {rel}')
-              if (work/'data/annotation/historical_full').exists():
-                  raise SystemExit('Obsolete historical_full binary-release directory unexpectedly exists')
-
-              stale_claim_audit(work)
-              n_manifest = rebuild_manifest(work)
-              if n_manifest != 151:
-                  raise SystemExit(f'Expected 151 manifest rows, got {n_manifest}')
-              if verify_manifest(work) != 151:
-                  raise SystemExit('Manifest row-count verification failed')
-
-              subprocess.run([sys.executable, 'code/analysis/reproduce_public_metrics.py'], cwd=work, check=True)
-
-              new_arc = td/'semantic_coherence_public_release.tar.xz'
-              fixed_mtime = 1789430400  # 2026-09-15 00:00:00 UTC
-              def normalize(ti):
-                  ti.uid = 0; ti.gid = 0; ti.uname = ''; ti.gname = ''; ti.mtime = fixed_mtime
-                  return ti
-              with tarfile.open(new_arc, 'w:xz') as tf:
-                  for child in sorted(work.iterdir(), key=lambda p: p.name):
-                      tf.add(child, arcname=child.name, recursive=True, filter=normalize)
-              new_data = new_arc.read_bytes()
-              new_sha = sha256_bytes(new_data)
-              encoded = base64.b64encode(new_data).decode('ascii')
-              chunks = [encoded[i:i+CHUNK] for i in range(0, len(encoded), CHUNK)]
-              if len(chunks) != EXPECTED_PARTS:
-                  raise SystemExit(f'Corrected archive produced {len(chunks)} fragments, expected {EXPECTED_PARTS}')
-              if any(len(c) != CHUNK for c in chunks[:-1]) or not (0 < len(chunks[-1]) <= CHUNK):
-                  raise SystemExit('Unexpected corrected fragment sizes')
-
-              shutil.rmtree(PART_DIR)
-              PART_DIR.mkdir()
-              for i, chunk in enumerate(chunks, 1):
-                  (PART_DIR/f'{PART_PREFIX}{i:04d}').write_text(chunk, encoding='ascii')
-
-              roundtrip_text = ''.join((PART_DIR/f'{PART_PREFIX}{i:04d}').read_text(encoding='ascii').strip() for i in range(1, EXPECTED_PARTS+1))
-              roundtrip = base64.b64decode(roundtrip_text, validate=True)
-              if roundtrip != new_data or sha256_bytes(roundtrip) != new_sha:
-                  raise SystemExit('Corrected fragment roundtrip verification failed')
-
-              verify_dir = td/'verify'
-              verify_dir.mkdir()
-              verify_arc = td/'verify.tar.xz'
-              verify_arc.write_bytes(roundtrip)
-              with tarfile.open(verify_arc, 'r:xz') as tf:
-                  safe_extract(tf, verify_dir)
-              if verify_manifest(verify_dir) != 151:
-                  raise SystemExit('Verified extraction manifest failed')
-              stale_claim_audit(verify_dir)
-              subprocess.run([sys.executable, 'code/analysis/reproduce_public_metrics.py'], cwd=verify_dir, check=True)
-
-              (ROOT/'BUNDLE_SHA256.txt').write_text(f'{new_sha}  semantic_coherence_public_release.tar.xz\n', encoding='utf-8')
-
-              unpack = (ROOT/'UNPACK_RELEASE.py').read_text(encoding='utf-8')
-              unpack = re.sub(r'EXPECTED_SHA256 = "[0-9a-f]{64}"', f'EXPECTED_SHA256 = "{new_sha}"', unpack)
-              unpack = re.sub(r'EXPECTED_PARTS = \d+', f'EXPECTED_PARTS = {EXPECTED_PARTS}', unpack)
-              (ROOT/'UNPACK_RELEASE.py').write_text(unpack, encoding='utf-8')
-
-              readme_path = ROOT/'README.md'
-              readme = readme_path.read_text(encoding='utf-8').replace(expected_old, new_sha)
-              readme_path.write_text(readme, encoding='utf-8')
-
-              rv_path = ROOT/'docs/RELEASE_VERIFICATION.json'
-              rv = json.loads(rv_path.read_text(encoding='utf-8'))
-              rv['github_transport'] = {
-                  'format': 'Base64 fragments',
-                  'parts': EXPECTED_PARTS,
-                  'archive_bytes': len(new_data),
-                  'archive_sha256': new_sha,
-                  'roundtrip_status': 'PASS',
-              }
-              rv_path.write_text(json.dumps(rv, indent=2) + '\n', encoding='utf-8')
-
-              print('FINAL_RELEASE_REBUILD_PASS')
-              print('archive_sha256', new_sha)
-              print('archive_bytes', len(new_data))
-              print('parts', len(chunks), 'last_part_chars', len(chunks[-1]))
-              print('manifest_rows', n_manifest)
+          def audit(w):
+              ban=['data/annotation/historical_full/','not in the currently deposited package','not reconstructed from missing files','not reconstructed from unavailable files','byte-identical public copy under data/annotation/historical_full/','Exact historical A1/A2/A3 workbooks released','Exact byte-identical historical workbook released','P2_57_Submission_Candidate']
+              hit=[]
+              for p in w.rglob('*'):
+                  if p.is_file() and p.suffix.lower() in {'.md','.csv','.json','.py','.txt','.cff'}:
+                      try:t=p.read_text(encoding='utf-8')
+                      except UnicodeDecodeError:continue
+                      hit += [(p.relative_to(w).as_posix(),s) for s in ban if s in t]
+              if hit: raise SystemExit(f'stale-claim failure: {hit[:20]}')
+          oldparts=sorted(D.glob(P+'*'))
+          if len(oldparts)!=N: raise SystemExit(f'expected {N} old parts, got {len(oldparts)}')
+          old=base64.b64decode(''.join(x.read_text().strip() for x in oldparts),validate=True)
+          oldsha=(R/'BUNDLE_SHA256.txt').read_text().split()[0]
+          if H(old)!=oldsha: raise SystemExit('old bundle hash mismatch')
+          op=sorted((R/'.release_patch').glob('overlay.b64.part*'))
+          if len(op)!=8: raise SystemExit(f'expected 8 overlay fragments, got {len(op)}')
+          ov=base64.b64decode(''.join(x.read_text().strip() for x in op),validate=True)
+          if H(ov)!=O: raise SystemExit('overlay hash mismatch')
+          with tempfile.TemporaryDirectory() as td0:
+              td=Path(td0); w=td/'release'; w.mkdir()
+              a=td/'old.tar.xz'; a.write_bytes(old)
+              with tarfile.open(a,'r:xz') as tf: ext(tf,w)
+              a=td/'overlay.tar.xz'; a.write_bytes(ov)
+              with tarfile.open(a,'r:xz') as tf: ext(tf,w)
+              for q in ['paper/P2_57_Submission_Candidate_MANUSCRIPT.md','paper/P2_57_Submission_Candidate_SUPPLEMENT.md']:(w/q).unlink(missing_ok=True)
+              req=['data/annotation/historical_full_csv/A1/Annotation.csv','data/annotation/historical_full_csv/A2/Annotation.csv','data/annotation/historical_full_csv/A3/Annotation.csv','data/annotation/historical_full_csv/ROUND1_ADJ/Adjudication.csv','paper/P2_58_FINAL_SUBMISSION_READY_PENDING_AUTHOR_METADATA_MANUSCRIPT.md','paper/P2_58_FINAL_SUBMISSION_READY_PENDING_AUTHOR_METADATA_SUPPLEMENT.md']
+              for q in req:
+                  if not (w/q).is_file(): raise SystemExit(f'missing {q}')
+              if (w/'data/annotation/historical_full').exists(): raise SystemExit('obsolete historical_full exists')
+              audit(w)
+              if manifest(w)!=151 or verify(w)!=151: raise SystemExit('manifest row-count failure')
+              subprocess.run([sys.executable,'code/analysis/reproduce_public_metrics.py'],cwd=w,check=True)
+              out=td/'new.tar.xz'; mt=1789430400
+              def norm(x): x.uid=x.gid=0;x.uname=x.gname='';x.mtime=mt;return x
+              with tarfile.open(out,'w:xz') as tf:
+                  for c in sorted(w.iterdir(),key=lambda x:x.name): tf.add(c,arcname=c.name,recursive=True,filter=norm)
+              b=out.read_bytes(); newsha=H(b); enc=base64.b64encode(b).decode(); chunks=[enc[i:i+10000] for i in range(0,len(enc),10000)]
+              if len(chunks)!=N: raise SystemExit(f'new archive produced {len(chunks)} parts')
+              shutil.rmtree(D);D.mkdir()
+              for i,c in enumerate(chunks,1):(D/f'{P}{i:04d}').write_text(c,encoding='ascii')
+              rt=base64.b64decode(''.join((D/f'{P}{i:04d}').read_text().strip() for i in range(1,N+1)),validate=True)
+              if rt!=b or H(rt)!=newsha: raise SystemExit('fragment roundtrip failure')
+              v=td/'verify';v.mkdir();a=td/'verify.tar.xz';a.write_bytes(rt)
+              with tarfile.open(a,'r:xz') as tf: ext(tf,v)
+              if verify(v)!=151: raise SystemExit('verified manifest failure')
+              audit(v);subprocess.run([sys.executable,'code/analysis/reproduce_public_metrics.py'],cwd=v,check=True)
+              (R/'BUNDLE_SHA256.txt').write_text(f'{newsha}  semantic_coherence_public_release.tar.xz\n')
+              u=(R/'UNPACK_RELEASE.py').read_text();u=re.sub(r'EXPECTED_SHA256 = "[0-9a-f]{64}"',f'EXPECTED_SHA256 = "{newsha}"',u);(R/'UNPACK_RELEASE.py').write_text(u)
+              p=R/'README.md';p.write_text(p.read_text().replace(oldsha,newsha))
+              p=R/'docs/RELEASE_VERIFICATION.json';j=json.loads(p.read_text());j['github_transport']={'format':'Base64 fragments','parts':N,'archive_bytes':len(b),'archive_sha256':newsha,'roundtrip_status':'PASS'};p.write_text(json.dumps(j,indent=2)+'\n')
+              print('FINAL_RELEASE_REBUILD_PASS',newsha,len(b),len(chunks),len(chunks[-1]))
           PY
-
-      - name: Commit final corrected release and remove temporary maintenance files
+      - name: Commit final release and self-clean
         shell: bash
         run: |
           set -euo pipefail
           rm -rf .release_patch
           rm -f .github/workflows/finalize-release-v2.yml
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
-          git commit -m "Rebuild corrected publication reproducibility release"
+          git commit -m 'Rebuild corrected publication reproducibility release'
           git push origin HEAD:main
