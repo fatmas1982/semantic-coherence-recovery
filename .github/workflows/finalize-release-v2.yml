@@ -49,6 +49,7 @@ jobs:
               ban=['data/annotation/historical_full/','not in the currently deposited package','not reconstructed from missing files','not reconstructed from unavailable files','byte-identical public copy under data/annotation/historical_full/','Exact historical A1/A2/A3 workbooks released','Exact byte-identical historical workbook released','P2_57_Submission_Candidate']
               hit=[]
               for p in w.rglob('*'):
+                  if p.name=='SHA256SUMS.csv': continue
                   if p.is_file() and p.suffix.lower() in {'.md','.csv','.json','.py','.txt','.cff'}:
                       try:t=p.read_text(encoding='utf-8')
                       except UnicodeDecodeError:continue
