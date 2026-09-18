@@ -1,0 +1,44 @@
+{
+  "protocol": "P2_81_M4_PROTOCOL_SENSITIVITY_v1.0",
+  "status": "post-hoc validity/sensitivity analysis",
+  "model_id": "Qwen/Qwen3-8B",
+  "model_revision": "e8bbd8252970581ea5b08b6a5b3e668adaf3161a",
+  "condition": "C",
+  "templates": [
+    "P1",
+    "P2"
+  ],
+  "mappings": {
+    "T1": [
+      "identity A->0 B->1",
+      "swap A->1 B->0"
+    ],
+    "T2": [
+      "identity A->0 B->1",
+      "swap A->1 B->0"
+    ],
+    "T3": [
+      "identity A->0 B->1",
+      "swap A->1 B->0"
+    ],
+    "T4": [
+      "identity A->1 B->2 C->3",
+      "cycle_231 A->2 B->3 C->1",
+      "cycle_312 A->3 B->1 C->2"
+    ]
+  },
+  "held_fixed": [
+    "Qwen revision",
+    "target populations",
+    "evidence condition",
+    "chat/scoring rule",
+    "next-token forced-choice mechanism"
+  ],
+  "batch_size": 4,
+  "gold_sha256": "ccc910b7bafbfa9607e93ef2eba8605f56f7ed87460ef74892d4877c7db4de65",
+  "base_sha256": "4502e71bd6d1b6d2941b0b10650caaa433d7188bf958017d2fc646d328a31163",
+  "reference_reproduction": "P1/identity prediction match rate = 1.0 for all targets",
+  "gpu": "NVIDIA A100-SXM4-40GB",
+  "torch": "2.11.0+cu128",
+  "transformers": "4.57.6"
+}
