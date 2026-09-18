@@ -1,0 +1,16 @@
+{
+  "protocol": "P2_81_M3_STRICT_DUAL_BLOCKED_v1.0",
+  "status": "post-hoc validity/sensitivity analysis",
+  "seed": 20260908,
+  "model_id": "answerdotai/ModernBERT-base",
+  "model_revision": "c0e44438c79d5a72972fe8b14dbbc822418356c9",
+  "condition": "C",
+  "split": "test requires unseen Prompt_ID fold AND unseen anonymous generator stratum",
+  "epoch_selection": "nested inside doubly restricted training population",
+  "bootstrap_reps": 2000,
+  "gold_sha256": "ccc910b7bafbfa9607e93ef2eba8605f56f7ed87460ef74892d4877c7db4de65",
+  "base_sha256": "4502e71bd6d1b6d2941b0b10650caaa433d7188bf958017d2fc646d328a31163",
+  "gpu": "NVIDIA A100-SXM4-40GB",
+  "torch": "2.11.0+cu128",
+  "transformers": "4.57.6"
+}
