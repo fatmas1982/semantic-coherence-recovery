@@ -23,6 +23,7 @@ The current release now contains:
 - M4 valid target-isolated forced-choice A/B/C OOF and summaries;
 - legacy invalid free-generation M4 under an audit-only archive;
 - follow-up source-utility and human-machine uncertainty outputs;
+- a separately exposed post-hoc validity/sensitivity layer containing generator-signature and metadata-only diagnostics, strict M1/M3 dual blocking, source-bearing-only B→C restriction, ModernBERT token/truncation audit, manual high-similarity review, Qwen3-8B protocol perturbations, and exhaustive T4 answer-code permutations;
 - reportable notebooks/scripts, paper/supplement Markdown mirrors, hashes and this experiment-to-artifact matrix.
 
 ## Exactness by stage
@@ -31,7 +32,8 @@ The current release now contains:
 - **Senior resolution:** the exact 423-case round-1 senior adjudication binary was recovered and hash-verified; the public GitHub layer releases complete CSV mirrors of all four workbook sheets. The targeted second re-review and FINAL GOLD remain separate downstream provenance layers.
 - **M0/M1/M2:** paper numbers are exactly reproducible from archived OOF predictions. The original historical training script was not retained; `code/baselines/07_retrain_cpu_baselines_reconstructed.py` is a documented reconstruction and must not be described as the original executable.
 - **M3:** reportable OOF predictions, seed stability, LOTO, leakage audits, source analyses and diagnostic outputs are retained with the executable notebook.
-- **M4:** only the target-isolated forced-choice run is reportable. The earlier free-generation run remains under `archive/legacy_m4_invalid/` for audit only.
+- **M4:** only the target-isolated forced-choice run is reportable as the reference result. The later P1/P2 and answer-code perturbations are post-hoc protocol-sensitivity analyses; the P1/identity reference reproduces exactly before perturbations are interpreted. The earlier free-generation run remains under `archive/legacy_m4_invalid/` for audit only.
+- **Post-hoc validity layer:** these files live under `code/validity/` and `results/validity/` outside the immutable 86-part transport bundle. They test threats to interpretation and do not replace the frozen reference analyses or constitute external validation.
 - **Generation:** all 720 paper-used outputs are exact and authoritative. Fresh generation for five of the six checkpoints remains best-effort because exact immutable repository revisions and every model-specific chat-template/tokenization/stopping detail were not retained.
 
 ## Remaining non-closures
@@ -44,3 +46,15 @@ Two historical-execution claims remain intentionally unavailable and must not be
 Neither limitation blocks exact reproduction of the numerical results reported in the paper, because the authoritative frozen generated outputs and OOF predictions are released.
 
 See `EXPERIMENT_REPRODUCIBILITY_MATRIX.csv` for the experiment-by-experiment map.
+
+## Post-hoc validity closure
+
+The 2026-09 validity layer is now publicly browsable and includes case-level or OOF outputs wherever applicable. Key verified summaries are:
+
+- anonymous generator recovery with character TF-IDF: macro-F1 0.536;
+- M3 strict dual-blocked macro-F1: 0.553 / 0.675 / 0.701 / 0.601 for T1–T4;
+- Condition-C token audit: median 122, p95 378, maximum 446, no case above 1024;
+- exact M4 P1/identity reference reproduction before protocol perturbation;
+- exhaustive T4 mapping sensitivity: 12 variants, macro-F1 range 0.206–0.413 and QWK range 0.006–0.401.
+
+These results narrow interpretation to within-corpus recoverability under specified evidence, split, and evaluator protocols.

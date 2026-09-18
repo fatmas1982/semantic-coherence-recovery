@@ -43,5 +43,45 @@
     "archive_bytes": 639512,
     "archive_sha256": "69ce2a52c201424d8939d1a997dc3bd34854a2822131c6bc69a791b47635ce3e",
     "roundtrip_status": "PASS"
+  },
+  "posthoc_validity_layer": {
+    "status": "PASS_BROWSEABLE_POSTHOC_VALIDITY_ARTIFACTS",
+    "location": [
+      "code/validity/",
+      "results/validity/",
+      "docs/VALIDITY_EXPERIMENTS_2026-09.md"
+    ],
+    "outside_immutable_transport_bundle": true,
+    "generator_signature_char_tfidf_macro_f1": 0.5357866,
+    "m3_dual_blocked_macro_f1": {
+      "T1": 0.55336,
+      "T2": 0.675329,
+      "T3": 0.700646,
+      "T4": 0.600978
+    },
+    "m3_condition_c_token_audit": {
+      "median": 122,
+      "p95": 378,
+      "max": 446,
+      "n_over_1024": 0
+    },
+    "m4_reference_reproduction": "P1/identity prediction match rate = 1.0 for all targets",
+    "t4_complete_protocol_sensitivity": {
+      "variants": 12,
+      "templates": 2,
+      "bijections_per_template": 6,
+      "macro_f1_mean": 0.317,
+      "macro_f1_sd": 0.078,
+      "macro_f1_range": [
+        0.206,
+        0.413
+      ],
+      "qwk_mean": 0.178,
+      "qwk_range": [
+        0.006,
+        0.401
+      ]
+    },
+    "interpretation_boundary": "post-hoc validity/sensitivity only; not external validation, architecture causality, generator ranking, or a universal evaluator ordering"
   }
 }
