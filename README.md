@@ -1,12 +1,12 @@
 # Semantic Coherence Recovery — Reproducibility Release
 
-**From Reliable Human Annotation to Computational Recovery of Semantic Coherence Failures in Small Language Models**
+**From Human Annotation Reliability to Computational Recovery of Semantic Coherence Failures in Small Language Models**
 
 This repository is the public reproducibility package for the study. It is organized around a strict distinction between **exact numerical reproduction**, **historical bit-for-bit reruns**, and **fresh reconstructed reruns**.
 
 ## Release status
 
-**PASS — all frozen data, code, and intermediate/final artifacts required to reproduce every reported numerical result in the paper and supplement are included in the release bundle.** Historical runtime boundaries are documented explicitly where the original executable environment or immutable model revision was not retained.
+**PASS — the frozen reference release remains reproducible, and the later post-hoc validity/sensitivity layer is now exposed as browseable top-level code and result artifacts.** Historical runtime boundaries are documented explicitly where the original executable environment or immutable model revision was not retained. The original transport bundle remains immutable; post-hoc validity files added after that freeze live under `code/validity/` and `results/validity/`.
 
 ## Quick start
 
@@ -32,7 +32,25 @@ python code/analysis/reproduce_public_metrics.py
 - M3 ModernBERT reportable A/B/C OOF predictions, stability runs, ablations, LOTO summary, leakage/source/difficulty analyses;
 - M4 Qwen3-8B target-isolated forced-choice A/B/C OOF predictions and comparison outputs;
 - follow-up task-conditioned source-utility and predictive-uncertainty analyses;
+- post-hoc generator-signature, metadata-only, strict dual-blocking, source-bearing-only, token/truncation, and manual semantic-similarity validity diagnostics;
+- Qwen3-8B template/answer-code protocol perturbations, including exact reproduction of the archived reference run;
+- exhaustive T4 answer-code sensitivity across all six A/B/C-to-1/2/3 bijections under both frozen P1/P2 rubric phrasings (12 variants);
 - executable analysis notebooks/scripts, manuscript/supplement text mirrors, source-binary hashes, and a file-level SHA-256 manifest.
+
+## Post-hoc validity layer (added 2026-09-18)
+
+The reference RQs and analyses were frozen first. The later experiments under `code/validity/` and `results/validity/` test specific threats to interpretation rather than replacing or tuning the reference results:
+
+- recoverable anonymous generator-associated textual signatures;
+- metadata-only corpus-structure diagnostics;
+- strict prompt-fold + generator-stratum dual blocking for M1 and M3;
+- source-bearing-only B->C restrictions;
+- ModernBERT token/truncation audit (Condition-C max 446 < 1024);
+- manual review of the highest cross-fold semantic-similarity pairs;
+- Qwen3-8B rubric / answer-code sensitivity;
+- exhaustive T4 mapping sensitivity (2 templates × all 6 bijections = 12 variants).
+
+See `docs/VALIDITY_EXPERIMENTS_2026-09.md` and the updated experiment reproducibility matrix. These analyses support narrower interpretation: **within-corpus recoverability under specified evidence, split, and evaluator protocols**, not generator-invariant understanding, architecture superiority, or external generalisation.
 
 ## Reproducibility boundaries
 

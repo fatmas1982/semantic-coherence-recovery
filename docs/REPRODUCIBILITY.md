@@ -128,6 +128,47 @@ These reproduce:
 
 They do not retrain M3.
 
+## A6. Post-hoc validity and sensitivity analyses
+
+These analyses were added after the reference analysis layer was frozen. They test threats to interpretation and must not be described as preregistered confirmatory endpoints or external validation.
+
+### CPU diagnostics
+
+Run:
+
+```bash
+python code/validity/P2_81_CPU_VALIDITY_DIAGNOSTICS.py \
+  --gold data/frozen/P2_FINAL_SENIOR_ADJUDICATED_GOLD_v1.0.xlsx \
+  --base data/frozen/P2_CPU_Baselines_v1.0.xlsx \
+  --m3-dir data/computational/m3 \
+  --m4-dir data/computational/m4 \
+  --semantic-dir data/computational/m3 \
+  --out reproduced_validity_cpu \
+  --run-token-audit
+```
+
+Released outputs cover the anonymous generator-signature probe, metadata-only diagnostics, strict M1 dual blocking, source-bearing-only B->C restriction, ModernBERT token audit, manual top-similarity review, and reference point-estimate reproduction checks.
+
+### Strict M3 dual blocking
+
+Run `code/validity/P2_81_GPU_M3_DUAL_BLOCKED_MODERNBERT.ipynb`.
+
+The held-out cell is unseen by both Prompt_ID fold and anonymous generator stratum. Dual-blocked macro-F1 is 0.553/0.675/0.701/0.601 for T1–T4. This is an internal invariance sensitivity analysis within the observed six-stratum corpus, not external validation.
+
+### M4 protocol sensitivity
+
+Run `code/validity/P2_81_GPU_M4_PROTOCOL_SENSITIVITY_QWEN3_8B.ipynb`.
+
+The archived P1/identity reference predictions must reproduce exactly before prompt/code perturbations are interpreted. The experiment holds the Qwen revision, target population, evidence condition, chat/scoring rule, and forced-choice mechanism fixed.
+
+### Complete T4 mapping sensitivity
+
+Run `code/validity/P2_84_GPU_M4_T4_COMPLETE_PERMUTATIONS.ipynb`.
+
+All six bijections between A/B/C and severity 1/2/3 are evaluated under each frozen P1/P2 rubric phrasing (12 variants). The observed macro-F1 range is 0.206–0.413 and QWK range is 0.006–0.401. These are descriptive protocol-sensitivity summaries; variants are not a random sample and no best-performing mapping is selected.
+
+Full interpretation and artifact paths are documented in `docs/VALIDITY_EXPERIMENTS_2026-09.md`.
+
 ## B. Regenerating the 720 SLM responses
 
 If you want to reconstruct the generation stage:
