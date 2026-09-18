@@ -1,0 +1,24 @@
+{
+  "protocol": "P2_84_M4_T4_COMPLETE_PERMUTATIONS_v1.0",
+  "status": "post-hoc exhaustive answer-code sensitivity within the frozen P1/P2 design",
+  "model_id": "Qwen/Qwen3-8B",
+  "model_revision": "e8bbd8252970581ea5b08b6a5b3e668adaf3161a",
+  "target": "T4 functional severity among failures",
+  "condition": "C",
+  "templates": [
+    "P1",
+    "P2"
+  ],
+  "all_bijections_ABC_to_123": [
+    "123",
+    "132",
+    "213",
+    "231",
+    "312",
+    "321"
+  ],
+  "variants": 12,
+  "note": "All six bijective mappings were evaluated under each frozen template. The set is exhaustive only with respect to these three abstract codes and the two frozen rubric phrasings; it is not a search for a best mapping.",
+  "gold_sha256": "ccc910b7bafbfa9607e93ef2eba8605f56f7ed87460ef74892d4877c7db4de65",
+  "base_sha256": "4502e71bd6d1b6d2941b0b10650caaa433d7188bf958017d2fc646d328a31163"
+}
