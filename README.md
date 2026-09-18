@@ -1,6 +1,6 @@
 # Semantic Coherence Recovery — Reproducibility Release
 
-**From Human Annotation Reliability to Computational Recovery of Semantic Coherence Failures in Small Language Models**
+**Reliable Evaluation of Semantic-Coherence Failures in Small Language Model Outputs: Human Annotation, Computational Recovery, and LLM-Judge Sensitivity**
 
 This repository is the public reproducibility package for the study. It is organized around a strict distinction between **exact numerical reproduction**, **historical bit-for-bit reruns**, and **fresh reconstructed reruns**.
 
@@ -48,9 +48,9 @@ The reference RQs and analyses were frozen first. The later experiments under `c
 - ModernBERT token/truncation audit (Condition-C max 446 < 1024);
 - manual review of the highest cross-fold semantic-similarity pairs;
 - Qwen3-8B rubric / answer-code sensitivity;
-- exhaustive T4 mapping sensitivity (2 templates × all 6 bijections = 12 variants).
+- exhaustive T4 mapping sensitivity (2 templates × all 6 bijections = 12 variants).\n- post-hoc annotator-to-adjudicated-reference T1–T4 concordance for IP&M submission contextualisation (not an independent human ceiling).
 
-See `docs/VALIDITY_EXPERIMENTS_2026-09.md` and the updated experiment reproducibility matrix. These analyses support narrower interpretation: **within-corpus recoverability under specified evidence, split, and evaluator protocols**, not generator-invariant understanding, architecture superiority, or external generalisation.
+See `docs/VALIDITY_EXPERIMENTS_2026-09.md`, `docs/IPM_SUBMISSION_UPDATE_2026-09-18.md`, and the updated experiment reproducibility matrix. These analyses support narrower interpretation: **within-corpus recoverability under specified evidence, split, and evaluator protocols**, not generator-invariant understanding, architecture superiority, or external generalisation.
 
 ## Reproducibility boundaries
 
