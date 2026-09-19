@@ -107,6 +107,18 @@
       "slow_ci_followups_regenerated": false,
       "note": "manuscript-used slow CI artifacts verified; point/support logic recomputed; full slow reruns available by explicit flags"
     },
-    "ethics_administration": "IRB/exemption, consent-to-release, and compensation/collaborator facts are not inferred from analytic files and require author/institutional confirmation before submission"
+    "ethics_administration": {
+      "status": "RESOLVED_R8A",
+      "coauthor_structure": "five co-authors; Authors 2–4 independent annotators; Author 5 senior adjudicator/re-reviewer",
+      "ethics_committee_approval_required": false,
+      "deidentified_release_agreement": true,
+      "scientific_mutation": false
+    }
+  },
+  "ipm_r8a_authorship_ethics": {
+    "status": "RESOLVED",
+    "documentation": "docs/R8A_AUTHORSHIP_ETHICS_RESOLUTION.md",
+    "scientific_fields_changed": false,
+    "reviewer_safe_anonymization_unchanged": true
   }
 }
