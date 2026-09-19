@@ -1,0 +1,5 @@
+family,grounding_status,n,row_total,row_pct
+Core SCF,semantic_only,286,333,85.885886
+Core SCF,overlap,47,333,14.114114
+OVR,semantic_only,10,127,7.874016
+OVR,overlap,117,127,92.125984
