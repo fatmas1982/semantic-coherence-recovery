@@ -277,3 +277,7 @@ The identity-bearing public repository is the canonical archival/development rep
 - `docs/IPM_FOLLOWUP_ARTIFACT_SHA256_R8.csv` records SHA-256 hashes for the current follow-up code/results.
 - `docs/R8_REPRODUCIBILITY_EXECUTION_AUDIT.md` and `docs/R8_REPRODUCIBILITY_RUN_STATUS.json` record the executed R8 check.
 - `requirements-cpu-repro.txt` and `requirements-gpu-repro.txt` describe current rerun environments; they are not claims about the unrecoverable historical generation runtime.
+
+### R8A ethics/data-release governance
+
+The administrative governance item raised during Reviewer #7 is closed. Under institutional policy, formal ethics/IRB review is not required for this non-clinical methodological study; no separate formal exemption determination was required. A1–A4 participated as uncompensated volunteer research collaborators and agreed to research use of their judgments and de-identified public release of the corresponding records. The institution places no restriction on publication of study-created data. This governance closure changes no frozen scientific artifact.
