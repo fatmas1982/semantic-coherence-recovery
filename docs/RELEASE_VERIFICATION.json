@@ -108,10 +108,15 @@
       "note": "manuscript-used slow CI artifacts verified; point/support logic recomputed; full slow reruns available by explicit flags"
     },
     "ethics_administration": {
-      "status": "RESOLVED_R8A",
-      "coauthor_structure": "five co-authors; Authors 2–4 independent annotators; Author 5 senior adjudicator/re-reviewer",
-      "ethics_committee_approval_required": false,
-      "deidentified_release_agreement": true,
+      "status": "CLOSED_R8A",
+      "formal_ethics_irb_review": "not required under institutional policy for this type of non-clinical methodological study",
+      "separate_formal_exemption_determination_required": false,
+      "institution_restricts_publication_of_study_created_data": false,
+      "annotators_and_senior_adjudicator_status": "uncompensated volunteer research collaborators",
+      "consent_for_research_use_of_judgments": true,
+      "consent_for_deidentified_public_release": true,
+      "blinded_package_contains_identifying_professional_provenance": false,
+      "record": "docs/IPM_ETHICS_DATA_RELEASE_GOVERNANCE_R8A.md",
       "scientific_mutation": false
     }
   },
