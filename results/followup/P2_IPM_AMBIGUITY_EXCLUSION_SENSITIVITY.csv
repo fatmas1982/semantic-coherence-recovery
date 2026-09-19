@@ -1,0 +1,12 @@
+analysis,subset,N,exact_agreement,alpha,note
+Fine labels,All cases,720,70.7%,0.703147,Published reference estimate
+Fine labels,Non-ambiguous,684,71.9%,0.713285,Excludes 36 cases with any explicit ambiguity flag
+Families,All cases,720,75.8%,0.73053,Published reference estimate
+Families,Non-ambiguous,684,77.0%,0.741196,Excludes 36 cases with any explicit ambiguity flag
+Grounding boundary,All cases,720,74.4%,0.723208,Published reference estimate
+Grounding boundary,Non-ambiguous,684,75.3%,0.729319,Excludes 36 cases with any explicit ambiguity flag
+Ordinal severity,All cases,720,60.6%,0.783965,Published reference estimate
+Ordinal severity,Non-ambiguous,684,62.1%,0.792742,Excludes 36 cases with any explicit ambiguity flag
+Ordinal severity,Explicitly ambiguous,36,30.6%,0.55979,Cases with any explicit ambiguity flag
+Ordinal severity,Majority-failure subset,445,50.1%,0.528338,At least two non-NONE primary ratings
+Ordinal severity,Majority-failure excluding explicit ambiguity,414,51.2%,0.532075,Majority-failure subset after excluding explicit ambiguity

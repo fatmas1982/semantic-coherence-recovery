@@ -1,6 +1,6 @@
 # Semantic Coherence Recovery — Reproducibility Release
 
-**From Human Annotation Reliability to Computational Recovery of Semantic Coherence Failures in Small Language Models**
+**Reliable Evaluation of Semantic-Coherence Failures in Small Language Model Outputs: Human Annotation, Computational Recovery, and LLM-Judge Sensitivity**
 
 This repository is the public reproducibility package for the study. It is organized around a strict distinction between **exact numerical reproduction**, **historical bit-for-bit reruns**, and **fresh reconstructed reruns**.
 
@@ -48,9 +48,9 @@ The reference RQs and analyses were frozen first. The later experiments under `c
 - ModernBERT token/truncation audit (Condition-C max 446 < 1024);
 - manual review of the highest cross-fold semantic-similarity pairs;
 - Qwen3-8B rubric / answer-code sensitivity;
-- exhaustive T4 mapping sensitivity (2 templates × all 6 bijections = 12 variants).
+- exhaustive T4 mapping sensitivity (2 templates × all 6 bijections = 12 variants).\n- post-hoc annotator-to-adjudicated-reference T1–T4 concordance for IP&M submission contextualisation (not an independent human ceiling).
 
-See `docs/VALIDITY_EXPERIMENTS_2026-09.md` and the updated experiment reproducibility matrix. These analyses support narrower interpretation: **within-corpus recoverability under specified evidence, split, and evaluator protocols**, not generator-invariant understanding, architecture superiority, or external generalisation.
+See `docs/VALIDITY_EXPERIMENTS_2026-09.md`, `docs/IPM_SUBMISSION_UPDATE_2026-09-18.md`, and the updated experiment reproducibility matrix. These analyses support narrower interpretation: **within-corpus recoverability under specified evidence, split, and evaluator protocols**, not generator-invariant understanding, architecture superiority, or external generalisation.
 
 ## Reproducibility boundaries
 
@@ -137,3 +137,25 @@ A defensible availability statement is:
 - Study-created data/documentation: CC BY 4.0 intent (`DATA_LICENSE.md`)
 
 Users remain responsible for complying with upstream model/checkpoint terms when performing fresh regeneration.
+
+## IP&M R8 review-layer governance update (2026-09-19)
+
+The later IP&M reviewer-driven follow-up layer (R1–R8) is exposed as browseable top-level `code/followup/`, `results/followup/`, and reviewer-revision documentation. After `UNPACK_RELEASE.py`, the current CPU verification path is:
+
+```bash
+python -m pip install -r requirements-cpu-repro.txt
+python code/followup/P2_IPM_REPRODUCE_ALL_CURRENT_RESULTS.py
+```
+
+The default orchestrator recomputes the lightweight/point-support checks and verifies manuscript-used slow 2,000-replicate CI artifacts. Optional flags rerun the slow resampling jobs. It does not retrain M3/M4 or relabel FINAL GOLD.
+
+A known historical metadata erratum is documented in `docs/IPM_KNOWN_PROVENANCE_ERRATA_R8.md`: the preserved FINAL GOLD v1.0 `SUMMARY` sheet contains a stale round-1 adjudication count of 394, whereas the reproducible six-field queue and provenance/workflow evidence establish 423. The historical binary is not silently overwritten.
+
+**Double-anonymous review:** this public repository is identity-bearing and is not the anonymous reviewer-access route. A detached reviewer-safe snapshot is prepared separately for blinded review, with role-coded A1–A4 provenance and without personal names, affiliations, ORCID/profile identifiers, identifying source filenames, private correspondence, or author Git history.
+
+Current governance records include `docs/IPM_CURRENT_EXPERIMENT_REPRODUCIBILITY_MATRIX_R8.csv`, `docs/IPM_FOLLOWUP_ARTIFACT_SHA256_R8.csv`, `docs/R8_REPRODUCIBILITY_EXECUTION_AUDIT.md`, and the R8 run-status JSON.
+
+
+## R8A ethics and collaborator-governance closure
+
+Under the author's institutional policy, formal ethics/IRB review is not required for this type of non-clinical methodological study; no separate formal exemption determination was required. The three annotators and senior adjudicator served as uncompensated volunteer research collaborators and agreed to research use of their judgments and de-identified public release of the corresponding records. The institution places no restriction on publication of the study-created data. Identifying professional provenance remains outside the blinded reviewer package. See `docs/IPM_ETHICS_DATA_RELEASE_GOVERNANCE_R8A.md`.
