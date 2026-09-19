@@ -16,4 +16,11 @@ Implemented changes:
 - extended the existing explicit-ambiguity sensitivity with ordinal-severity results in Supplementary Table S16A: removing the 36 explicitly ambiguous cases changes fine/family/boundary/full-severity alpha from .703/.731/.723/.784 to .713/.741/.729/.793; majority-failure severity alpha changes from .528 to .532;
 - audited FINAL GOLD terminology to retain its status as a senior-adjudicated publication reference rather than an independent external gold standard.
 
+Reproducibility assets:
+- code: `code/followup/P2_IPM_AMBIGUITY_EXCLUSION_SENSITIVITY.py`
+- result table: `results/followup/P2_IPM_AMBIGUITY_EXCLUSION_SENSITIVITY.csv`
+- public inputs: `data/annotation/historical_full_csv/A1/Annotation.csv`, `A2/Annotation.csv`, and `A3/Annotation.csv` after running `UNPACK_RELEASE.py`.
+
+The script recomputes the nominal ambiguity sensitivity reported in Supplementary Table S16 and the ordinal-severity extension reported in Supplementary Table S16A, and performs a frozen-paper reproduction check against the published point estimates.
+
 No re-annotation, taxonomy replacement, external criterion dataset, new model, or model retraining was performed.
