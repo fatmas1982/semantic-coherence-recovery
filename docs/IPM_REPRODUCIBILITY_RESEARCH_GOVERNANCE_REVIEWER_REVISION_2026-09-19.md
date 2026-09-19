@@ -18,3 +18,5 @@ Implemented:
 R8A administrative follow-up resolved the authorship/ethics item: the manuscript has five co-authors; Authors 2–4 are the independent annotators and Author 5 is the senior adjudicator/re-reviewer. Ethics committee approval was not required for this methodological study, and the annotation/adjudication records are used, published, and released in de-identified form for reproducibility with the co-authors' agreement. This clarification changes no scientific field or result.
 
 The reviewer-safe one-command default audit returned PASS without retraining, relabelling, fold changes, or scientific-field mutation.
+
+R8A closure record: `docs/IPM_ETHICS_DATA_RELEASE_GOVERNANCE_R8A.md`. No scientific field or result changed.
