@@ -158,3 +158,7 @@ Current governance records include `docs/IPM_CURRENT_EXPERIMENT_REPRODUCIBILITY_
 ## R8A authorship and ethics resolution
 
 The administrative item left open at the end of Reviewer #7 is resolved: the current manuscript has five co-authors; Authors 2–4 supplied the independent linguistic annotation layer and Author 5 supplied senior adjudication/targeted re-review. Ethics committee approval was not required for this methodological study, and the de-identified annotation/adjudication records are used and released for reproducibility with the co-authors' agreement. This update changes no scientific data, labels, folds, predictions, or reported results.
+
+## R8A ethics and collaborator-governance closure
+
+Under the author's institutional policy, formal ethics/IRB review is not required for this type of non-clinical methodological study; no separate formal exemption determination was required. The three annotators and senior adjudicator served as uncompensated volunteer research collaborators and agreed to research use of their judgments and de-identified public release of the corresponding records. The institution places no restriction on publication of the study-created data. Identifying professional provenance remains outside the blinded reviewer package. See `docs/IPM_ETHICS_DATA_RELEASE_GOVERNANCE_R8A.md`.
