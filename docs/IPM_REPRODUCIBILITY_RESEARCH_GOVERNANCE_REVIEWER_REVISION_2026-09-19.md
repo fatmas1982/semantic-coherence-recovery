@@ -15,7 +15,7 @@ Implemented:
 - scoped CRediT Conceptualization to the present validation/recovery study and did not claim sole-author taxonomy novelty;
 - scrubbed hidden DOCX thumbnail/metadata leakage and re-rendered/visually audited the anonymized Main and Supplement.
 
-R8A administrative follow-up resolved the authorship/ethics item: the manuscript has five co-authors; Authors 2–4 are the independent annotators and Author 5 is the senior adjudicator/re-reviewer. Ethics committee approval was not required for this methodological study, and the annotation/adjudication records are used, published, and released in de-identified form for reproducibility with the co-authors' agreement. This clarification changes no scientific field or result.
+Administrative governance is now closed by author-provided factual confirmation: under institutional policy, formal ethics/IRB review is not required for this non-clinical methodological study; no separate formal exemption determination was required; the institution places no restriction on publication of the study-created data; A1–A4 participated as uncompensated volunteer research collaborators; and they agreed to research use of their judgments and de-identified public release of the corresponding records. No inference is made that these collaborators are manuscript co-authors.
 
 The reviewer-safe one-command default audit returned PASS without retraining, relabelling, fold changes, or scientific-field mutation.
 
