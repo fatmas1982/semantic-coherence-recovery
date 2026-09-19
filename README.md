@@ -137,3 +137,20 @@ A defensible availability statement is:
 - Study-created data/documentation: CC BY 4.0 intent (`DATA_LICENSE.md`)
 
 Users remain responsible for complying with upstream model/checkpoint terms when performing fresh regeneration.
+
+## IP&M R8 review-layer governance update (2026-09-19)
+
+The later IP&M reviewer-driven follow-up layer (R1–R8) is exposed as browseable top-level `code/followup/`, `results/followup/`, and reviewer-revision documentation. After `UNPACK_RELEASE.py`, the current CPU verification path is:
+
+```bash
+python -m pip install -r requirements-cpu-repro.txt
+python code/followup/P2_IPM_REPRODUCE_ALL_CURRENT_RESULTS.py
+```
+
+The default orchestrator recomputes the lightweight/point-support checks and verifies manuscript-used slow 2,000-replicate CI artifacts. Optional flags rerun the slow resampling jobs. It does not retrain M3/M4 or relabel FINAL GOLD.
+
+A known historical metadata erratum is documented in `docs/IPM_KNOWN_PROVENANCE_ERRATA_R8.md`: the preserved FINAL GOLD v1.0 `SUMMARY` sheet contains a stale round-1 adjudication count of 394, whereas the reproducible six-field queue and provenance/workflow evidence establish 423. The historical binary is not silently overwritten.
+
+**Double-anonymous review:** this public repository is identity-bearing and is not the anonymous reviewer-access route. A detached reviewer-safe snapshot is prepared separately for blinded review, with role-coded A1–A4 provenance and without personal names, affiliations, ORCID/profile identifiers, identifying source filenames, private correspondence, or author Git history.
+
+Current governance records include `docs/IPM_CURRENT_EXPERIMENT_REPRODUCIBILITY_MATRIX_R8.csv`, `docs/IPM_FOLLOWUP_ARTIFACT_SHA256_R8.csv`, `docs/R8_REPRODUCIBILITY_EXECUTION_AUDIT.md`, and the R8 run-status JSON.
