@@ -119,11 +119,5 @@
       "record": "docs/IPM_ETHICS_DATA_RELEASE_GOVERNANCE_R8A.md",
       "scientific_mutation": false
     }
-  },
-  "ipm_r8a_authorship_ethics": {
-    "status": "RESOLVED",
-    "documentation": "docs/R8A_AUTHORSHIP_ETHICS_RESOLUTION.md",
-    "scientific_fields_changed": false,
-    "reviewer_safe_anonymization_unchanged": true
   }
 }
