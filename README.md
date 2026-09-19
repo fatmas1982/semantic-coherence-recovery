@@ -154,3 +154,7 @@ A known historical metadata erratum is documented in `docs/IPM_KNOWN_PROVENANCE_
 **Double-anonymous review:** this public repository is identity-bearing and is not the anonymous reviewer-access route. A detached reviewer-safe snapshot is prepared separately for blinded review, with role-coded A1–A4 provenance and without personal names, affiliations, ORCID/profile identifiers, identifying source filenames, private correspondence, or author Git history.
 
 Current governance records include `docs/IPM_CURRENT_EXPERIMENT_REPRODUCIBILITY_MATRIX_R8.csv`, `docs/IPM_FOLLOWUP_ARTIFACT_SHA256_R8.csv`, `docs/R8_REPRODUCIBILITY_EXECUTION_AUDIT.md`, and the R8 run-status JSON.
+
+## R8A authorship and ethics resolution
+
+The administrative item left open at the end of Reviewer #7 is resolved: the current manuscript has five co-authors; Authors 2–4 supplied the independent linguistic annotation layer and Author 5 supplied senior adjudication/targeted re-review. Ethics committee approval was not required for this methodological study, and the de-identified annotation/adjudication records are used and released for reproducibility with the co-authors' agreement. This update changes no scientific data, labels, folds, predictions, or reported results.
