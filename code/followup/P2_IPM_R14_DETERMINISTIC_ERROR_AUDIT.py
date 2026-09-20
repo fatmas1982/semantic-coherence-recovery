@@ -69,7 +69,7 @@ for target in TARGETS:
             "Task_Type":str(r.Task_Type),
             "gold_label":LABEL_NAMES[target][yt],
             "M3_pred_label":LABEL_NAMES[target][yp],
-            "predicted_class_probability":float(r.predicted_class_probability),
+            "predicted_class_probability":round(float(r.predicted_class_probability), 3),
             "selection_rule":"highest-confidence misclassified primary-seed Condition-C case within target x Human_Easy stratum; Case_ID ascending tie-break",
         })
 
