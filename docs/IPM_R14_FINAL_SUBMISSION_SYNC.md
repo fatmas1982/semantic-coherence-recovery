@@ -35,3 +35,7 @@ The final robustness/error-analysis tables are now mapped to:
 - `results/followup/P2_IPM_R12_DETERMINISTIC_ERROR_SELECTION.csv`
 
 These are post-hoc reporting diagnostics over frozen M3 predictions and pre-resolution human fields; no model is retrained and no favourable case is selected manually.
+
+## R14.1 figure-restoration correction
+
+The R14 DOCX packaging pass accidentally removed the drawing paragraph that invokes Figure 1 while leaving the image binary, relationship, caption, note, and surrounding scientific text intact. R14.1 restores the original Figure 1 drawing paragraph from the prior verified manuscript. This is a presentation/package correction only: no scientific text, FINAL GOLD field, result, table value, equation, reference, fold, model prediction, or supplement content changed.
