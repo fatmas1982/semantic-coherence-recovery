@@ -1,0 +1,9 @@
+target,human_stratum,Case_ID,Task_Type,gold,pred,pred_confidence,diagnostic_illustration
+T1,easy,CASE_0654,multi_entity_context_tracking,no_failure,failure,0.997,"Correct reversed-order comparison is overcalled as a failure."
+T1,hard,CASE_0531,source_grounded_generation,no_failure,failure,0.999,"Source-faithful eligibility/return answer with verbose explanatory material is overcalled."
+T2,easy,CASE_0154,question_answering,grounding_involved,semantic_only,1.000,"Incorrect all-days answer plus repeated fabricated blocks: grounding involvement is missed."
+T2,hard,CASE_0686,multi_entity_context_tracking,grounding_involved,semantic_only,1.000,"Repetitive global collapse also contradicts Sample B treatment; grounding involvement is missed."
+T3,easy,CASE_0706,multi_entity_context_tracking,OVR,Core_SCF,0.991,"Wrong ordering plus unrelated SQL continuation is assigned to the core family rather than OVR."
+T3,hard,CASE_0297,explanation,OVR,Core_SCF,0.998,"Explanation contradicts its own preserved-topic premise; family boundary remains difficult."
+T4,easy,CASE_0713,multi_entity_context_tracking,severity_2,severity_3,0.999,"Core task remains unanswered but the gold functional-impact judgment is moderate, not severe."
+T4,hard,CASE_0075,summarisation,severity_2,severity_1,0.990,"One required summary component is omitted; gold treats the omission as moderate rather than minor."
