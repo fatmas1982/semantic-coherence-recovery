@@ -248,3 +248,36 @@ python code/annotation/06_human_reliability.py \
 The blank `completed_annotation_sheet_A*` files inside the early generation archive are templates; do not mistake them for the historical locked ratings. The actual full historical workbooks are released under `data/annotation/historical_full_csv/`.
 
 For paper-result verification, the shortest route is frozen outputs → full/locked human provenance → FINAL GOLD → archived baseline/M3/M4 OOF → reported metrics. Fresh generation and reconstructed M0–M2 retraining are optional sensitivity/reconstruction paths, not prerequisites for reproducing the reported numbers.
+
+## A7. Current IP&M R1–R8 follow-up layer
+
+The immutable 86-part transport bundle remains the base historical release. Later reviewer-driven IP&M validity, sensitivity, annotation, statistical-design, computational-semantics, and governance analyses are versioned as a separate top-level follow-up layer rather than being retroactively inserted into the frozen transport archive.
+
+Current follow-up entry point:
+
+```bash
+python UNPACK_RELEASE.py
+python -m pip install -r requirements-cpu-repro.txt
+python code/followup/P2_IPM_REPRODUCE_ALL_CURRENT_RESULTS.py
+```
+
+The default R8 orchestrator recomputes explicit-ambiguity sensitivity, pair-specific pre-resolution reliability, the exact 423-case six-field adjudication queue, computational-semantics structure diagnostics, fold/class support, adjudication-exclusion point estimates, and annotator-to-reference point metrics. It verifies the archived manuscript-used slow 2,000-replicate statistical-design, adjudication-exclusion, and human-reference CI artifacts. Full slow resampling remains available with `--recompute-statistical-bootstrap` and `--recompute-slow-ci-followups`. No mode retrains M3/M4 or changes FINAL GOLD.
+
+### R8 known provenance erratum
+
+The preserved historical FINAL GOLD v1.0 workbook contains one stale `SUMMARY` metadata cell reporting 394 round-1 adjudication cases. The mechanised six-field A1–A3 disagreement rule, provenance layer, and senior-adjudication workflow establish 423 queued cases and 297 complete-agreement cases. This discrepancy affects workflow metadata only; no case-level scientific field uses the stale 394 value. The historical source binary is preserved unchanged, and the erratum is documented in `docs/IPM_KNOWN_PROVENANCE_ERRATA_R8.md`.
+
+### Blinded-review boundary
+
+The identity-bearing public repository is the canonical archival/development repository, not the double-anonymous reviewer-access route. A detached reviewer-safe snapshot is maintained separately and uses A1–A4 role coding, sanitized provenance metadata, and the same frozen scientific rows/predictions. It excludes personal names, affiliations, ORCID/profile identifiers, identifying source filenames, private correspondence, and author Git history.
+
+### Current manifests and environments
+
+- `docs/IPM_CURRENT_EXPERIMENT_REPRODUCIBILITY_MATRIX_R8.csv` maps the R1–R8 follow-up analyses to code/results and exactness boundaries.
+- `docs/IPM_FOLLOWUP_ARTIFACT_SHA256_R8.csv` records SHA-256 hashes for the current follow-up code/results.
+- `docs/R8_REPRODUCIBILITY_EXECUTION_AUDIT.md` and `docs/R8_REPRODUCIBILITY_RUN_STATUS.json` record the executed R8 check.
+- `requirements-cpu-repro.txt` and `requirements-gpu-repro.txt` describe current rerun environments; they are not claims about the unrecoverable historical generation runtime.
+
+### R8A ethics/data-release governance
+
+The administrative governance item raised during Reviewer #7 is closed. Under institutional policy, formal ethics/IRB review is not required for this non-clinical methodological study; no separate formal exemption determination was required. A1–A4 participated as uncompensated volunteer research collaborators and agreed to research use of their judgments and de-identified public release of the corresponding records. The institution places no restriction on publication of study-created data. This governance closure changes no frozen scientific artifact.

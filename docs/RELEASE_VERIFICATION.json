@@ -83,5 +83,41 @@
       ]
     },
     "interpretation_boundary": "post-hoc validity/sensitivity only; not external validation, architecture causality, generator ranking, or a universal evaluator ordering"
+  },
+  "ipm_r8_followup_layer": {
+    "status": "PASS_CURRENT_R8_REVIEWER_SAFE_CHECKS",
+    "historical_base_bundle_unchanged": true,
+    "final_gold_scientific_fields_changed": false,
+    "known_metadata_erratum": {
+      "stale_summary_round1_adjudication_count": 394,
+      "authoritative_reproducible_queue_count": 423,
+      "complete_agreement_count": 297,
+      "handling": "original historical binary preserved; reviewer-safe derivative corrects governance metadata only"
+    },
+    "reviewer_safe_access": "detached sanitized snapshot; identity-bearing public GitHub is not the double-anonymous reviewer route",
+    "followup_artifacts": {
+      "matrix": "docs/IPM_CURRENT_EXPERIMENT_REPRODUCIBILITY_MATRIX_R8.csv",
+      "sha256_manifest": "docs/IPM_FOLLOWUP_ARTIFACT_SHA256_R8.csv",
+      "execution_audit": "docs/R8_REPRODUCIBILITY_EXECUTION_AUDIT.md",
+      "run_status": "docs/R8_REPRODUCIBILITY_RUN_STATUS.json",
+      "orchestrator": "code/followup/P2_IPM_REPRODUCE_ALL_CURRENT_RESULTS.py"
+    },
+    "default_runner": {
+      "full_statistical_bootstrap_regenerated": false,
+      "slow_ci_followups_regenerated": false,
+      "note": "manuscript-used slow CI artifacts verified; point/support logic recomputed; full slow reruns available by explicit flags"
+    },
+    "ethics_administration": {
+      "status": "CLOSED_R8A",
+      "formal_ethics_irb_review": "not required under institutional policy for this type of non-clinical methodological study",
+      "separate_formal_exemption_determination_required": false,
+      "institution_restricts_publication_of_study_created_data": false,
+      "annotators_and_senior_adjudicator_status": "uncompensated volunteer research collaborators",
+      "consent_for_research_use_of_judgments": true,
+      "consent_for_deidentified_public_release": true,
+      "blinded_package_contains_identifying_professional_provenance": false,
+      "record": "docs/IPM_ETHICS_DATA_RELEASE_GOVERNANCE_R8A.md",
+      "scientific_mutation": false
+    }
   }
 }

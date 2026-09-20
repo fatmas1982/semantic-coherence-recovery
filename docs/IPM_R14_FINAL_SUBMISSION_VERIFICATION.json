@@ -1,0 +1,28 @@
+{
+  "status": "PASS_R14_FINAL_SUBMISSION_SYNC",
+  "date": "2026-09-20",
+  "scientific_mutation": false,
+  "final_gold_changed": false,
+  "locked_human_ratings_changed": false,
+  "fold_assignment_changed": false,
+  "target_definition_changed": false,
+  "reportable_predictions_changed": false,
+  "manuscript_structure": {
+    "main_tables": 16,
+    "main_figures": 2,
+    "main_equations": 8,
+    "supplement_figures": 4,
+    "supplement_equations": 12
+  },
+  "authoritative_matrix": "docs/IPM_FINAL_EXPERIMENT_REPRODUCIBILITY_MATRIX_R14.csv",
+  "deterministic_error_audit": {
+    "code": "code/followup/P2_IPM_R14_DETERMINISTIC_ERROR_AUDIT.py",
+    "output": "results/followup/P2_IPM_R14_DETERMINISTIC_ERROR_AUDIT.csv",
+    "expected_rows": 8
+  },
+  "double_anonymized_review_boundary": "identity-bearing public repository excluded from reviewer-facing manuscript/supplement; editor-facing title page and cover letter contain URL",
+  "historical_rerun_boundaries": [
+    "fresh generation not claimed bit-identical for five historical checkpoints",
+    "fresh M0-M2 retraining is reconstructed; archived OOF reproduces reportable numerical values"
+  ]
+}

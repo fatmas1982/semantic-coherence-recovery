@@ -58,3 +58,13 @@ The 2026-09 validity layer is now publicly browsable and includes case-level or 
 - exhaustive T4 mapping sensitivity: 12 variants, macro-F1 range 0.206–0.413 and QWK range 0.006–0.401.
 
 These results narrow interpretation to within-corpus recoverability under specified evidence, split, and evaluator protocols.
+
+## IP&M R8 reproducibility/governance addendum
+
+The R1–R8 reviewer-driven follow-up layer is maintained separately from the immutable base transport bundle. A one-command CPU orchestrator now verifies/recomputes the current follow-up layer without retraining M3/M4 or relabelling FINAL GOLD. Its default reviewer-safe execution returned `PASS_CURRENT_R8_REVIEWER_SAFE_CHECKS`.
+
+The R8 governance audit also identified one stale historical workflow-summary cell: the preserved FINAL GOLD v1.0 `SUMMARY` sheet says 394 round-1 adjudication cases, but the reproducible six-field queue, provenance layer, and senior-adjudication workflow establish 423. The historical source binary remains unchanged; the discrepancy is recorded as a metadata erratum and does not change any scientific case-level field or reported result.
+
+For double-anonymous review, the identity-bearing public GitHub repository is not used as the reviewer-facing anonymous route. A detached sanitized snapshot retains the same scientific rows/predictions while replacing identifying provenance with A1–A4 role labels and excluding author/rater identifiers and Git history.
+
+Current R8 follow-up governance artifacts are listed in `docs/IPM_CURRENT_EXPERIMENT_REPRODUCIBILITY_MATRIX_R8.csv` and hashed in `docs/IPM_FOLLOWUP_ARTIFACT_SHA256_R8.csv`.
