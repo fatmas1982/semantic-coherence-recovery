@@ -159,3 +159,10 @@ Current governance records include `docs/IPM_CURRENT_EXPERIMENT_REPRODUCIBILITY_
 ## R8A ethics and collaborator-governance closure
 
 Under the author's institutional policy, formal ethics/IRB review is not required for this type of non-clinical methodological study; no separate formal exemption determination was required. The three annotators and senior adjudicator served as uncompensated volunteer research collaborators and agreed to research use of their judgments and de-identified public release of the corresponding records. The institution places no restriction on publication of the study-created data. Identifying professional provenance remains outside the blinded reviewer package. See `docs/IPM_ETHICS_DATA_RELEASE_GOVERNANCE_R8A.md`.
+
+
+## Final IP&M submission synchronization (2026-09-20)
+
+The final pre-submission audit is synchronized through **R14**. The authoritative final experiment-to-artifact map is `docs/IPM_FINAL_EXPERIMENT_REPRODUCIBILITY_MATRIX_R14.csv`; the synchronization record is `docs/IPM_FINAL_SUBMISSION_SYNC_2026-09-20.md`. A deterministic script/output pair for the Supplement Table S44B qualitative error audit is also included under `code/followup/` and `results/followup/`.
+
+The public repository is identity-bearing and is **not** the reviewer-facing access route during double-anonymized review; reviewers receive a detached sanitized reproducibility package. The editor-facing title page and cover letter identify this public repository.
