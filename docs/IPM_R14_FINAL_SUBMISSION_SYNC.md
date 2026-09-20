@@ -26,3 +26,12 @@ The public repository is identity-bearing. The double-anonymized reviewer manusc
 ## Scientific freeze
 
 R14 is a cross-reference, numbering, presentation, and submission-synchronization pass only. It does not alter FINAL GOLD, A1-A3 locked ratings, Prompt_ID folds, T1-T4 definitions/populations, M0-M4 predictions, or headline numerical results.
+
+## R12/R14 deterministic error-audit artifacts
+
+The final robustness/error-analysis tables are now mapped to:
+- `code/followup/P2_IPM_R12_ROBUSTNESS_ERROR_AUDIT.py`
+- `results/followup/P2_IPM_R12_M3_CLASS_DIAGNOSTICS.csv`
+- `results/followup/P2_IPM_R12_DETERMINISTIC_ERROR_SELECTION.csv`
+
+These are post-hoc reporting diagnostics over frozen M3 predictions and pre-resolution human fields; no model is retrained and no favourable case is selected manually.
