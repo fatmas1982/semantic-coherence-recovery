@@ -41,7 +41,7 @@ Both scripts create files under \`results/validity_2026_10/\`. Point estimates a
 
 ## Scientific and reproducibility boundaries
 
-1. These are **archived-prediction** reanalyses, not a full judge generation pipeline. The server-prediction ZIP and original October execution notebook contain additional logits, model revision, prompt and infrastructure details; these analysis scripts do not rerun either model or claim bit-identical fresh generation.
+1. These are **archived-prediction** reanalyses, not a full judge generation pipeline. The archived October execution notebook is supplied above. The original server-prediction ZIP contains additional log-probability and model-revision details; the standalone reanalysis scripts do not rerun either model or claim bit-identical fresh generation.
 2. Differences between Qwen and Mistral include chat-template and implementation details, so these records do not isolate architecture or token priors as a cause.
 3. Next-token log-probability score gaps are **not calibrated semantic confidence**.
 4. The 60 comparisons are *post-hoc, correlated and exploratory*. Passing Holm does not establish a causal effect or out-of-corpus transportability.
