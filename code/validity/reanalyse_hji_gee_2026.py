@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Reproduce the 60 exploratory human-disagreement × judge-instability contrasts.
+"""Reproduce the 60 exploratory human-disagreement × judge-instability contrasts (2026-10-12 corrected-CI version).
 
 Inputs: de-identified, frozen, paired case-level E1/E2 data. No LLM inference and
 no additional human annotation. GEE = working independence with robust
@@ -38,18 +38,38 @@ def rd(df, weights=None):
         denom += mass
     return numerator / denom if denom else float('nan')
 
-def bootstrap_cluster(df, n=2500, seed=20261009):
-    rng = np.random.default_rng(seed)
-    clusters = [g for _,g in df.groupby('prompt_id',sort=False)]
-    weights = df.gold_label.value_counts(normalize=True)
-    sample = []
-    for _ in range(n):
-        ii = rng.integers(len(clusters),size=len(clusters))
-        frame = pd.concat([clusters[j] for j in ii],ignore_index=True)
-        val = rd(frame,weights)
-        if np.isfinite(val):sample.append(val)
-    return (float(np.quantile(sample,.025)),float(np.quantile(sample,.975)),
-            len(sample))
+def bootstrap_cluster(df, n=2500, seed=20261010):
+    """Exact, vectorized Prompt_ID-cluster bootstrap with original class weights.
+
+    Uses PCG64, one rng.integers(k,size=(n,k)) draw matrix, and first-occurrence
+    cluster ordering. Unsupported class-by-arm strata are excluded and supported
+    class weights renormalized for that replicate.
+    """
+    pids=list(pd.unique(df.prompt_id))
+    labels=sorted(df.gold_label.unique())
+    k=len(pids)
+    count=np.zeros((k,len(labels),2),dtype=np.int32)
+    yes=np.zeros_like(count)
+    blocks=df.groupby(['prompt_id','gold_label','D'],sort=False)['changed'].agg(['size','sum'])
+    pmap={p:i for i,p in enumerate(pids)}
+    cmap={c:i for i,c in enumerate(labels)}
+    for (pid,cl,z),a in blocks.iterrows():
+        i=pmap[pid];j=cmap[cl]
+        count[i,j,int(z)]=int(a['size'])
+        yes[i,j,int(z)]=int(a['sum'])
+    masses=np.asarray([np.mean(df.gold_label==c) for c in labels])
+    rng=np.random.default_rng(seed)
+    idx=rng.integers(k,size=(n,k))
+    C=count[idx].sum(axis=1); Y=yes[idx].sum(axis=1)
+    risk=np.divide(Y,C,out=np.full(Y.shape,np.nan,dtype=float),where=C>0)
+    eligible=np.isfinite(risk).all(axis=2)
+    weights=eligible*masses[None,:]
+    diff=np.nan_to_num(risk[:,:,1]-risk[:,:,0],nan=0)
+    wsum=weights.sum(axis=1)
+    val=np.divide((weights*diff).sum(axis=1),wsum,
+                  out=np.full(n,np.nan),where=wsum>0)
+    val=val[np.isfinite(val)]
+    return (float(np.quantile(val,.025)),float(np.quantile(val,.975)),len(val))
 
 def one_contrast(df, axis, n, seed):
     df = df.copy()
@@ -84,7 +104,7 @@ def main():
     ap.add_argument('--data-dir',default='data/validity_2026_10')
     ap.add_argument('--out',default='results/validity_2026_10')
     ap.add_argument('--bootstrap-reps',type=int,default=2500)
-    ap.add_argument('--seed',type=int,default=20261009)
+    ap.add_argument('--seed',type=int,default=20261010)
     args=ap.parse_args()
     frame=read_parts(args.data_dir)
     out=[]
@@ -99,7 +119,7 @@ def main():
     t['gee_Holm_p_60']=multipletests(p,method='holm')[1]
     t['gee_BH_FDR_q_60']=multipletests(p,method='fdr_bh')[1]
     dest=Path(args.out); dest.mkdir(parents=True,exist_ok=True)
-    t.to_csv(dest/'CLASS_ADJUSTED_HUMAN_JUDGE_60_RECOMPUTED.csv',index=False)
+    t.to_csv(dest/'CLASS_ADJUSTED_HUMAN_JUDGE_60_CORRECTED_CI_20261010.csv',index=False)
     print(f'{len(t)} exploratory tests; Holm discoveries: {(t.gee_Holm_p_60 < .05).sum()}')
 
 if __name__ == '__main__': main()
