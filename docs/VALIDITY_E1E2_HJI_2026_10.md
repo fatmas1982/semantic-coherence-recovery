@@ -1,5 +1,8 @@
 # October 2026 IP&M validity follow-up — archived E1/E2 and human–judge analysis
 
+> **2026-10-12 reproducibility correction:** The frozen 60-contrast HJI odds ratios and Holm p-values are unchanged; however historical bootstrap percentile CI endpoints are superseded by the deterministic PCG64-seed-20261010 recalculation. Use `data/validity_2026_10/HJI_60_CORRECTED_CI_SEED_20261010.csv` and `docs/NLP_LLM_EVAL_CORRECTIONS_2026_10_12.md`. The published original `CLASS_ADJUSTED_HUMAN_JUDGE_60_CONTRASTS.csv` remains as a historical export and must not be described as exactly reproduced by the revised CI script. The historical sensitivity notebook is retained, alongside a separately versioned Mistral-revision-pinned notebook.
+
+
 **Status:** post-hoc, within-corpus, case-paired **analysis of frozen predictions**. Not preregistered; no new annotators, outside corpus, fresh LLM inference, or causal mechanism identification.
 
 ## What is included
@@ -24,7 +27,7 @@ python code/validity/reanalyse_e1e2_pairs_2026.py --bootstrap-reps 3000
 python code/validity/reanalyse_hji_gee_2026.py --bootstrap-reps 2500
 \`\`\`
 
-Both scripts create files under \`results/validity_2026_10/\`. Point estimates and GEE p-values should match the published CSV. Nonparametric percentile bootstrap intervals can vary at the last digits if draw ordering or random-generator versions differ. Report the actual software environment and compare point estimates independently.
+Both scripts create files under \`results/validity_2026_10/\`. Point estimates and GEE p-values match the historical CSV, but the revised 95% percentile CI endpoints are supplied in the corrected 20261010 CSV; historical CI draw ordering was not exactly reproducible. Nonparametric percentile bootstrap intervals can vary at the last digits if draw ordering or random-generator versions differ. Report the actual software environment and compare point estimates independently.
 
 ## Inferential specification
 
