@@ -82,6 +82,10 @@ jobs:
           PY
       - name: Recompute published frozen metrics
         run: python code/analysis/reproduce_public_metrics.py
+      - name: Cross-check 720 cases 2160 human ratings and all M0-M4 archived OOF
+        run: python code/analysis/verify_all_frozen_case_layers_20261012.py
+      - name: Run independent historic archived release assertion
+        run: python code/analysis/verify_release.py
       - name: Save non-sensitive verification summary
         run: |
           git status --short | head -45 || true
