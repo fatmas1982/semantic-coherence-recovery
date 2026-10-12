@@ -1,5 +1,5 @@
 {
-  "release_status": "PASS_NUMERICAL_REPRODUCIBILITY_WITH_EXPLICIT_HISTORICAL_RERUN_BOUNDARIES",
+  "release_status": "DRAFT_PARTIAL_INDEPENDENT_VERIFICATION_PENDING_GOVERNANCE_SIGNOFF",
   "raw_generated_outputs": 720,
   "prompt_clusters": 120,
   "historical_annotator_workbooks": 3,
@@ -54,10 +54,10 @@
     "outside_immutable_transport_bundle": true,
     "generator_signature_char_tfidf_macro_f1": 0.5357866,
     "m3_dual_blocked_macro_f1": {
-      "T1": 0.55336,
-      "T2": 0.675329,
-      "T3": 0.700646,
-      "T4": 0.600978
+      "T1": 0.5913225257153932,
+      "T2": 0.671147712324077,
+      "T3": 0.68183570135006,
+      "T4": 0.5732726099821898
     },
     "m3_condition_c_token_audit": {
       "median": 122,
@@ -82,6 +82,49 @@
         0.401
       ]
     },
-    "interpretation_boundary": "post-hoc validity/sensitivity only; not external validation, architecture causality, generator ranking, or a universal evaluator ordering"
+    "interpretation_boundary": "post-hoc validity/sensitivity only; not external validation, architecture causality, generator ranking, or a universal evaluator ordering",
+    "legacy_m3_dual_macro_f1_superseded": {
+      "T1": 0.55336,
+      "T2": 0.675329,
+      "T3": 0.700646,
+      "T4": 0.600978
+    },
+    "m3_dual_protocol": "M3_nested_selection_dual_and_size_matched_v1; verified against 24 completed nested GPU archives and 2128 frozen dual OOF",
+    "m3_source_bundle_sha256": "55b879ce51470d6c79933f3f32cc46e1bb4e28bc69693ea8b43ed9514adb2e96"
+  },
+  "independent_clean_room_tests": [
+    {
+      "module": "GEE60 event support robust Wald",
+      "status": "PASS",
+      "run": "https://github.com/fatmas1982/semantic-coherence-recovery/actions/runs/38251424670",
+      "scope": "60 fits from frozen 10408 paired comparisons"
+    },
+    {
+      "module": "HJI 60 corrected class-standardised RD CIs",
+      "status": "PASS",
+      "run": "https://github.com/fatmas1982/semantic-coherence-recovery/actions/runs/38285305872",
+      "scope": "2500 Prompt_ID bootstraps PCG64 seed 20261010; 60 corrected CIs ORs Holm/BH"
+    },
+    {
+      "module": "M3 dual blocked four-target OOF",
+      "status": "PASS",
+      "run": "https://github.com/fatmas1982/semantic-coherence-recovery/actions/runs/38285305872",
+      "scope": "2128 saved dual case predictions; not M3 retraining or full size-matched reexecution"
+    },
+    {
+      "module": "All M0-M4 historical generation training",
+      "status": "NOT_RUN_CLEAN_ENV_AS_FULL_PIPELINE",
+      "scope": "Retained frozen OOF numerical archives with documented historical runtime gaps"
+    }
+  ],
+  "submission_governance_gate": {
+    "state": "PENDING",
+    "conditions": [
+      "coauthor signoffs",
+      "institutional ethics determination reference or documented policy basis",
+      "free-text privacy and dataset redistribution rights audit",
+      "blind peer-review policy confirmed",
+      "final manuscript-and-supplement SHA manifest and journal deposit identifier"
+    ]
   }
 }
