@@ -1,0 +1,23 @@
+name: Safe release unpack regression
+on:
+  push:
+    paths:
+      - 'UNPACK_RELEASE.py'
+      - 'tests/test_unpack_non_overwrite.py'
+      - '.github/workflows/safe-unpack-regression.yml'
+  pull_request:
+    paths:
+      - 'UNPACK_RELEASE.py'
+      - 'tests/test_unpack_non_overwrite.py'
+      - '.github/workflows/safe-unpack-regression.yml'
+  workflow_dispatch:
+jobs:
+  verify-unpack:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify historical archive safety and checkout preservation
+        run: python tests/test_unpack_non_overwrite.py
