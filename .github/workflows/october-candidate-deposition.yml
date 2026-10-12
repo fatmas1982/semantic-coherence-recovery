@@ -1,0 +1,20 @@
+name: October candidate deposition gate
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'release/2026-10/**'
+      - 'code/analysis/verify_october_candidate_deposition.py'
+      - '.github/workflows/october-candidate-deposition.yml'
+permissions:
+  contents: read
+jobs:
+  candidate-deposition:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify every source archive and DOCX is deposited and hash matched
+        run: python code/analysis/verify_october_candidate_deposition.py
