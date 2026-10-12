@@ -25,6 +25,29 @@ jobs:
         with:
           python-version: '3.13'
       - run: python UNPACK_RELEASE.py
+      - name: Inspect frozen case CSV schema and row counts without showing human text
+        run: |
+          python - <<'PY'
+          import csv,pathlib
+          files=[
+            'data/publication/canonical_publication_dataset_720.csv',
+            'data/raw/generated_outputs_720.csv',
+            'data/annotation/historical_full_csv/A1/Annotation.csv',
+            'data/annotation/historical_full_csv/ROUND1_ADJ/Adjudication.csv',
+            'data/annotation/locked_core_ratings/locked_pre_resolution_core_ratings_long_2160.csv',
+            'data/frozen/baseline_csv_mirror/10_OOF_T1.csv',
+            'data/computational/m3/OOF_M3_T1_A_seed20260908.csv',
+            'data/computational/m4/OOF_M4_FORCED_T1_A.csv',
+            'results/validity/m3_dual_block/P2_81_M3_DUAL_BLOCKED_OOF_ALL.csv',
+            'data/validity_2026_10/paired_cases_part_01.csv']
+          for p in files:
+              f=pathlib.Path(p)
+              with f.open(newline='',encoding='utf-8-sig') as h:
+                  rd=csv.reader(h)
+                  header=next(rd)
+                  n=sum(1 for _ in rd)
+              print('SCHEMA',p,'rows',n,'columns',header)
+          PY
       - name: Enumerate all extracted code input output and metadata paths
         run: |
           python - <<'PY'
