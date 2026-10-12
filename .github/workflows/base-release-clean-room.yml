@@ -86,6 +86,14 @@ jobs:
         run: python code/analysis/verify_all_frozen_case_layers_20261012.py
       - name: Verify public CSV/OOF reproduction and truthfully qualify absent historical binaries
         run: python code/analysis/verify_release_public_20261012.py
+      - name: Audit code input and output file references across 33 experiment claims
+        run: python code/analysis/audit_experiment_artifact_paths_20261012.py
+      - name: Upload evidence-only experiment path audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: experiment-code-input-output-presence-audit
+          path: results/EXPERIMENT_ARTIFACT_PATH_AUDIT_20261012.csv
+          retention-days: 30
       - name: Save non-sensitive verification summary
         run: |
           git status --short | head -45 || true
