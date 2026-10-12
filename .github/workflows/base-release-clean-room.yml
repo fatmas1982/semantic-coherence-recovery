@@ -33,6 +33,7 @@ jobs:
           watch=['docs/EXPERIMENT_REPRODUCIBILITY_MATRIX.csv','docs/RELEASE_VERIFICATION.json','docs/REPRODUCIBILITY.md','docs/PUBLICATION_REPRODUCIBILITY_AUDIT.md']
           pathlib.Path('BEFORE_DOC_HASHES.json').write_text(__import__('json').dumps({p:hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest() for p in watch}))
           PY
+          python UNPACK_RELEASE.py --historical-dir .frozen_reference_2026
           python UNPACK_RELEASE.py
           python - <<'PY'
           import hashlib,pathlib,json
