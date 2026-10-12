@@ -8,7 +8,7 @@ This audit separates three levels that must not be conflated:
 
 ## Final closure status
 
-**PASS for numerical reproducibility of the paper and supplement, subject to the explicit historical-rerun boundaries below.**
+**RELEASE-CANDIDATE / PARTIAL INDEPENDENT VERIFICATION, not final submission PASS.** Prior archived metric-audit claims were documented, but the most recent manuscript/supplement versions still require version-linked table-by-table clean execution, coauthor approval and data-governance release checks. The previously successful GEE-only clean runner does not establish a full training/paper replay.
 
 The current release now contains:
 
@@ -52,9 +52,9 @@ See `EXPERIMENT_REPRODUCIBILITY_MATRIX.csv` for the experiment-by-experiment map
 The 2026-09 validity layer is now publicly browsable and includes case-level or OOF outputs wherever applicable. Key verified summaries are:
 
 - anonymous generator recovery with character TF-IDF: macro-F1 0.536;
-- M3 strict dual-blocked macro-F1: 0.553 / 0.675 / 0.701 / 0.601 for T1–T4;
+- M3 strict dual-blocked macro-F1: 0.591 / 0.671 / 0.682 / 0.573 for T1–T4;
 - Condition-C token audit: median 122, p95 378, maximum 446, no case above 1024;
 - exact M4 P1/identity reference reproduction before protocol perturbation;
 - exhaustive T4 mapping sensitivity: 12 variants, macro-F1 range 0.206–0.413 and QWK range 0.006–0.401.
 
-These results narrow interpretation to within-corpus recoverability under specified evidence, split, and evaluator protocols.
+These results narrow interpretation to within-corpus recoverability under specified evidence, split, and evaluator protocols. The 2026-10-12 complete nested-GPU M3 audit supersedes the initial blocked summary; see `M3_DUAL_VERSION_RECONCILIATION_20261012.md` for both old/new numbers, case-level outputs, protocol, and SHA hashes. The corrected HJI 60-interval output is authoritative only from `data/validity_2026_10/HJI_60_CORRECTED_CI_SEED_20261010.csv`. Historical HJI CI endpoints remain superseded and cannot be substituted.
