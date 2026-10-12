@@ -1,0 +1,74 @@
+name: Base archive clean-room verification
+on:
+  push:
+    branches: [ipm-2026-e1e2-hji-review-fixes]
+    paths:
+      - '.github/workflows/base-release-clean-room.yml'
+      - 'UNPACK_RELEASE.py'
+      - 'release_bundle/**'
+      - 'BUNDLE_SHA256.txt'
+      - 'code/analysis/**'
+  pull_request:
+    paths:
+      - '.github/workflows/base-release-clean-room.yml'
+      - 'release_bundle/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  frozen-base-reproduction:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Reconstruct all 86 fragments and verify tarball digest
+        run: |
+          python UNPACK_RELEASE.py
+          python - <<'PY'
+          import pathlib,hashlib
+          x=pathlib.Path('BUNDLE_SHA256.txt').read_text()
+          assert '69ce2a52c201424d8939d1a997dc3bd34854a2822131c6bc69a791b47635ce3e' in x
+          for p in ['SHA256SUMS.csv','data/raw/generated_outputs_720.csv',
+                    'code/analysis/reproduce_public_metrics.py',
+                    'PUBLIC_METRICS_RECOMPUTED.csv']:
+              assert pathlib.Path(p).is_file(),p
+          print('PASS: frozen transport rebuilt and four canonical input/analysis artifacts exist')
+          PY
+      - name: Install minimum statistical software
+        run: |
+          python -m pip install -r docs/requirements_hji_2026_10_12.txt
+      - name: Verify released file hashes
+        run: |
+          python - <<'PY'
+          import csv,hashlib,pathlib
+          path=pathlib.Path('SHA256SUMS.csv')
+          with path.open(newline='',encoding='utf-8-sig') as f:
+              rows=list(csv.DictReader(f))
+          print('MANIFEST_HEADER', list(rows[0]) if rows else 'EMPTY','MANIFEST_ROWS',len(rows))
+          assert rows,'empty SHA256SUMS'
+          cols=list(rows[0]); n=[x for x in cols if 'path' in x.lower() or 'file' in x.lower()]
+          h=[x for x in cols if 'sha256' in x.lower() or x.lower() in ['sha','digest','hash']]
+          assert n and h,(n,h)
+          missing=[]; mismatched=[]; checked=0
+          for row in rows:
+              rel=row[n[0]].strip().lstrip('./')
+              digest=row[h[0]].strip().lower()
+              target=pathlib.Path(rel)
+              if not target.exists():missing.append(rel);continue
+              if hashlib.sha256(target.read_bytes()).hexdigest()!=digest:mismatched.append(rel)
+              checked+=1
+          print('SHA256_MANIFEST', 'checked',checked,'missing',len(missing),'mismatched',len(mismatched))
+          print('MISSING_SAMPLES',missing[:15]);print('MISMATCH_SAMPLES',mismatched[:15])
+          assert not missing and not mismatched
+          print('PASS: all manifest-listed files match')
+          PY
+      - name: Recompute published frozen metrics
+        run: python code/analysis/reproduce_public_metrics.py
+      - name: Save non-sensitive verification summary
+        run: |
+          git status --short | head -45 || true
