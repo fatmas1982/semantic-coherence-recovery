@@ -153,7 +153,7 @@ Released outputs cover the anonymous generator-signature probe, metadata-only di
 
 Run `code/validity/P2_81_GPU_M3_DUAL_BLOCKED_MODERNBERT.ipynb`.
 
-The held-out cell is unseen by both Prompt_ID fold and anonymous generator stratum. Dual-blocked macro-F1 is 0.553/0.675/0.701/0.601 for T1–T4. This is an internal invariance sensitivity analysis within the observed six-stratum corpus, not external validation.
+The held-out cell is unseen by both Prompt_ID fold and anonymous generator stratum. Dual-blocked macro-F1 is 0.591/0.671/0.682/0.573 for T1–T4. These superseding values are reproduced from completed archived Condition-C 2026-09-28 dual/size-matched OOF under `M3_nested_selection_dual_and_size_matched_v1`; historical blocked scores 0.553/0.675/0.701/0.601 are superseded for this manuscript. See `docs/M3_DUAL_VERSION_RECONCILIATION_20261012.md` and `results/validity/m3_dual_block/` for 2,128 case predictions and 24 source-archive SHA256 entries. This is an internal sensitivity analysis within the observed six-stratum corpus, not external validation.
 
 ### M4 protocol sensitivity
 

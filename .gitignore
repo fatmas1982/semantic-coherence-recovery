@@ -1,0 +1,5 @@
+.frozen_reference_2026/
+UNPACK_PROVENANCE_REPORT.json
+SHA256SUMS.csv
+__pycache__/
+*.pyc
