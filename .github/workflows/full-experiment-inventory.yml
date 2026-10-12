@@ -1,0 +1,45 @@
+name: Full experiment artifact inventory
+on:
+  push:
+    branches: [ipm-2026-e1e2-hji-review-fixes]
+    paths:
+      - '.github/workflows/full-experiment-inventory.yml'
+      - 'docs/EXPERIMENT_REPRODUCIBILITY_MATRIX.csv'
+      - 'release_bundle/**'
+      - 'UNPACK_RELEASE.py'
+  pull_request:
+    paths:
+      - '.github/workflows/full-experiment-inventory.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inventory-and-schema:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python UNPACK_RELEASE.py
+      - name: Enumerate all extracted code input output and metadata paths
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from collections import Counter
+          import csv
+          base=Path('.')
+          m=list(csv.DictReader(open('SHA256SUMS.csv')))
+          print('FROZEN_ARCHIVE_FILES',len(m))
+          for r in m:
+              print('FROZEN_PATH',r['path'],'BYTES',r['bytes'])
+          for folder in ['code','data','results','docs','paper']:
+              ps=sorted(x for x in Path(folder).rglob('*') if x.is_file()) if Path(folder).exists() else []
+              print('FOLDER',folder,'FILES',len(ps))
+              for p in ps:
+                  if any(t in str(p).lower() for t in ['metrics','gold','annotation','m3','m4','oof','bootstrap','source','baseline','experiment']):
+                      print('RELEVANT_PATH',p)
+          PY
