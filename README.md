@@ -16,6 +16,14 @@ The **post-hoc 60-fit GEE stability audit** does not introduce new judge inferen
 
 The completed later M3 dual-blocked macro-F1 values are 0.591/0.671/0.682/0.573, superseding initial September values for this comparison. See [run-level hashes and case-level rationale](docs/M3_DUAL_VERSION_RECONCILIATION_20261012.md). Review [experiment-to-table traceability](docs/EXPERIMENT_REPRODUCIBILITY_MATRIX.csv) and [100-table caption inventory](docs/MAIN_SUPPLEMENT_100_TABLE_INVENTORY_20261012.csv). The corrected HJI percentile file is authoritative; historical CIs remain superseded. Coauthor, institutional and data-release approvals have not been independently verified.
 
+## Latest independent integrity gates (2026-10-12)
+
+The **draft branch** now has independently passing GitHub Actions for: (i) safe restoration and SHA-256 verification of the 86-fragment/151-entry immutable historical bundle, preservation of the updated checkout files, 720-case/2160-rating human layer and M0–M4 archived OOF case alignment; (ii) recomputation of frozen headline metrics; (iii) 60 corrected HJI percentile bootstrap contrasts; (iv) 60 GEE inference-stability fits; and (v) four complete-task M3 dual OOF macro-F1 calculations. See [scoped evidence and unclosed gates](docs/RELEASE_CANDIDATE_EVIDENCE_AND_GAPS_20261012.md) and the [33-row experiment matrix](docs/EXPERIMENT_REPRODUCIBILITY_MATRIX.csv).
+
+**Reproducibility is conditional on archived outputs.** Original XLSX/PDF historical source-binary hashes may be listed in `SOURCE_BINARY_HASHES.csv` even when the original binary itself is *not* in the public archive. The released CSV/text mirrors and actual source binaries are different artifacts. The optional historical `code/analysis/verify_release.py` assumes some undistributed original XLSX files; use `code/analysis/verify_release_public_20261012.py` and the independent CI for public archival verification instead. Original M0–M2 trainer and five historical generator reruns are not reproducible bit-for-bit. Some follow-up studies have released summaries without every historical raw case artifact. A preliminary pattern screen detected no emails/URLs/phone-like strings in the three core annotators' comment/evidence-note columns but does **not** constitute full de-identification, rights approval, or inspection of all fields.
+
+**No final journal-ready certification, coauthor permission, institutional ethics determination, unconditional third-party-data license guarantee, blinded review approval, DOI, release tag or PR merge is claimed.**
+
 ## Quick start
 
 ```bash
