@@ -8,6 +8,10 @@ This repository is the public reproducibility package for the study. It is organ
 
 **PASS — the frozen reference release remains reproducible, and the later post-hoc validity/sensitivity layer is now exposed as browseable top-level code and result artifacts.** Historical runtime boundaries are documented explicitly where the original executable environment or immutable model revision was not retained. The original transport bundle remains immutable; post-hoc validity files added after that freeze live under `code/validity/` and `results/validity/`.
 
+## IP&M statistical precision follow-up (2026-10-12; draft PR #2)
+
+The **post-hoc 60-fit GEE stability audit** does not introduce new judge inference or additional tests. It refits the previously reported working-independence logistic GEEs on the frozen 10,408 paired case-comparison rows, verifies their original coefficients/p-values, and reports changed-event counts, robust log-OR SEs and *nominal* Wald 95% OR intervals. One Qwen–T1–E2 comparison has just 15 changed outcomes (the same events across three human axes). These diagnostics do **not** correct small-event bias or change the one original 60-test Holm result. See [rationale, methods and limitations](docs/GEE_STABILITY_POSTHOC_AUDIT_2026_10_12.md), [analysis code](code/validity/reanalyse_gee_stability_2026.py), and [archived 60-row output](results/validity_2026_10/HJI_GEE_STABILITY_60.csv). The completed manuscript/supplement Word edits are separate, coauthor-review artifacts and are not represented as merged into this repository.
+
 ## Quick start
 
 ```bash
