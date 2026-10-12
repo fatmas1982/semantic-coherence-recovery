@@ -24,6 +24,25 @@ The **draft branch** now has independently passing GitHub Actions for: (i) safe 
 
 **No final journal-ready certification, coauthor permission, institutional ethics determination, unconditional third-party-data license guarantee, blinded review approval, DOI, release tag or PR merge is claimed.**
 
+## October 2026 integration and strict reproduction boundary
+
+The October E1/E2/HJI reanalysis code, de-identified paired predictions, M3 dual-block reconciliation, CI workflows, statistical outputs and provenance documents are present on `main` as of commit `3d5ed1b`.
+
+**Please do not assume that cloning the repository alone reproduces every result in the latest supplied manuscript.** The separately supplied October FP16 CPU/GPU binary archives and updated DOCX manuscripts have not all been uploaded to GitHub. A clone can reproduce only the named frozen and October modules for which public case-level inputs, executable producers, and pinned dependencies are present. Publication rights authorization is distinct from independent verification of numerical claims.
+
+For frozen reference checks:
+
+```bash
+python UNPACK_RELEASE.py --verify-only
+python UNPACK_RELEASE.py --historical-dir /tmp/semantic_frozen_reference
+python UNPACK_RELEASE.py
+python code/analysis/reproduce_public_metrics.py
+python code/analysis/verify_all_frozen_case_layers_20261012.py
+python code/analysis/audit_experiment_artifact_paths_20261012.py
+```
+
+The source release remains tied to the 86-part frozen archive. The default unpacker now preserves newer files already present in the checkout; use a separate directory for historical provenance. Interpret failures as blockers. Additional paths and status are recorded in `docs/RELEASE_AUDIT_STATUS_20261012.md`, `docs/EXPERIMENT_REPRODUCIBILITY_MATRIX.csv`, and the experimental protocol documentation. Distinguish reportable reference runs, reconstructed reruns, post-hoc sensitivity and unresolved FP16 results. Never replace reference results silently with a newer numerical variant.
+
 ## Quick start
 
 ```bash
