@@ -64,6 +64,9 @@ def run() -> None:
         entries = list(csv.DictReader(f))
     if len(entries) != 151:
         raise AssertionError(f"Expected 151 frozen-file manifest rows, got {len(entries)}")
+    root_manifest = ROOT / "SHA256SUMS.csv"
+    if not root_manifest.exists():
+        shutil.copy2(manifest, root_manifest)
     copied, matches, conflicts = [], [], []
     for r in entries:
         rel = safe_path(r["path"])
