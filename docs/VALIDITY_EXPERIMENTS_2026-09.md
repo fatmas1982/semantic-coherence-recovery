@@ -8,8 +8,12 @@ An output-only anonymous six-way generator probe reaches character-TF-IDF macro-
 ## Metadata-only corpus diagnostics
 Task type and anonymous generator stratum were used only as prior/shortcut diagnostics. Task+generator macro-F1 is approximately 0.756/0.801/0.843/0.733 for T1–T4. These are not evaluator models.
 
-## Strict dual blocking
-Training excludes both the test Prompt_ID fold and test anonymous generator stratum. M1 falls from 0.614/0.669/0.722/0.567 to 0.559/0.593/0.519/0.380. M3 falls from 0.655/0.777/0.791/0.637 to **0.553/0.675/0.701/0.601**. Generator-associated structure therefore contributes measurably, while appreciable T2–T4 recovery remains. This is still within the observed six-stratum corpus.
+## Strict dual blocking — later complete-run reconciliation
+
+The original September four-target summary (0.553/0.675/0.701/0.601) is superseded for the present manuscript's Condition-C nested-selection protocol. Verified case-level source and hashes: `docs/M3_DUAL_VERSION_RECONCILIATION_20261012.md`. Five size-matched comparisons reuse test cases and seed; they are descriptive controls, not independent replications.
+
+
+Training excludes both the test Prompt_ID fold and test anonymous generator stratum. M1 falls from 0.614/0.669/0.722/0.567 to 0.559/0.593/0.519/0.380. M3 falls from 0.655/0.777/0.791/0.637 to **0.591/0.671/0.682/0.573**. Generator-associated structure therefore contributes measurably, while appreciable T2–T4 recovery remains. This is still within the observed six-stratum corpus.
 
 ## Source-bearing-only B->C restriction
 For fixed-weight M4, source-bearing C-B is positive on all four targets (approximately +0.104/+0.179/+0.088/+0.085 macro-F1). M3 contrasts are heterogeneous and are not causal source-effect estimates because B/C systems are separately trained.
