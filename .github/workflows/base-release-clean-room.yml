@@ -28,7 +28,20 @@ jobs:
           python-version: '3.13'
       - name: Reconstruct all 86 fragments and verify tarball digest
         run: |
+          python - <<'PY'
+          import hashlib,pathlib
+          watch=['docs/EXPERIMENT_REPRODUCIBILITY_MATRIX.csv','docs/RELEASE_VERIFICATION.json','docs/REPRODUCIBILITY.md','docs/PUBLICATION_REPRODUCIBILITY_AUDIT.md']
+          pathlib.Path('BEFORE_DOC_HASHES.json').write_text(__import__('json').dumps({p:hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest() for p in watch}))
+          PY
           python UNPACK_RELEASE.py
+          python - <<'PY'
+          import hashlib,pathlib,json
+          before=json.loads(pathlib.Path('BEFORE_DOC_HASHES.json').read_text())
+          for p,expected in before.items():
+              got=hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest()
+              assert got==expected,'UNPACK overwrote newer checkout file: '+p
+          print('PASS: safe unpack preserved all newer research-governance documents')
+          PY
           python - <<'PY'
           import pathlib,hashlib
           x=pathlib.Path('BUNDLE_SHA256.txt').read_text()
@@ -46,7 +59,7 @@ jobs:
         run: |
           python - <<'PY'
           import csv,hashlib,pathlib
-          path=pathlib.Path('SHA256SUMS.csv')
+          path=pathlib.Path('.frozen_reference_2026/SHA256SUMS.csv')
           with path.open(newline='',encoding='utf-8-sig') as f:
               rows=list(csv.DictReader(f))
           print('MANIFEST_HEADER', list(rows[0]) if rows else 'EMPTY','MANIFEST_ROWS',len(rows))
@@ -58,14 +71,14 @@ jobs:
           for row in rows:
               rel=row[n[0]].strip().lstrip('./')
               digest=row[h[0]].strip().lower()
-              target=pathlib.Path(rel)
+              target=pathlib.Path('.frozen_reference_2026')/rel
               if not target.exists():missing.append(rel);continue
               if hashlib.sha256(target.read_bytes()).hexdigest()!=digest:mismatched.append(rel)
               checked+=1
-          print('SHA256_MANIFEST', 'checked',checked,'missing',len(missing),'mismatched',len(mismatched))
+          print('HISTORICAL_SHA256_MANIFEST', 'checked',checked,'missing',len(missing),'mismatched',len(mismatched))
           print('MISSING_SAMPLES',missing[:15]);print('MISMATCH_SAMPLES',mismatched[:15])
           assert not missing and not mismatched
-          print('PASS: all manifest-listed files match')
+          print('PASS: all 151 historical frozen manifest entries match; active checkout docs preserved')
           PY
       - name: Recompute published frozen metrics
         run: python code/analysis/reproduce_public_metrics.py
