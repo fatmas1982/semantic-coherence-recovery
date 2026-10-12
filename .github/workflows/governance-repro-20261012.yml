@@ -1,0 +1,56 @@
+name: Submission governance reproducibility gates
+on:
+  push:
+    branches: [ipm-2026-e1e2-hji-review-fixes]
+    paths:
+      - '.github/workflows/governance-repro-20261012.yml'
+      - 'code/validity/verify_m3_dual_reconciled_20261012.py'
+      - 'results/validity/m3_dual_block/**'
+      - 'code/validity/reanalyse_hji_gee_2026.py'
+      - 'code/validity/verify_hji_corrected_ci_2026.py'
+      - 'data/validity_2026_10/**'
+      - 'docs/requirements_hji_2026_10_12.txt'
+  pull_request:
+    paths:
+      - '.github/workflows/governance-repro-20261012.yml'
+      - 'results/validity/m3_dual_block/**'
+      - 'code/validity/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  m3-dual-reconciled:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+          cache-dependency-path: docs/requirements_hji_2026_10_12.txt
+      - run: python -m pip install -r docs/requirements_hji_2026_10_12.txt
+      - name: Recompute exact macro-F1 from 2128 saved case predictions
+        run: python code/validity/verify_m3_dual_reconciled_20261012.py
+  hji-corrected-bootstrap:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+          cache-dependency-path: docs/requirements_hji_2026_10_12.txt
+      - run: python -m pip install -r docs/requirements_hji_2026_10_12.txt
+      - name: Independently execute all 60 corrected HJI bootstrap intervals
+        run: python code/validity/reanalyse_hji_gee_2026.py --bootstrap-reps 2500 --seed 20261010
+      - name: Verify 60 corrected CIs ORs and Holm/BH against authoritative archive
+        run: python code/validity/verify_hji_corrected_ci_2026.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: corrected-hji-60-bootstrap-cis
+          path: results/validity_2026_10/CLASS_ADJUSTED_HUMAN_JUDGE_60_CORRECTED_CI_20261010.csv
+          retention-days: 30
