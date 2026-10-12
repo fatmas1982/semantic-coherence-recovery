@@ -94,6 +94,14 @@ jobs:
           name: experiment-code-input-output-presence-audit
           path: results/EXPERIMENT_ARTIFACT_PATH_AUDIT_20261012.csv
           retention-days: 30
+      - name: Privacy preflight (non-disclosing, not human/rights clearance)
+        run: python code/analysis/annotation_free_text_privacy_preflight_20261012.py
+      - name: Save privacy flag counts without annotation text
+        uses: actions/upload-artifact@v4
+        with:
+          name: non-disclosing-human-text-privacy-preflight
+          path: results/ANALYTIC_ANNOTATION_PRIVACY_PREFLIGHT.json
+          retention-days: 30
       - name: Save non-sensitive verification summary
         run: |
           git status --short | head -45 || true
