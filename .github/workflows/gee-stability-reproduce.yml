@@ -1,0 +1,54 @@
+name: GEE stability clean-room reproduction
+on:
+  push:
+    branches:
+      - ipm-2026-e1e2-hji-review-fixes
+    paths:
+      - '.github/workflows/gee-stability-reproduce.yml'
+      - 'code/validity/reanalyse_gee_stability_2026.py'
+      - 'code/validity/verify_gee_stability_release.py'
+      - 'data/validity_2026_10/**'
+      - 'results/validity_2026_10/HJI_GEE_STABILITY_60.csv'
+      - 'docs/requirements_hji_2026_10_12.txt'
+  pull_request:
+    paths:
+      - '.github/workflows/gee-stability-reproduce.yml'
+      - 'code/validity/reanalyse_gee_stability_2026.py'
+      - 'code/validity/verify_gee_stability_release.py'
+      - 'data/validity_2026_10/**'
+      - 'results/validity_2026_10/HJI_GEE_STABILITY_60.csv'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reproduce-gee-stability:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Check out branch contents
+        uses: actions/checkout@v4
+      - name: Set up pinned Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+          cache-dependency-path: docs/requirements_hji_2026_10_12.txt
+      - name: Install published statistical dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r docs/requirements_hji_2026_10_12.txt
+          python -m pip freeze > gee-installed-packages.txt
+      - name: Refit all 60 archived-prediction GEEs
+        run: python code/validity/reanalyse_gee_stability_2026.py
+      - name: Verify metrics, sparse-event flags and fixed case denominators
+        run: python code/validity/verify_gee_stability_release.py
+      - name: Save audit outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: gee-stability-reproduction
+          path: |
+            results/validity_2026_10/HJI_GEE_STABILITY_60_RECOMPUTED.csv
+            gee-installed-packages.txt
+          retention-days: 30
