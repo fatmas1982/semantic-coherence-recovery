@@ -1,16 +1,20 @@
 # Semantic Coherence Recovery — Reproducibility Release
 
-**From Human Annotation Reliability to Computational Recovery of Semantic Coherence Failures in Small Language Models**
+**Reliable Evaluation of Semantic-Coherence Failures in Generated Text: Human Annotation, Computational Recovery, and LLM-Judge Sensitivity**
 
 This repository is the public reproducibility package for the study. It is organized around a strict distinction between **exact numerical reproduction**, **historical bit-for-bit reruns**, and **fresh reconstructed reruns**.
 
 ## Release status
 
-**PASS — the frozen reference release remains reproducible, and the later post-hoc validity/sensitivity layer is now exposed as browseable top-level code and result artifacts.** Historical runtime boundaries are documented explicitly where the original executable environment or immutable model revision was not retained. The original transport bundle remains immutable; post-hoc validity files added after that freeze live under `code/validity/` and `results/validity/`.
+**DRAFT / PARTIALLY VERIFIED — independent execution evidence is available only for named modules; the full corrected manuscript-plus-supplement release is not yet frozen or coauthor-approved.** Historical runtime boundaries are documented explicitly where the original executable environment or immutable model revision was not retained. The original transport bundle remains immutable; post-hoc validity files added after that freeze live under `code/validity/` and `results/validity/`.
 
 ## IP&M statistical precision follow-up (2026-10-12; draft PR #2)
 
 The **post-hoc 60-fit GEE stability audit** does not introduce new judge inference or additional tests. It refits the previously reported working-independence logistic GEEs on the frozen 10,408 paired case-comparison rows, verifies their original coefficients/p-values, and reports changed-event counts, robust log-OR SEs and *nominal* Wald 95% OR intervals. One Qwen–T1–E2 comparison has just 15 changed outcomes (the same events across three human axes). These diagnostics do **not** correct small-event bias or change the one original 60-test Holm result. See [rationale, methods and limitations](docs/GEE_STABILITY_POSTHOC_AUDIT_2026_10_12.md), [analysis code](code/validity/reanalyse_gee_stability_2026.py), and [archived 60-row output](results/validity_2026_10/HJI_GEE_STABILITY_60.csv). The completed manuscript/supplement Word edits are separate, coauthor-review artifacts and are not represented as merged into this repository.
+
+## Current M3 and governance reconciliation
+
+The completed later M3 dual-blocked macro-F1 values are 0.591/0.671/0.682/0.573, superseding initial September values for this comparison. See [run-level hashes and case-level rationale](docs/M3_DUAL_VERSION_RECONCILIATION_20261012.md). Review [experiment-to-table traceability](docs/EXPERIMENT_REPRODUCIBILITY_MATRIX.csv) and [100-table caption inventory](docs/MAIN_SUPPLEMENT_100_TABLE_INVENTORY_20261012.csv). The corrected HJI percentile file is authoritative; historical CIs remain superseded. Coauthor, institutional and data-release approvals have not been independently verified.
 
 ## Quick start
 
