@@ -14,6 +14,10 @@
 - \`code/validity/reanalyse_e1e2_pairs_2026.py\`: recompute paired class-level changes and macro-F1 from saved predictions, with Prompt_ID cluster bootstrap.
 - \`code/validity/reanalyse_hji_gee_2026.py\`: recompute all 60 GEE associations, class-standardised risk differences and multiplicity corrections.
 
+## Additional precision/support audit (2026-10-12)
+
+See [GEE_STABILITY_POSTHOC_AUDIT_2026_10_12.md](GEE_STABILITY_POSTHOC_AUDIT_2026_10_12.md) for scientific motivation, exact covariates/working covariance, event-count interpretation, limits of nominal Wald OR intervals and linkage to the *same* 60 Holm/BH tests. Script: `code/validity/reanalyse_gee_stability_2026.py`; output: `results/validity_2026_10/HJI_GEE_STABILITY_60.csv`. These are precision diagnostics, not extra discoveries or new LLM calls.
+
 ## Requirements
 
 Python 3.10+; \`pandas\`, \`numpy\`, \`scipy\`, \`scikit-learn\`, \`statsmodels\` (document installed versions when reproducing).
