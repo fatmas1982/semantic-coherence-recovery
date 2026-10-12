@@ -23,7 +23,7 @@ assert len(gold)==len(raw)==720
 gold_id=unique(gold,"Case_ID")
 assert gold_id==unique(raw,"case_id")
 assert len({r["Prompt_ID"] for r in gold})==120
-assert Counter(r["Prompt_ID"] for r in gold).values()=={6} if False else all(n==6 for n in Counter(r["Prompt_ID"] for r in gold).values())
+assert all(n==6 for n in Counter(r["Prompt_ID"] for r in gold).values())
 print("PASS: 720 frozen raw generations and publication cases agree; 120 clusters of 6")
 for a in ["A1","A2","A3"]:
     ar=rows(f"data/annotation/historical_full_csv/{a}/Annotation.csv")
@@ -36,7 +36,6 @@ counts=Counter(r["case_id"] for r in locked)
 assert all(n==3 for n in counts.values()) and len(counts)==720
 print("PASS: frozen 2160 pre-resolution ratings, exactly three per case")
 for target,n in COUNTS.items():
-    idx=COUNTS.keys()
     base=rows(f"data/frozen/baseline_csv_mirror/{10+list(COUNTS).index(target):02d}_OOF_{target}.csv")
     expect=unique(base,"Case_ID")
     assert len(expect)==n and expect.issubset(gold_id)
