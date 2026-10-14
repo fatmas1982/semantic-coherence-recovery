@@ -1,0 +1,7 @@
+Latest successful Colab run: P2_E1E2_GEE_CPU_REANALYSIS_20261014_175345_UTC_2.zip
+E1/E2: PASS 20 paired contrasts, 10,408 case-comparison rows
+GEE: PASS 60 exploratory fits, one Holm significant contrast
+Independent HJI GEE stability: PASS 60 fits, return code 0
+Minimum changed-decision events: 15; three contrasts with fewer than 30 events
+Old GEE_STABILITY_LIMITATION.txt refers only to superseded failed execution and is not the current status.
+Source: supplied Colab ZIP; full binary results archive not deposited by this text commit.
