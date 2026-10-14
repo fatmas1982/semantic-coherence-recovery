@@ -1,0 +1,7 @@
+COMMAND: python code/validity/reanalyse_gee_stability_2026.py --data-dir data/validity_2026_10 --out results/validity_2026_10/HJI_GEE_STABILITY_60_RECOMPUTED.csv
+STDOUT:
+PASS: 60 fitted GEE contrasts; minimum events=15; low-event rows=3; saved=results/validity_2026_10/HJI_GEE_STABILITY_60_RECOMPUTED.csv
+STDERR:
+RETURN CODE: 0
+Run identity: P2_E1E2_GEE_CPU_REANALYSIS_20261014_175345_UTC_2.zip
+Note: normalized display paths; numerical result file not deposited by this log.
