@@ -1,0 +1,44 @@
+name: Publish reproducible E1E2 GEE outputs
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/publish-e1e2-gee-results.yml'
+permissions:
+  contents: write
+jobs:
+  recompute-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install evaluation dependencies
+        run: python -m pip install --disable-pip-version-check "numpy<3" pandas scikit-learn statsmodels scipy
+      - name: Recompute 20 pairs, 60 associations, and 60 independent stability fits
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p results/validity_2026_10
+          python code/validity/reanalyse_e1e2_pairs_2026.py --data-dir data/validity_2026_10 --out results/validity_2026_10 --bootstrap-reps 3000 --seed 20261009 2>&1 | tee results/validity_2026_10/E1E2_20_RECOMPUTED.log
+          python code/validity/reanalyse_hji_gee_2026.py --data-dir data/validity_2026_10 --out results/validity_2026_10 --bootstrap-reps 2500 --seed 20261010 2>&1 | tee results/validity_2026_10/HJI_GEE_60_RECOMPUTED.log
+          python code/validity/reanalyse_gee_stability_2026.py --data-dir data/validity_2026_10 --out results/validity_2026_10/HJI_GEE_STABILITY_60_RECOMPUTED.csv 2>&1 | tee results/validity_2026_10/HJI_GEE_STABILITY_60.log
+          test "$(tail -n +2 results/validity_2026_10/E1E2_PAIRED_RECOMPUTED.csv | wc -l)" -eq 20
+          test "$(tail -n +2 results/validity_2026_10/CLASS_ADJUSTED_HUMAN_JUDGE_60_CORRECTED_CI_20261010.csv | wc -l)" -eq 60
+          test "$(tail -n +2 results/validity_2026_10/HJI_GEE_STABILITY_60_RECOMPUTED.csv | wc -l)" -eq 60
+      - name: Publish files to main
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add results/validity_2026_10/E1E2_PAIRED_RECOMPUTED.csv results/validity_2026_10/CLASS_ADJUSTED_HUMAN_JUDGE_60_CORRECTED_CI_20261010.csv results/validity_2026_10/HJI_GEE_STABILITY_60_RECOMPUTED.csv results/validity_2026_10/E1E2_20_RECOMPUTED.log results/validity_2026_10/HJI_GEE_60_RECOMPUTED.log results/validity_2026_10/HJI_GEE_STABILITY_60.log
+          git diff --cached --quiet || (git commit -m "results: publish rerun E1E2 GEE and stability CSVs" && git push origin HEAD:main)
+      - uses: actions/upload-artifact@v4
+        with:
+          name: E1E2_GEE_RECOMPUTED_20261014
+          path: |
+            results/validity_2026_10/*RECOMPUTED.csv
+            results/validity_2026_10/*RECOMPUTED.log
+            results/validity_2026_10/HJI_GEE_STABILITY_60.log
