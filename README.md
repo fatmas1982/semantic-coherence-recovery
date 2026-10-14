@@ -172,3 +172,8 @@ A defensible availability statement is:
 - Study-created data/documentation: CC BY 4.0 intent (`DATA_LICENSE.md`)
 
 Users remain responsible for complying with upstream model/checkpoint terms when performing fresh regeneration.
+
+
+## Final-results source precedence (2026-10-14)
+
+For exact experiments archived in the author-designated `results.rar`, those archived outputs supersede older duplicate reports **only when the complete experiment identity matches**. Other experiments—including E1/E2 sensitivity and human–judge analyses—remain unchanged. This rule does not imply that `results.rar` or the latest `.docx` manuscripts have been uploaded to GitHub. See [the final-results provenance policy](docs/FINAL_RESULT_SCOPE_POLICY_20261014.md) and [scope matrix](docs/FINAL_RESULT_SCOPE_MATRIX_20261014.csv).

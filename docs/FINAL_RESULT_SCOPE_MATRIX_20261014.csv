@@ -1,0 +1,8 @@
+experiment_group,rar_is_authoritative,reporting_rule,reason
+"M3 strict dual blocking matching archived run",yes,"use final RAR case-matched results; supersede older exact-duplicate reports","matching experiment present in RAR"
+"M4 reference FP16 Qwen/Mistral matching archived run",yes,"use final RAR case-matched results; supersede older exact-duplicate reports","matching experiment present in RAR"
+"M1 or M3 other configurations",conditional,"only supersede when all experiment identity fields match an entry in RAR","similar experiment name alone is not sufficient"
+"E1/E2 code and option-order sensitivity",no,"keep independent sensitivity-run records unchanged; use E1/rot0 as paired internal reference","sensitivity run not represented by RAR reference predictions"
+"Human agreement and HJI/GEE",no,"keep source-specific original records and estimates unchanged","out of scope"
+"Historical M4 NF4 or alternate prompting/scoring protocols",no,"retain only with clearly named distinct protocol; do not replace with FP16 reference","non-identical protocol"
+"Other experiments absent from RAR",no,"no changes","explicit user constraint"
