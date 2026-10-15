@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Read-only audit of the archived M3 release: no training, no new data."""
+"""Read-only validation of committed M3 files; uses only Python standard library."""
 from pathlib import Path
 import csv
 import hashlib
 import sys
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[1]
 base = ROOT / "results/m3_historical_20261015"
 manifest = base / "RELEASE_SHA256_MANIFEST.csv"
 issues = []

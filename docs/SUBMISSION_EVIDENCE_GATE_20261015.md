@@ -1,21 +1,20 @@
-# Submission-repository evidence gate — 15 October 2026
+# Repository submission evidence gate — 15 October 2026
 
-**Scope:** GitHub repository `fatmas1982/semantic-coherence-recovery` at commit `1411e7d55567b327be7a25a4b1f3776a4c1dc974`. This gate **excludes publishing the latest Q1-reviewed manuscript and supplement**, as explicitly requested by the author.
+**Scope:** public repository `fatmas1982/semantic-coherence-recovery`. **Latest Q1-reviewed manuscript and supplement were intentionally NOT uploaded**, by author's explicit instruction.
 
-## What has been verified independently against GitHub's remote tree
-- Exactly **24** historical M3 OOF CSV paths are present (four targets × one dual-blocked and five size-matched runs).
-- The M3 120-fold ledger, 720 generator/fold ledger, archived-source manifest, and dual summary are present.
-- The M3 worker, frozen GOLD pickle, configuration and metadata, plus the two previously uploaded (not latest Q1-reviewed) Word files are present.
-- The release manifest lists 34 files. All listed paths exist; the recorded **byte counts match for 32/34 files**, while `RUN_CONFIG.json` and `SNAPSHOT.json` each differ by **one byte** from the release manifest. This is a real provenance-integrity mismatch and must not be silently ignored. Hash verification of every remote file has **not** been completed here.
-- The 120-row fold summary writes a `CONFLICT:[...]` sentinel for the selected-epoch field in **all 120 records**. This reflects multiple generator-stratum values and is not a unique epoch per fold. Use the detailed 720-row generator/fold ledger for stratum-specific values; do not parse `CONFLICT` as an epoch or declare a single uniform epoch.
-- Existing verification reports show near-exact GEE coefficient/p-value replay for 60 models. This does not make every reported manuscript table cell independently verified.
+## Verified repository content
+- The 24 historical M3 OOF CSV files are present, together with the 120-fold, 720 generator/fold, dual summary, source manifest, M3 worker, run configuration and GOLD pickle.
+- The original release manifest lists 34 file paths. It matched 32/34 uploaded byte counts; the other two files were previously uploaded with a final newline that the original source archive lacked.
+- **Correction applied:** `RELEASE_SHA256_MANIFEST.csv` now records the actual published byte counts and SHA-256 hashes for `RUN_CONFIG.json` (309 bytes, `250ff840e2a6a4298050dd19c63ba5bb756c8ce8c5e37cae32d42aade0271cd8`) and `SNAPSHOT.json` (432 bytes, `c2bb606c3d71ba6b282be6de4e7704463b737d824ddcd989f1e5fd6fb9f813d9`). This reconciles the manifest to published bytes; it does **not** alter frozen experimental data. The other 32 entries have not been independently downloaded from the public remote and SHA-replayed in this review.
+- The 120-row fold ledger records `CONFLICT:[...]` for `selected_epochs` in all 120 rows. These are **multi-valued generator-specific epochs**, not evidence of failed training. The 720-row generator/fold ledger is the correct source of stratum-specific epochs.
+- A read-only repository checker is published at `scripts/audit_m3_release_readonly.py`. Run it after a fresh checkout to validate 34 SHA-256 digests and row/file cardinalities.
 
-## Open submission gates
-1. **P0:** Run `python scripts/audit_m3_release_readonly.py` on a clean checkout. Resolve both configuration-manifest byte/SHA mismatches using the actually released bytes, with the changes recorded. Do not alter frozen results.
-2. **P0:** Use the 720-row stratum-scoped ledger when reporting chosen epochs. Describe the 120-row summary's `CONFLICT` values explicitly rather than treating them as incomplete training runs.
-3. **P0:** Build a source-to-table claim map for every material quantitative result in the **latest manuscript**. The prior 288-item heuristic claim inventory has **194 marked SOURCE_MAPPING_REQUIRED** and 94 with only an explicit table/figure pointer, not a cell-level replay. The heuristic inventory is a worklist, not evidence that claims are wrong.
-4. **P1:** Assess all archived inputs/outputs/code against a tested clean-run recipe, retaining historical rerun limitations.
-5. **P1:** Keep code/data availability declarations scoped to the archived components, and do not claim external construct validity or external generalisation.
+## Still-open submission conditions
+1. Run the new checker in a clean checkout and archive its output. Publishing the checker does **not** mean it has been executed against the remote checkout.
+2. Reconcile the latest manuscript's material quantitative claims with source-level results and aggregation code. The previous heuristic ledger of 288 paragraphs contains 194 `SOURCE_MAPPING_REQUIRED` statuses and 94 with cross-references only. These are **not** proven numerical errors.
+3. Do not collapse generator-dependent `selected_epochs` into a misleading single fold value.
+4. Maintain qualified statements about M0–M4 fresh retraining, external validity, GOLD-conditioned targets and construct validity.
+5. Do not describe the repository's two older `EXISTING_EVIDENCE_ONLY` Word files as the newest Q1-reviewed manuscript and supplement.
 
-## Release verdict
-**M3 files: present. Complete reproducibility and final submission provenance: NOT YET VERIFIED.** No new experiments, new source data or manuscript/supplement upload occurred as part of this gate. This gate is not a substitute for an independent scientific review.
+## Conclusion
+**M3 release publication verified; manifest byte discrepancy repaired; comprehensive independent replay, full source-to-table mapping, and final Q1 readiness remain OPEN.** This record does not claim new experiments or datasets.
