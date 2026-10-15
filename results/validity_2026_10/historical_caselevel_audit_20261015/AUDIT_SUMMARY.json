@@ -1,0 +1,13 @@
+{
+  "archived_runs": 68,
+  "recomputed_rows": 680,
+  "passes": 680,
+  "failed_rows": 0,
+  "issues": [],
+  "max_f1_difference": 8.326672684688674e-17,
+  "max_accuracy_difference": 1.1102230246251565e-16,
+  "counts_by_archive": {
+    "P2_CPU_RESULTS_BUNDLE(5).zip": 360,
+    "P2_GPU_FP16_OFFLOAD_RESULTS_BUNDLE(3).zip": 320
+  }
+}
