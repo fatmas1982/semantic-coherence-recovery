@@ -1,0 +1,3 @@
+metric,compared,max_abs_difference,n_exceed_1e-6,n_exceed_1e-4
+gee_adjusted_OR,60,1.1102230246251565e-15,0,0
+gee_p_unadjusted,60,1.887379141862766e-15,0,0

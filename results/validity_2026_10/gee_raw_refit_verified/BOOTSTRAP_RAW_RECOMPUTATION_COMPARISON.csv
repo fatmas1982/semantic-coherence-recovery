@@ -1,0 +1,4 @@
+metric,max_abs_difference,n_exceed_1e-6
+class_adjusted_bootstrap_low,9.71445146547012e-17,0
+class_adjusted_bootstrap_high,9.71445146547012e-17,0
+class_standardized_RD,9.367506770274758e-17,0
