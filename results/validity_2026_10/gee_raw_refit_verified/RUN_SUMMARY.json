@@ -1,0 +1,41 @@
+{
+  "raw_rows": 10408,
+  "gee_fits": 60,
+  "bootstrap_contrasts": 60,
+  "bootstrap_reps_per_contrast": 2500,
+  "all_gee_converged": true,
+  "gee_compared_metrics": [
+    {
+      "metric": "gee_adjusted_OR",
+      "compared": 60,
+      "max_abs_difference": 1.1102230246251565e-15,
+      "n_exceed_1e-6": 0,
+      "n_exceed_1e-4": 0
+    },
+    {
+      "metric": "gee_p_unadjusted",
+      "compared": 60,
+      "max_abs_difference": 1.887379141862766e-15,
+      "n_exceed_1e-6": 0,
+      "n_exceed_1e-4": 0
+    }
+  ],
+  "bootstrap_compared_metrics": [
+    {
+      "metric": "class_adjusted_bootstrap_low",
+      "max_abs_difference": 9.71445146547012e-17,
+      "n_exceed_1e-6": 0
+    },
+    {
+      "metric": "class_adjusted_bootstrap_high",
+      "max_abs_difference": 9.71445146547012e-17,
+      "n_exceed_1e-6": 0
+    },
+    {
+      "metric": "class_standardized_RD",
+      "max_abs_difference": 9.367506770274758e-17,
+      "n_exceed_1e-6": 0
+    }
+  ],
+  "no_claim_about_original_T1_serialization": true
+}

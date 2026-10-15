@@ -1,0 +1,67 @@
+[
+  {
+    "source": "https://raw.githubusercontent.com/fatmas1982/semantic-coherence-recovery/main/data/validity_2026_10/paired_cases_part_01.csv",
+    "sha256": "81d72e73bc2461c1f950d657e956253fd24a1d9e6660c879285d69418193d8c8",
+    "size": 122240
+  },
+  {
+    "source": "https://raw.githubusercontent.com/fatmas1982/semantic-coherence-recovery/main/data/validity_2026_10/paired_cases_part_02.csv",
+    "sha256": "34304727de3976e6d9387a2754f495911c3eff9af4710e7e09cda46ec0c6dea5",
+    "size": 122042
+  },
+  {
+    "source": "https://raw.githubusercontent.com/fatmas1982/semantic-coherence-recovery/main/data/validity_2026_10/paired_cases_part_03.csv",
+    "sha256": "75a73dc39ec119f36cc676b95037ddef3ab594de26d4984ec348f9bd759d74f1",
+    "size": 122321
+  },
+  {
+    "source": "https://raw.githubusercontent.com/fatmas1982/semantic-coherence-recovery/main/data/validity_2026_10/paired_cases_part_04.csv",
+    "sha256": "58a20b8b102ecc81c75c2c347df43d199473fdb17c6a3ed7a13eeea8605cc345",
+    "size": 120176
+  },
+  {
+    "source": "https://raw.githubusercontent.com/fatmas1982/semantic-coherence-recovery/main/data/validity_2026_10/paired_cases_part_05.csv",
+    "sha256": "640cef2f62aab5c28bd4ffb4a58341d117c67de7b4d06ea92e22b2e294085ccc",
+    "size": 117996
+  },
+  {
+    "source": "https://raw.githubusercontent.com/fatmas1982/semantic-coherence-recovery/main/data/validity_2026_10/paired_cases_part_06.csv",
+    "sha256": "d6385ca3b87a7c9f6f03ccc612d369c54c11e4908a57b7b3b0ee295c52b66d56",
+    "size": 113254
+  },
+  {
+    "source": "https://raw.githubusercontent.com/fatmas1982/semantic-coherence-recovery/main/data/validity_2026_10/paired_cases_part_07.csv",
+    "sha256": "4c17814b4ae631520f444b3f3203f4d7d727d627ca4ce097631d99510755fd1e",
+    "size": 112074
+  },
+  {
+    "source": "https://raw.githubusercontent.com/fatmas1982/semantic-coherence-recovery/main/data/validity_2026_10/paired_cases_part_08.csv",
+    "sha256": "8396710dd1f47096bc75b7fa3bca1102340258e2f0b47e283fc3339083a4e4bf",
+    "size": 116831
+  },
+  {
+    "source": "https://raw.githubusercontent.com/fatmas1982/semantic-coherence-recovery/main/data/validity_2026_10/paired_cases_part_09.csv",
+    "sha256": "7a0c444c9c9d3b8a148d1e0d2ea936ef8a960b5829e44de43a2aee8436007dbc",
+    "size": 116233
+  },
+  {
+    "source": "https://raw.githubusercontent.com/fatmas1982/semantic-coherence-recovery/main/data/validity_2026_10/paired_cases_part_10.csv",
+    "sha256": "eaa3349184b7b89f50ffbd2659fdffdd36c8f6db62e62334ac7f754a30c99ec3",
+    "size": 116670
+  },
+  {
+    "source": "https://raw.githubusercontent.com/fatmas1982/semantic-coherence-recovery/main/data/validity_2026_10/paired_cases_part_11.csv",
+    "sha256": "c426e3d80a1c9a09eac3da8cc8c09b870cbd34f48123661f6daf7c7ce32b3c9e",
+    "size": 47686
+  },
+  {
+    "source": "https://raw.githubusercontent.com/fatmas1982/semantic-coherence-recovery/main/results/validity_2026_10/colab_success_20261014/HJI_GEE_STABILITY_60_LATEST_SOURCE.csv",
+    "sha256": "5b37aecb96eedf35d834093ace11a4db4dca99b92bccfc1a02a7e8d3339a3037",
+    "size": 16656
+  },
+  {
+    "source": "https://raw.githubusercontent.com/fatmas1982/semantic-coherence-recovery/main/results/validity_2026_10/colab_success_20261014/CLASS_ADJUSTED_HUMAN_JUDGE_60_CORRECTED_CI_20261010.csv",
+    "sha256": "bfef9a31847324257c34063fc972aa8f66f5500187b66e97e01ae5d1167c47eb",
+    "size": 14517
+  }
+]
