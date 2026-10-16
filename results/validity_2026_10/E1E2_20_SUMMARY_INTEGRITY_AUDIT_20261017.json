@@ -1,0 +1,26 @@
+{
+  "status": "PASS_ARCHIVED_SUMMARY_ONLY",
+  "input_paths": [
+    "data/validity_2026_10/E1E2_DECISION_AND_MARGIN_DIAGNOSTICS.csv",
+    "data/validity_2026_10/E1E2_DELTA_MACROF1_BOOTSTRAP_3000.csv"
+  ],
+  "input_git_blob_shas": [
+    "c8c769b7c9a23b6b4a9f49c40afb2a9b48280520",
+    "32e03457c0582000a3c5200cfc5e849d51e07d31"
+  ],
+  "rows": [
+    20,
+    20
+  ],
+  "distinct_ids": [
+    20,
+    20
+  ],
+  "matched_keys": true,
+  "failures": [],
+  "limitations": [
+    "Did not inspect RAR case-level data",
+    "Did not recompute bootstrap CI or GEE models",
+    "Does not verify E1 E2 prompt/label permutation invariance"
+  ]
+}
