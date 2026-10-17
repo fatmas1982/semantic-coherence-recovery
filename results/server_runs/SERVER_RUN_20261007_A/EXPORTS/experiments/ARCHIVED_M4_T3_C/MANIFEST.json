@@ -1,0 +1,42 @@
+{
+  "phase": "CPU",
+  "experiment": "ARCHIVED_M4_T3_C",
+  "target": "T3",
+  "expected_n": 460,
+  "n": 460,
+  "status": "complete",
+  "analysis_timing": "post-hoc",
+  "config": {
+    "model_id": "Qwen/Qwen3-8B",
+    "condition": "C",
+    "quantization": "historical NF4",
+    "new_inference": false,
+    "status": "archived audit"
+  },
+  "input_hashes": {
+    "P2_FINAL_SENIOR_ADJUDICATED_GOLD_v1.0.xlsx": "ccc910b7bafbfa9607e93ef2eba8605f56f7ed87460ef74892d4877c7db4de65",
+    "P2_CPU_Baselines_v1.0.xlsx": "4502e71bd6d1b6d2941b0b10650caaa433d7188bf958017d2fc646d328a31163"
+  },
+  "prediction_files_sha256": {
+    "/home/users/fatma/semantic-coherence-recovery/data/computational/m4/OOF_M4_FORCED_T3_C.csv": "061412df8ebdf2e8262914622c0b3268a4a2c5147b8094a9969f2ec82a7646e9"
+  },
+  "signature": "89a26f7591ab79bec1273d7a4f062c51b46eb48688eb1a2716ee320f1cf08811",
+  "report_version": "memory_safe_offload_v1",
+  "bootstrap_reps": 2000,
+  "bootstrap_seed": 20260928,
+  "bootstrap_unit": "task-stratified Prompt_ID clusters",
+  "confidence_interval": "percentile 95%; descriptive",
+  "generator_registry": {
+    "M01": "Qwen/Qwen3-0.6B",
+    "M02": "google/flan-t5-base",
+    "M03": "allenai/OLMo-2-0425-1B-Instruct",
+    "M04": "state-spaces/mamba-370m-hf",
+    "M05": "RWKV/rwkv-4-world-430m",
+    "M06": "tiiuae/Falcon-H1-0.5B-Instruct"
+  },
+  "label_map": {
+    "A": 0,
+    "B": 1
+  },
+  "rubric": "The case belongs to one of two mechanism families.\nA = Core_SCF: topic/QUD shift, causal-chain failure, response-goal misalignment, discourse-structure failure, local-to-global breakdown, referential instability, or term-sense instability.\nB = OVR: self-contradiction, visible-context inconsistency, entity/role/attribute misattribution, temporal/world-state inconsistency, reasoning-answer mismatch, or mixed-context synthesis failure.\nChoose only A or B."
+}

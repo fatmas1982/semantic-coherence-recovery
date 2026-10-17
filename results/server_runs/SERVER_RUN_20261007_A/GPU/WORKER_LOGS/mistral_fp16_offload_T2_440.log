@@ -1,0 +1,17 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+Loading checkpoint shards:  33%|███▎      | 1/3 [00:01<00:02,  1.36s/it]
+Loading checkpoint shards:  67%|██████▋   | 2/3 [00:02<00:01,  1.18s/it]
+Loading checkpoint shards: 100%|██████████| 3/3 [00:02<00:00,  1.24it/s]
+Some parameters are on the meta device because they were offloaded to the disk and cpu.
+LOADED unquantized FP16 mistralai/Mistral-7B-Instruct-v0.3 {'model.embed_tokens': '0', 'model.layers.0': '0', 'model.layers.1': '0', 'model.layers.2': '0', 'model.layers.3': '0', 'model.layers.4': '0', 'model.layers.5': '0', 'model.layers.6': '0', 'model.layers.7': '0', 'model.layers.8': '0', 'model.layers.9': '0', 'model.layers.10': '0', 'model.layers.11': '0', 'model.layers.12': '0', 'model.layers.13': '0', 'model.layers.14': '0', 'model.layers.15': '0', 'model.layers.16': '0', 'model.layers.17': '0', 'model.layers.18': '0', 'model.layers.19': '0', 'model.layers.20': 'cpu', 'model.layers.21': 'disk', 'model.layers.22': 'disk', 'model.layers.23': 'disk', 'model.layers.24': 'disk', 'model.layers.25': 'disk', 'model.layers.26': 'disk', 'model.layers.27': 'disk', 'model.layers.28': 'disk', 'model.layers.29': 'disk', 'model.layers.30': 'disk', 'model.layers.31': 'disk', 'model.norm': 'disk', 'model.rotary_emb': 'disk', 'lm_head': 'disk'}
+SAVED mistral_fp16_offload T2 C 441 / 474
+SAVED mistral_fp16_offload T2 C 442 / 474
+SAVED mistral_fp16_offload T2 C 443 / 474
+SAVED mistral_fp16_offload T2 C 444 / 474
+SAVED mistral_fp16_offload T2 C 445 / 474
+SAVED mistral_fp16_offload T2 C 446 / 474
+SAVED mistral_fp16_offload T2 C 447 / 474
+SAVED mistral_fp16_offload T2 C 448 / 474
+WORKER_JUDGE_SAVED T2 mistral_fp16_offload

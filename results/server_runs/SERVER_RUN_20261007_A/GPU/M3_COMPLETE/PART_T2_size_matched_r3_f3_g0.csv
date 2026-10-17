@@ -1,0 +1,8 @@
+Case_ID,Prompt_ID,Task_Type,Fold,Generator_Stratum,y_true,Human_Easy,M3_dual_pred,M3_dual_probs,train_n,variant,repeat,selected_epochs,inner_dev_fold,best_inner_dev_macro_f1
+CASE_0031,SUM_006,summarisation,3,0,0,True,1,"[0.27943506836891174, 0.7205649614334106]",357,size_matched,3,3,4,0.8039811066126855
+CASE_0091,SUM_016,summarisation,3,0,0,True,1,"[0.26170814037323, 0.73829185962677]",357,size_matched,3,3,4,0.8039811066126855
+CASE_0097,SUM_017,summarisation,3,0,1,True,1,"[0.49145591259002686, 0.5085440874099731]",357,size_matched,3,3,4,0.8039811066126855
+CASE_0277,EXP_007,explanation,3,0,0,True,0,"[0.9367494583129883, 0.06325052678585052]",357,size_matched,3,3,4,0.8039811066126855
+CASE_0463,IF_018,instruction_following,3,0,0,True,0,"[0.9991958737373352, 0.0008040859247557819]",357,size_matched,3,3,4,0.8039811066126855
+CASE_0565,SG_015,source_grounded_generation,3,0,0,True,1,"[0.2443629950284958, 0.755636990070343]",357,size_matched,3,3,4,0.8039811066126855
+CASE_0595,SG_020,source_grounded_generation,3,0,1,True,0,"[0.8527823090553284, 0.14721772074699402]",357,size_matched,3,3,4,0.8039811066126855

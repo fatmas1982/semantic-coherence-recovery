@@ -1,0 +1,89 @@
+{
+  "phase": "CPU",
+  "experiment": "M1_T1_size_matched_r2_C",
+  "target": "T1",
+  "expected_n": 720,
+  "n": 720,
+  "status": "complete",
+  "analysis_timing": "post-hoc",
+  "config": {
+    "input_hashes": {
+      "P2_FINAL_SENIOR_ADJUDICATED_GOLD_v1.0.xlsx": "ccc910b7bafbfa9607e93ef2eba8605f56f7ed87460ef74892d4877c7db4de65",
+      "P2_CPU_Baselines_v1.0.xlsx": "4502e71bd6d1b6d2941b0b10650caaa433d7188bf958017d2fc646d328a31163"
+    },
+    "repeats": 5,
+    "protocol": "M1_complete_dual_and_size_matched_v1",
+    "sklearn": "1.9.1",
+    "repository_commit": "68cf52f68d5383f5b6666f49ca64bc6a58f86276",
+    "condition": "C",
+    "seed": 20260908,
+    "model": "TF-IDF + balanced LinearSVC",
+    "ngram_range": [
+      1,
+      2
+    ],
+    "min_df": 2,
+    "max_df": 0.98,
+    "max_features": 40000,
+    "sublinear_tf": true,
+    "svc_C": 1.0,
+    "random_state": 20260908,
+    "sampling_seed_scheme": "SHA256(target|fold|generator|repeat|20260928)"
+  },
+  "input_hashes": {
+    "P2_FINAL_SENIOR_ADJUDICATED_GOLD_v1.0.xlsx": "ccc910b7bafbfa9607e93ef2eba8605f56f7ed87460ef74892d4877c7db4de65",
+    "P2_CPU_Baselines_v1.0.xlsx": "4502e71bd6d1b6d2941b0b10650caaa433d7188bf958017d2fc646d328a31163"
+  },
+  "prediction_files_sha256": {
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T1_size_matched_r2_f0_g0.csv": "409ff3ba7120591b521ac19f0d3baa00e22e4d900848abb14c3fee732f9a6ef0",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T1_size_matched_r2_f0_g1.csv": "b0ab3ff54f0ae3684d09dbd17dee9b4f774afffad3e9de989181244cfad20e33",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T1_size_matched_r2_f0_g2.csv": "3f130b70542b813447a0fbcaf3188d7063dac4f9e448be6e3a80df8fb50c2970",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T1_size_matched_r2_f0_g3.csv": "7c5393d918584860bd5f9b3a27ebb515c031c9d991f1b79e799cfeeafd7b17e8",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T1_size_matched_r2_f0_g4.csv": "84715e1de85338c346675b3d7cdfed30a512050af72f08f7befe14f04276c437",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T1_size_matched_r2_f0_g5.csv": "572947a98cd98726a2c0226164989960a0d95396eee6bbb88139d5c9eb89ecaf",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T1_size_matched_r2_f1_g0.csv": "a7dfdbff50f6cc35f5dd917ec31e78e1f7d1168dca006cae516e547d403873cc",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T1_size_matched_r2_f1_g1.csv": "d0f79e9ab526b06aee5cff4233c5ab372db4aee2817f0d0e34934769718cf828",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T1_size_matched_r2_f1_g2.csv": "a33d6f411f57ee530249d3e01777e8a5f21275e8171defcf643d8165de9cba63",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T1_size_matched_r2_f1_g3.csv": "afa9a6417c1bb3eda0155461bb428f177246a992375883f8371bf70e6367f1ef",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T1_size_matched_r2_f1_g4.csv": "97246777ecb8bec0347aa7c306adea7ee2e93248133e0f7f43e178dbe5685acc",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T1_size_matched_r2_f1_g5.csv": "d3d5289629b7c304fe7fd921d5edcf87485229374fb34d4e7a62ed7e0999f80f",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T1_size_matched_r2_f2_g0.csv": "15b78e7d3ae59f14b9413136e54abb82138989121e751f101227825e80e1423c",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T1_size_matched_r2_f2_g1.csv": "b1a2644c21fe0b3f139d85bd5bc06ab892a43dd1ec579d45f322d4253fe23793",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T1_size_matched_r2_f2_g2.csv": "7bdfea98a0a5580ce223d5bc6dbcefed6c62d09e4e699ebd661d3c846fd6b60d",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T1_size_matched_r2_f2_g3.csv": "69c67a4bccd15d4be74008f808db00bcc9ced87781e4d1aae4e4061d5471e7ce",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T1_size_matched_r2_f2_g4.csv": "d4cf0253da860294d9a134fd286282fec1eddec5516ee5909e1d2588dbd1f399",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T1_size_matched_r2_f2_g5.csv": "255096b0affa15a6843a544c46aa57c1dfdd8e090a0ec273bcc394c75d29bc8e",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T1_size_matched_r2_f3_g0.csv": "d6b233b4e1abe0273d5c8cad8fd90e6ad6fd3fe006ab32bd359cb4a4725c77f5",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T1_size_matched_r2_f3_g1.csv": "9961c8592b0280ef10f96edaef997dbcb841dd29d90206106f36b4caf20f3a83",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T1_size_matched_r2_f3_g2.csv": "186e0a7e62ff63efba536bcd0a5c13a5646d360ffb76e3729e81638c0a457df6",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T1_size_matched_r2_f3_g3.csv": "ea1e4217767c5cd744fbaf45308047a90b47a1ac57b476e2bd14a089de94e367",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T1_size_matched_r2_f3_g4.csv": "7b4a7a8aa14f890b2f995ff30bfbc141b9a0db77f111d01c6e1379507707489c",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T1_size_matched_r2_f3_g5.csv": "9cfab1accc59ff7223dba67517cfc2d92b583186a50994c6dab8d0afe544a480",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T1_size_matched_r2_f4_g0.csv": "38254d7b23832d26f3411f0e83378e55afd6b91c28fd4ed07ed532863619e22a",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T1_size_matched_r2_f4_g1.csv": "379825b590446e59d7a621260734aacaa7f0338d9ac2c3f4ba808c01b03f8559",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T1_size_matched_r2_f4_g2.csv": "239870680a9aaeb11190bbe04f6d989ca3644ec5d5727458ab3c873bbcee986c",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T1_size_matched_r2_f4_g3.csv": "fa343bee73749899899b0dc77bd855531a3a4df63e8f85b9405fd437492cebf1",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T1_size_matched_r2_f4_g4.csv": "18c7e180730b7ba2aee91d84f926e4fec8258d0590fbed6876efd6fe66473ec5",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T1_size_matched_r2_f4_g5.csv": "56ff901bf829efe0e38be1f7bca8c8127bab820cf35b4073697da4bff973de61",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/RUN_CONFIG.json": "14dfafd42234294211ebee3dc6028831e20aab445d1bc013a114d46f4b3fcdd2"
+  },
+  "signature": "88a95d854928619b3b055e04e8ca80023997052e90783006669e022c79a3b4ba",
+  "report_version": "memory_safe_offload_v1",
+  "bootstrap_reps": 2000,
+  "bootstrap_seed": 20260928,
+  "bootstrap_unit": "task-stratified Prompt_ID clusters",
+  "confidence_interval": "percentile 95%; descriptive",
+  "generator_registry": {
+    "M01": "Qwen/Qwen3-0.6B",
+    "M02": "google/flan-t5-base",
+    "M03": "allenai/OLMo-2-0425-1B-Instruct",
+    "M04": "state-spaces/mamba-370m-hf",
+    "M05": "RWKV/rwkv-4-world-430m",
+    "M06": "tiiuae/Falcon-H1-0.5B-Instruct"
+  },
+  "label_map": {
+    "A": 0,
+    "B": 1
+  },
+  "rubric": "Decide only whether the response contains an identifiable semantic-coherence or authorised-grounding failure.\nA = no_failure: no identifiable failure under the supplied evidence.\nB = failure: at least one identifiable semantic-coherence or authorised-grounding failure.\nDo not classify the subtype. Choose only A or B."
+}

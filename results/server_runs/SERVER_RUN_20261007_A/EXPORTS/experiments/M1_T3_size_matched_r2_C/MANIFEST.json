@@ -1,0 +1,89 @@
+{
+  "phase": "CPU",
+  "experiment": "M1_T3_size_matched_r2_C",
+  "target": "T3",
+  "expected_n": 460,
+  "n": 460,
+  "status": "complete",
+  "analysis_timing": "post-hoc",
+  "config": {
+    "input_hashes": {
+      "P2_FINAL_SENIOR_ADJUDICATED_GOLD_v1.0.xlsx": "ccc910b7bafbfa9607e93ef2eba8605f56f7ed87460ef74892d4877c7db4de65",
+      "P2_CPU_Baselines_v1.0.xlsx": "4502e71bd6d1b6d2941b0b10650caaa433d7188bf958017d2fc646d328a31163"
+    },
+    "repeats": 5,
+    "protocol": "M1_complete_dual_and_size_matched_v1",
+    "sklearn": "1.9.1",
+    "repository_commit": "68cf52f68d5383f5b6666f49ca64bc6a58f86276",
+    "condition": "C",
+    "seed": 20260908,
+    "model": "TF-IDF + balanced LinearSVC",
+    "ngram_range": [
+      1,
+      2
+    ],
+    "min_df": 2,
+    "max_df": 0.98,
+    "max_features": 40000,
+    "sublinear_tf": true,
+    "svc_C": 1.0,
+    "random_state": 20260908,
+    "sampling_seed_scheme": "SHA256(target|fold|generator|repeat|20260928)"
+  },
+  "input_hashes": {
+    "P2_FINAL_SENIOR_ADJUDICATED_GOLD_v1.0.xlsx": "ccc910b7bafbfa9607e93ef2eba8605f56f7ed87460ef74892d4877c7db4de65",
+    "P2_CPU_Baselines_v1.0.xlsx": "4502e71bd6d1b6d2941b0b10650caaa433d7188bf958017d2fc646d328a31163"
+  },
+  "prediction_files_sha256": {
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T3_size_matched_r2_f0_g0.csv": "d5e9ec01d3489c4a9888054f0f7a9431b1874577b1802e344587c9ef173a14b5",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T3_size_matched_r2_f0_g1.csv": "0933fde8b0d473f721cb6dbbfed9be1e9fe89ebe6cd33d7f97636e7c9826c351",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T3_size_matched_r2_f0_g2.csv": "ab2b38dd77e5be9adeeda65377aee763ac73b1e464018ced1a4b391d61214ba5",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T3_size_matched_r2_f0_g3.csv": "3f01763d99f54091937aec4bd2ee341bc34609479ecac9fa05ef189a151dc824",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T3_size_matched_r2_f0_g4.csv": "ee4bdd629c2f95b7af9930a2af857dc61cd0b1074f89575e2a55c6266f09a965",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T3_size_matched_r2_f0_g5.csv": "6b8db91d0c1c5b40795c6fe712ffb43a8b3126385e59e2899a1ac71a46cd0f26",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T3_size_matched_r2_f1_g0.csv": "aff8e7cfcb66370a09ddeac5dfc10cca54a37733773a202f7550105dde9b3e0f",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T3_size_matched_r2_f1_g1.csv": "400a4f44a24125738cda77a48aac41d0df734f545af7acf810a3178cb52736c8",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T3_size_matched_r2_f1_g2.csv": "4cf1a06ff9a0fc2066a143a93969a0c7ac0a1a9ecd5f42a1263301c1e6bca2de",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T3_size_matched_r2_f1_g3.csv": "ec46d57c18dfc486947e5fb406ad827bd8ccf9d94343b1c1d7d975462225cc2d",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T3_size_matched_r2_f1_g4.csv": "0f4b75d0dce13eb52d3c216fc4b4445dc70fc98b26dd8d0366ffc0230389c99a",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T3_size_matched_r2_f1_g5.csv": "df7b599a1f9b3537c2956eec262193af461af77c4f61ad4a2a23c49150359096",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T3_size_matched_r2_f2_g0.csv": "2f88111f9c55d16838e857ba6e80d94e4a35c77990d44221968632c506aa9f9a",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T3_size_matched_r2_f2_g1.csv": "255ba9ed8818af56f3ee557041673068740d4a240e430e1fd09251cf4af0008a",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T3_size_matched_r2_f2_g2.csv": "15e9c5c3d584291a8ce2544e0847b0cf8bba07ddab91172893ba043b3c418adf",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T3_size_matched_r2_f2_g3.csv": "fc7efd0092b34ebfc110f0759e4386fa1d4f5ad43dc5e97ed36f03ad8daf9ea8",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T3_size_matched_r2_f2_g4.csv": "f2828ff9ee5bf20411f5cde9aee2d010cf5a34666dac921d4265fa2a4588202c",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T3_size_matched_r2_f2_g5.csv": "d73694a57593c669f335e0a77a6ad7f42795694910de8c1dec0a628bcd6fff96",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T3_size_matched_r2_f3_g0.csv": "f6389a35afc56687124cc1890a830230e1a688d4a2b96ce4ca74bdba04f27c96",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T3_size_matched_r2_f3_g1.csv": "28af1b0f7dedb17ebe33bc3e7109494d7648584d5b7dd7f0a9c2fc8425914757",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T3_size_matched_r2_f3_g2.csv": "564d02f868563a2d778144791d714593e290011afca19a0de3842f1ad7746cfa",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T3_size_matched_r2_f3_g3.csv": "a725c9e6bf06aafbb845cf3e141707bdfe9add8643fc5726a4ee1b281f107d11",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T3_size_matched_r2_f3_g4.csv": "1782b67670207a44f2182ca29e7fe1ff8c34474ed434ab808049a08d6073345c",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T3_size_matched_r2_f3_g5.csv": "45b3d8c97c8c6813d8705c1d8965b76f603ef6b1097f301891385d892e81bab8",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T3_size_matched_r2_f4_g0.csv": "aa2a043e975778d47a3c5edfced08df37da3c6ce43de475fb852a4d64f778712",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T3_size_matched_r2_f4_g1.csv": "834a4782bd7f5a986d7a7a5d6bc921495581f3a94035f4bb51aaabaf83a35047",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T3_size_matched_r2_f4_g2.csv": "6a1868c962a443ac418d8d329c223a34ba7a7ca744b37f987f31b524b93b8666",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T3_size_matched_r2_f4_g3.csv": "04da46194b9c15eb8bae12115ec79636a6f8aea24fa60e9701c45077c9f6295a",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T3_size_matched_r2_f4_g4.csv": "c472df3b694fbe3a2761b6c506d55acb524e82357f8143442d6ae3c0f1e52906",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T3_size_matched_r2_f4_g5.csv": "0870b116c533e2547bd36745b663518b5674dbcb882f109a605f2d6bf28d2bc0",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/RUN_CONFIG.json": "14dfafd42234294211ebee3dc6028831e20aab445d1bc013a114d46f4b3fcdd2"
+  },
+  "signature": "1cf1132a53a13bda4fc10f698d600c35b4c86451cce0aa0e0f9bd8eaa4002c1c",
+  "report_version": "memory_safe_offload_v1",
+  "bootstrap_reps": 2000,
+  "bootstrap_seed": 20260928,
+  "bootstrap_unit": "task-stratified Prompt_ID clusters",
+  "confidence_interval": "percentile 95%; descriptive",
+  "generator_registry": {
+    "M01": "Qwen/Qwen3-0.6B",
+    "M02": "google/flan-t5-base",
+    "M03": "allenai/OLMo-2-0425-1B-Instruct",
+    "M04": "state-spaces/mamba-370m-hf",
+    "M05": "RWKV/rwkv-4-world-430m",
+    "M06": "tiiuae/Falcon-H1-0.5B-Instruct"
+  },
+  "label_map": {
+    "A": 0,
+    "B": 1
+  },
+  "rubric": "The case belongs to one of two mechanism families.\nA = Core_SCF: topic/QUD shift, causal-chain failure, response-goal misalignment, discourse-structure failure, local-to-global breakdown, referential instability, or term-sense instability.\nB = OVR: self-contradiction, visible-context inconsistency, entity/role/attribute misattribution, temporal/world-state inconsistency, reasoning-answer mismatch, or mixed-context synthesis failure.\nChoose only A or B."
+}

@@ -1,0 +1,109 @@
+
+Map:   0%|          | 0/220 [00:00<?, ? examples/s]
+Map: 100%|██████████| 220/220 [00:00<00:00, 4079.74 examples/s]
+
+Map:   0%|          | 0/79 [00:00<?, ? examples/s]
+Map: 100%|██████████| 79/79 [00:00<00:00, 4022.46 examples/s]
+Some weights of ModernBertForSequenceClassification were not initialized from the model checkpoint at answerdotai/ModernBERT-base and are newly initialized: ['classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+
+  0%|          | 0/112 [00:00<?, ?it/s]
+  1%|          | 1/112 [00:01<02:26,  1.32s/it]
+  3%|▎         | 3/112 [00:01<00:44,  2.47it/s]
+  4%|▍         | 5/112 [00:01<00:24,  4.30it/s]
+  6%|▋         | 7/112 [00:01<00:17,  6.12it/s]
+  8%|▊         | 9/112 [00:01<00:13,  7.87it/s]
+ 10%|▉         | 11/112 [00:02<00:10,  9.47it/s]
+ 12%|█▏        | 13/112 [00:02<00:09, 10.87it/s]
+
+  0%|          | 0/5 [00:00<?, ?it/s][A
+                                                
+
+                                     
+[A{'eval_loss': 0.8242791891098022, 'eval_macro_f1': 0.6258360786662673, 'eval_runtime': 0.2543, 'eval_samples_per_second': 310.621, 'eval_steps_per_second': 19.66, 'epoch': 1.0}
+
+ 12%|█▎        | 14/112 [00:02<00:09, 10.87it/s]
+
+100%|██████████| 5/5 [00:00<00:00, 63.24it/s][A
+
+                                             [A
+ 13%|█▎        | 15/112 [00:03<00:23,  4.09it/s]
+ 15%|█▌        | 17/112 [00:03<00:17,  5.31it/s]
+ 17%|█▋        | 19/112 [00:03<00:14,  6.64it/s]
+                                                
+{'loss': 1.6272, 'grad_norm': 12.680315971374512, 'learning_rate': 1.660714285714286e-05, 'epoch': 1.43}
+
+ 18%|█▊        | 20/112 [00:03<00:13,  6.64it/s]
+ 19%|█▉        | 21/112 [00:03<00:11,  7.96it/s]
+ 21%|██        | 23/112 [00:03<00:09,  9.24it/s]
+ 22%|██▏       | 25/112 [00:03<00:08, 10.54it/s]
+ 24%|██▍       | 27/112 [00:04<00:07, 11.58it/s]
+
+  0%|          | 0/5 [00:00<?, ?it/s][A
+                                                
+
+                                     
+[A{'eval_loss': 0.9233275055885315, 'eval_macro_f1': 0.5911663216011043, 'eval_runtime': 0.0919, 'eval_samples_per_second': 859.239, 'eval_steps_per_second': 54.382, 'epoch': 2.0}
+
+ 25%|██▌       | 28/112 [00:04<00:07, 11.58it/s]
+
+100%|██████████| 5/5 [00:00<00:00, 70.33it/s][A
+
+                                             [A
+ 26%|██▌       | 29/112 [00:04<00:15,  5.31it/s]
+ 28%|██▊       | 31/112 [00:05<00:12,  6.59it/s]
+ 29%|██▉       | 33/112 [00:05<00:09,  7.95it/s]
+ 31%|███▏      | 35/112 [00:05<00:08,  9.31it/s]
+ 33%|███▎      | 37/112 [00:05<00:07, 10.52it/s]
+ 35%|███▍      | 39/112 [00:05<00:06, 11.63it/s]
+                                                
+{'loss': 1.1382, 'grad_norm': 7.767780303955078, 'learning_rate': 1.3035714285714287e-05, 'epoch': 2.86}
+
+ 36%|███▌      | 40/112 [00:05<00:06, 11.63it/s]
+ 37%|███▋      | 41/112 [00:05<00:05, 12.47it/s]
+
+  0%|          | 0/5 [00:00<?, ?it/s][A
+                                                
+
+                                     
+[A{'eval_loss': 0.9216336607933044, 'eval_macro_f1': 0.6201306393204048, 'eval_runtime': 0.0928, 'eval_samples_per_second': 851.43, 'eval_steps_per_second': 53.888, 'epoch': 3.0}
+
+ 38%|███▊      | 42/112 [00:05<00:05, 12.47it/s]
+
+100%|██████████| 5/5 [00:00<00:00, 69.56it/s][A
+
+                                             [A
+                                                
+{'train_runtime': 6.5978, 'train_samples_per_second': 266.754, 'train_steps_per_second': 16.975, 'train_loss': 1.3599619666735332, 'epoch': 3.0}
+
+ 38%|███▊      | 42/112 [00:06<00:05, 12.47it/s]
+ 38%|███▊      | 42/112 [00:06<00:11,  6.34it/s]
+
+Map:   0%|          | 0/299 [00:00<?, ? examples/s]
+Map: 100%|██████████| 299/299 [00:00<00:00, 4405.52 examples/s]
+
+Map:   0%|          | 0/20 [00:00<?, ? examples/s]
+Map: 100%|██████████| 20/20 [00:00<00:00, 5515.19 examples/s]
+Some weights of ModernBertForSequenceClassification were not initialized from the model checkpoint at answerdotai/ModernBERT-base and are newly initialized: ['classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+
+  0%|          | 0/19 [00:00<?, ?it/s]
+  5%|▌         | 1/19 [00:00<00:02,  7.71it/s]
+ 11%|█         | 2/19 [00:00<00:01,  8.85it/s]
+ 21%|██        | 4/19 [00:00<00:01, 11.93it/s]
+ 32%|███▏      | 6/19 [00:00<00:00, 13.27it/s]
+ 42%|████▏     | 8/19 [00:00<00:00, 14.03it/s]
+ 53%|█████▎    | 10/19 [00:00<00:00, 14.19it/s]
+ 63%|██████▎   | 12/19 [00:00<00:00, 14.54it/s]
+ 74%|███████▎  | 14/19 [00:01<00:00, 14.84it/s]
+ 84%|████████▍ | 16/19 [00:01<00:00, 14.99it/s]
+ 95%|█████████▍| 18/19 [00:01<00:00, 15.12it/s]
+                                               
+{'train_runtime': 1.3463, 'train_samples_per_second': 222.084, 'train_steps_per_second': 14.112, 'train_loss': 1.7508388318513568, 'epoch': 1.0}
+
+100%|██████████| 19/19 [00:01<00:00, 15.12it/s]
+100%|██████████| 19/19 [00:01<00:00, 14.11it/s]
+
+  0%|          | 0/2 [00:00<?, ?it/s]
+100%|██████████| 2/2 [00:00<00:00, 218.60it/s]
+WORKER_M3_SAVED /home/users/fatma/P2/P2/results/SERVER_RUN_20261007_A/GPU/M3_COMPLETE/PART_T4_dual_r0_f0_g1.csv

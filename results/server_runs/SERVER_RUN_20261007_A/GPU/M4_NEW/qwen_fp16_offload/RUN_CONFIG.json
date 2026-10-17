@@ -1,0 +1,24 @@
+{
+  "model_id": "Qwen/Qwen3-8B",
+  "revision": "e8bbd8252970581ea5b08b6a5b3e668adaf3161a",
+  "gold_sha256": "ccc910b7bafbfa9607e93ef2eba8605f56f7ed87460ef74892d4877c7db4de65",
+  "base_sha256": "4502e71bd6d1b6d2941b0b10650caaa433d7188bf958017d2fc646d328a31163",
+  "conditions": [
+    "C"
+  ],
+  "quantization": null,
+  "dtype": "torch.float16",
+  "execution_profile": "fp16_disk_offload_v1",
+  "batch_size": 1,
+  "gpu_parameter_budget": "9GiB",
+  "cpu_parameter_budget": "1GiB",
+  "max_length": 4096,
+  "scoring": "single-token next-token log probability",
+  "use_cache": false,
+  "attention": "sdpa",
+  "rubric_sha256": "a3b8f03f19a2e33b0d02909f7e645811923530a87a6951019c26c2228bfb79cd",
+  "torch": "2.11.0+cu128",
+  "transformers": "4.57.6",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+  "worker_sha256": "dfcdfb7d782926c414a53f86129a52d55f937657dcc19948973202292ed15b46"
+}

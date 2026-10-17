@@ -1,0 +1,6 @@
+Case_ID,Prompt_ID,Task_Type,Fold,Generator_Stratum,y_true,Human_Easy,M3_dual_pred,M3_dual_probs,train_n,variant,repeat,selected_epochs,inner_dev_fold,best_inner_dev_macro_f1
+CASE_0007,SUM_002,summarisation,4,0,0,True,0,"[0.9995197057723999, 0.0004802972252946347]",344,size_matched,3,7,0,0.8984001319478806
+CASE_0115,SUM_020,summarisation,4,0,0,False,0,"[0.9801293015480042, 0.019870715215802193]",344,size_matched,3,7,0,0.8984001319478806
+CASE_0253,EXP_003,explanation,4,0,0,False,0,"[0.9998766183853149, 0.00012339458044152707]",344,size_matched,3,7,0,0.8984001319478806
+CASE_0301,EXP_011,explanation,4,0,1,False,0,"[0.9985674619674683, 0.0014325365191325545]",344,size_matched,3,7,0,0.8984001319478806
+CASE_0661,CT_011,multi_entity_context_tracking,4,0,1,False,1,"[0.00029595711384899914, 0.9997040629386902]",344,size_matched,3,7,0,0.8984001319478806

@@ -1,0 +1,10 @@
+{
+  "phase": "CPU",
+  "status": "complete",
+  "expected_experiments": 36,
+  "input_hashes": {
+    "P2_FINAL_SENIOR_ADJUDICATED_GOLD_v1.0.xlsx": "ccc910b7bafbfa9607e93ef2eba8605f56f7ed87460ef74892d4877c7db4de65",
+    "P2_CPU_Baselines_v1.0.xlsx": "4502e71bd6d1b6d2941b0b10650caaa433d7188bf958017d2fc646d328a31163"
+  },
+  "report_version": "memory_safe_offload_v1"
+}

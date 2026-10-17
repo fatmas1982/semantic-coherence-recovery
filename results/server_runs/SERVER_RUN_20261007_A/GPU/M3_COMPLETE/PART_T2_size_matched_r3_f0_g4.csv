@@ -1,0 +1,25 @@
+Case_ID,Prompt_ID,Task_Type,Fold,Generator_Stratum,y_true,Human_Easy,M3_dual_pred,M3_dual_probs,train_n,variant,repeat,selected_epochs,inner_dev_fold,best_inner_dev_macro_f1
+CASE_0053,SUM_009,summarisation,0,4,1,True,1,"[0.43913090229034424, 0.5608690977096558]",283,size_matched,3,3,1,0.71875
+CASE_0065,SUM_011,summarisation,0,4,1,True,1,"[0.40406644344329834, 0.5959335565567017]",283,size_matched,3,3,1,0.71875
+CASE_0071,SUM_012,summarisation,0,4,1,True,1,"[0.3246634900569916, 0.675336480140686]",283,size_matched,3,3,1,0.71875
+CASE_0089,SUM_015,summarisation,0,4,1,True,1,"[0.18952107429504395, 0.8104788661003113]",283,size_matched,3,3,1,0.71875
+CASE_0155,QA_006,question_answering,0,4,1,True,1,"[0.3486451804637909, 0.6513549089431763]",283,size_matched,3,3,1,0.71875
+CASE_0197,QA_013,question_answering,0,4,1,True,1,"[0.13939638435840607, 0.8606036305427551]",283,size_matched,3,3,1,0.71875
+CASE_0215,QA_016,question_answering,0,4,1,True,1,"[0.21239535510540009, 0.7876046895980835]",283,size_matched,3,3,1,0.71875
+CASE_0233,QA_019,question_answering,0,4,1,True,1,"[0.11476478725671768, 0.8852352499961853]",283,size_matched,3,3,1,0.71875
+CASE_0245,EXP_001,explanation,0,4,0,True,0,"[0.8543993234634399, 0.14560063183307648]",283,size_matched,3,3,1,0.71875
+CASE_0293,EXP_009,explanation,0,4,0,False,0,"[0.942081868648529, 0.057918086647987366]",283,size_matched,3,3,1,0.71875
+CASE_0317,EXP_013,explanation,0,4,0,False,0,"[0.7988153100013733, 0.2011847198009491]",283,size_matched,3,3,1,0.71875
+CASE_0353,EXP_019,explanation,0,4,0,False,0,"[0.9032942056655884, 0.09670578688383102]",283,size_matched,3,3,1,0.71875
+CASE_0419,IF_010,instruction_following,0,4,0,True,0,"[0.8413047790527344, 0.15869517624378204]",283,size_matched,3,3,1,0.71875
+CASE_0425,IF_011,instruction_following,0,4,1,False,0,"[0.8116759657859802, 0.1883239597082138]",283,size_matched,3,3,1,0.71875
+CASE_0437,IF_013,instruction_following,0,4,0,False,0,"[0.8587185740470886, 0.14128141105175018]",283,size_matched,3,3,1,0.71875
+CASE_0449,IF_015,instruction_following,0,4,0,True,0,"[0.8563323616981506, 0.14366760849952698]",283,size_matched,3,3,1,0.71875
+CASE_0509,SG_005,source_grounded_generation,0,4,1,True,1,"[0.18713268637657166, 0.8128673434257507]",283,size_matched,3,3,1,0.71875
+CASE_0515,SG_006,source_grounded_generation,0,4,1,True,1,"[0.4746311902999878, 0.5253688097000122]",283,size_matched,3,3,1,0.71875
+CASE_0551,SG_012,source_grounded_generation,0,4,1,True,0,"[0.5739172697067261, 0.4260827898979187]",283,size_matched,3,3,1,0.71875
+CASE_0581,SG_017,source_grounded_generation,0,4,1,False,1,"[0.2501792907714844, 0.7498207092285156]",283,size_matched,3,3,1,0.71875
+CASE_0647,CT_008,multi_entity_context_tracking,0,4,1,True,0,"[0.5728721618652344, 0.427127867937088]",283,size_matched,3,3,1,0.71875
+CASE_0683,CT_014,multi_entity_context_tracking,0,4,1,True,0,"[0.5820159912109375, 0.4179840087890625]",283,size_matched,3,3,1,0.71875
+CASE_0689,CT_015,multi_entity_context_tracking,0,4,1,True,0,"[0.819604754447937, 0.18039526045322418]",283,size_matched,3,3,1,0.71875
+CASE_0719,CT_020,multi_entity_context_tracking,0,4,1,False,0,"[0.5185461640357971, 0.4814538359642029]",283,size_matched,3,3,1,0.71875
