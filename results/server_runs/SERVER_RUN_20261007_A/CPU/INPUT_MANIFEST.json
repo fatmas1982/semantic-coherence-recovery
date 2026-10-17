@@ -1,0 +1,14 @@
+{
+  "gold_sha256": "ccc910b7bafbfa9607e93ef2eba8605f56f7ed87460ef74892d4877c7db4de65",
+  "base_sha256": "4502e71bd6d1b6d2941b0b10650caaa433d7188bf958017d2fc646d328a31163",
+  "repository_commit": "68cf52f68d5383f5b6666f49ca64bc6a58f86276",
+  "expected_n": {
+    "T1": 720,
+    "T2": 474,
+    "T3": 460,
+    "T4": 474
+  },
+  "device": "CPU",
+  "sklearn": "1.9.1",
+  "python": "3.12.3"
+}

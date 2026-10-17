@@ -1,0 +1,90 @@
+{
+  "phase": "CPU",
+  "experiment": "M1_T4_dual_r0_C",
+  "target": "T4",
+  "expected_n": 474,
+  "n": 474,
+  "status": "complete",
+  "analysis_timing": "post-hoc",
+  "config": {
+    "input_hashes": {
+      "P2_FINAL_SENIOR_ADJUDICATED_GOLD_v1.0.xlsx": "ccc910b7bafbfa9607e93ef2eba8605f56f7ed87460ef74892d4877c7db4de65",
+      "P2_CPU_Baselines_v1.0.xlsx": "4502e71bd6d1b6d2941b0b10650caaa433d7188bf958017d2fc646d328a31163"
+    },
+    "repeats": 5,
+    "protocol": "M1_complete_dual_and_size_matched_v1",
+    "sklearn": "1.9.1",
+    "repository_commit": "68cf52f68d5383f5b6666f49ca64bc6a58f86276",
+    "condition": "C",
+    "seed": 20260908,
+    "model": "TF-IDF + balanced LinearSVC",
+    "ngram_range": [
+      1,
+      2
+    ],
+    "min_df": 2,
+    "max_df": 0.98,
+    "max_features": 40000,
+    "sublinear_tf": true,
+    "svc_C": 1.0,
+    "random_state": 20260908,
+    "sampling_seed_scheme": "SHA256(target|fold|generator|repeat|20260928)"
+  },
+  "input_hashes": {
+    "P2_FINAL_SENIOR_ADJUDICATED_GOLD_v1.0.xlsx": "ccc910b7bafbfa9607e93ef2eba8605f56f7ed87460ef74892d4877c7db4de65",
+    "P2_CPU_Baselines_v1.0.xlsx": "4502e71bd6d1b6d2941b0b10650caaa433d7188bf958017d2fc646d328a31163"
+  },
+  "prediction_files_sha256": {
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_dual_r0_f0_g0.csv": "237de4becb1adfc9907850d3b5264375547302ab7de6cd81d5f51ac73b637693",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_dual_r0_f0_g1.csv": "af5e7143e3883337267091df3d3e526b0a19acdd5cf70291503368a8bf421ae3",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_dual_r0_f0_g2.csv": "2e0b3a1bb5ff9ee5bd108a31d2f5a9dfcd8ea3aa89ea474d00f80f29d7f17ed1",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_dual_r0_f0_g3.csv": "d9d0b1d6895ca97d59f0ab0d99550cdaa5e3bf79b71d7fabe232e868745dd88a",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_dual_r0_f0_g4.csv": "4921bec75dbd54a5659a2e84bf824fdcf0879bb0c2863f44d352f6e6a2fe3695",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_dual_r0_f0_g5.csv": "215fe001ecb341ca1f76baf38565cc7934c40a93ef7dc2ef9cd672ef1dad5e82",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_dual_r0_f1_g0.csv": "c0b6b92508bd3ba6962ccca892ad5673bcfd6438b2b57c44f6c9a84cc4435d1d",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_dual_r0_f1_g1.csv": "3e483c838fbe6d027823bf7e60a231a59d233fd3f4d568c830fc05c6a77dd7f7",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_dual_r0_f1_g2.csv": "4428e3b4a69fee5449b684457fcc90b5d3bee90509812f800835d53cd7e92d48",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_dual_r0_f1_g3.csv": "80536440ba3e43678a181d396606790381e9afec056c438189d0d16bb7efa74f",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_dual_r0_f1_g4.csv": "7160f29157613f4251184eccd40470554011e48b94f60c2a1711a689749ddbf1",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_dual_r0_f1_g5.csv": "ec24d40987a915651228d26939beab5c8a95f12e31dd415c62d13e59c875d53a",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_dual_r0_f2_g0.csv": "f9ce437379af23d169026f467c0c13e2a7e66590c5b51a489e9516616d215003",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_dual_r0_f2_g1.csv": "6041018ef449b028599b29968b6f7b5c740bbe17c57543c4cd685484a1f16f13",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_dual_r0_f2_g2.csv": "10054ca53305f9f4791238e6539ee3a7b219736e342f6c5076a8ed3f7b1909bf",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_dual_r0_f2_g3.csv": "788f400bb518643dfbc7b7822f05335d787351efbb5a70b129071801e15c3821",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_dual_r0_f2_g4.csv": "2895648e1e631b0715cb36408b5705e0a92a1068be068ae138906c2888a11e0d",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_dual_r0_f2_g5.csv": "09b3a047e64ba31790ef81b049cdefa31c3961c3b6382a2b32094a8a578b83c9",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_dual_r0_f3_g0.csv": "59a80d34dee07892b40b0c2ba146382715100a1e3e1c89f65066b95ab4e3f9a6",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_dual_r0_f3_g1.csv": "70366bf436ba616245cab685ac7bb4b10caebbf4e3d311537b300d00e2ae9ee7",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_dual_r0_f3_g2.csv": "8588a140b2f2ef58a0f9890a30ab948eac1906e27e5d358fe85be86b5aad4149",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_dual_r0_f3_g3.csv": "5b14f09791501ae5a69b76b6037a1acb9b1c1f5e6d11947f20b670d745714981",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_dual_r0_f3_g4.csv": "2fb7ab4774a0732690def1e627a4b669ba5f6977b681e16c213d5df7e244ef52",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_dual_r0_f3_g5.csv": "38f1ce0ce98f2eb0e19d123cac0c006f05dc46a5fe498d3c88606a4108892a0b",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_dual_r0_f4_g0.csv": "70f7b2c94148c954341dc3bafd4c7b2595785d46ec7a6751f0aa42f0b1d595e5",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_dual_r0_f4_g1.csv": "4934fabc2434e717f8a13fdae23f258a7a2850cf6aeb1bd29e7e5403c0cf80c0",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_dual_r0_f4_g2.csv": "007a3f1ee620697d515cdc0801f98005b61908481db75600cecbbeee9c32eb56",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_dual_r0_f4_g3.csv": "f11d3562e6fea073f924d26c0090778c0ed8e136a57aaefdfa50c00f1585e22f",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_dual_r0_f4_g4.csv": "1649df0830fa95f10906867f830236502da4a788c58d6daabb2440118a896b95",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_dual_r0_f4_g5.csv": "5bd20c014012c06d8fcacb02f2721030ba2e709dc32921f10b38ca206b778b28",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/RUN_CONFIG.json": "14dfafd42234294211ebee3dc6028831e20aab445d1bc013a114d46f4b3fcdd2"
+  },
+  "signature": "8e2bfa29c0d6d6d381df290051567a823ea08d6ff4876fdb0cd5cba00ac262cb",
+  "report_version": "memory_safe_offload_v1",
+  "bootstrap_reps": 2000,
+  "bootstrap_seed": 20260928,
+  "bootstrap_unit": "task-stratified Prompt_ID clusters",
+  "confidence_interval": "percentile 95%; descriptive",
+  "generator_registry": {
+    "M01": "Qwen/Qwen3-0.6B",
+    "M02": "google/flan-t5-base",
+    "M03": "allenai/OLMo-2-0425-1B-Instruct",
+    "M04": "state-spaces/mamba-370m-hf",
+    "M05": "RWKV/rwkv-4-world-430m",
+    "M06": "tiiuae/Falcon-H1-0.5B-Instruct"
+  },
+  "label_map": {
+    "A": 1,
+    "B": 2,
+    "C": 3
+  },
+  "rubric": "The case is already known to contain a failure. Judge functional severity, not confidence.\nA = severity 1 (Minor): localized disruption with limited effect on the main answer.\nB = severity 2 (Moderate): materially weakens an important task-relevant relation or component.\nC = severity 3 (Severe): undermines the main answer, reverses meaning, contradicts the prompt/source, or makes the answer unreliable for the task.\nChoose only A, B, or C."
+}

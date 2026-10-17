@@ -1,0 +1,7 @@
+Case_ID,Prompt_ID,Task_Type,Fold,Generator_Stratum,y_true,Human_Easy,M1_pred,train_n,variant,repeat
+CASE_0099,SUM_017,summarisation,3,2,0,False,1,332,size_matched,2
+CASE_0123,QA_001,question_answering,3,2,1,False,1,332,size_matched,2
+CASE_0279,EXP_007,explanation,3,2,0,False,0,332,size_matched,2
+CASE_0567,SG_015,source_grounded_generation,3,2,0,False,1,332,size_matched,2
+CASE_0627,CT_005,multi_entity_context_tracking,3,2,1,True,1,332,size_matched,2
+CASE_0669,CT_012,multi_entity_context_tracking,3,2,1,True,1,332,size_matched,2

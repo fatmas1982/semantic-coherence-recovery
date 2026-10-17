@@ -1,0 +1,10 @@
+Case_ID,Prompt_ID,Task_Type,Fold,Generator_Stratum,y_true,Human_Easy,M3_dual_pred,M3_dual_probs,train_n,variant,repeat,selected_epochs,inner_dev_fold,best_inner_dev_macro_f1
+CASE_0201,QA_014,question_answering,4,2,1,True,1,"[0.12678517401218414, 0.873214840888977]",333,size_matched,1,4,0,0.8524287763886043
+CASE_0255,EXP_003,explanation,4,2,0,True,0,"[0.9927672147750854, 0.007232763804495335]",333,size_matched,1,4,0,0.8524287763886043
+CASE_0261,EXP_004,explanation,4,2,0,False,0,"[0.7201715111732483, 0.2798284888267517]",333,size_matched,1,4,0,0.8524287763886043
+CASE_0285,EXP_008,explanation,4,2,0,False,0,"[0.675550639629364, 0.32444941997528076]",333,size_matched,1,4,0,0.8524287763886043
+CASE_0369,IF_002,instruction_following,4,2,0,False,1,"[0.34510529041290283, 0.6548947095870972]",333,size_matched,1,4,0,0.8524287763886043
+CASE_0405,IF_008,instruction_following,4,2,0,True,1,"[0.3805287182331085, 0.6194712519645691]",333,size_matched,1,4,0,0.8524287763886043
+CASE_0525,SG_008,source_grounded_generation,4,2,1,False,1,"[0.20275871455669403, 0.7972412705421448]",333,size_matched,1,4,0,0.8524287763886043
+CASE_0609,CT_002,multi_entity_context_tracking,4,2,1,False,1,"[0.02822098694741726, 0.9717789888381958]",333,size_matched,1,4,0,0.8524287763886043
+CASE_0663,CT_011,multi_entity_context_tracking,4,2,1,False,1,"[0.017045317217707634, 0.9829546809196472]",333,size_matched,1,4,0,0.8524287763886043

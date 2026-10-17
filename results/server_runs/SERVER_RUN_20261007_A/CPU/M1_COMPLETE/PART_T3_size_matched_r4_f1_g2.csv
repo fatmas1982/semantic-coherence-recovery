@@ -1,0 +1,13 @@
+Case_ID,Prompt_ID,Task_Type,Fold,Generator_Stratum,y_true,Human_Easy,M1_pred,train_n,variant,repeat
+CASE_0039,SUM_007,summarisation,1,2,0,False,1,326,size_matched,4
+CASE_0075,SUM_013,summarisation,1,2,0,False,1,326,size_matched,4
+CASE_0081,SUM_014,summarisation,1,2,0,True,0,326,size_matched,4
+CASE_0141,QA_004,question_answering,1,2,1,True,1,326,size_matched,4
+CASE_0225,QA_018,question_answering,1,2,1,True,1,326,size_matched,4
+CASE_0237,QA_020,question_answering,1,2,0,True,1,326,size_matched,4
+CASE_0267,EXP_005,explanation,1,2,0,False,1,326,size_matched,4
+CASE_0339,EXP_017,explanation,1,2,0,True,0,326,size_matched,4
+CASE_0399,IF_007,instruction_following,1,2,0,False,0,326,size_matched,4
+CASE_0411,IF_009,instruction_following,1,2,0,True,0,326,size_matched,4
+CASE_0453,IF_016,instruction_following,1,2,0,True,0,326,size_matched,4
+CASE_0495,SG_003,source_grounded_generation,1,2,1,False,0,326,size_matched,4
