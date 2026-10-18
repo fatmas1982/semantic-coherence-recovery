@@ -248,3 +248,26 @@ python code/annotation/06_human_reliability.py \
 The blank `completed_annotation_sheet_A*` files inside the early generation archive are templates; do not mistake them for the historical locked ratings. The actual full historical workbooks are released under `data/annotation/historical_full_csv/`.
 
 For paper-result verification, the shortest route is frozen outputs → full/locked human provenance → FINAL GOLD → archived baseline/M3/M4 OOF → reported metrics. Fresh generation and reconstructed M0–M2 retraining are optional sensitivity/reconstruction paths, not prerequisites for reproducing the reported numbers.
+
+
+## D. October server-run transport archive (branch-only addition, 2026-10-17)
+
+An additional, independently namespaced operator-supplied run archive was pushed to the non-default branch `publication/server-run-20261007-a` in commit `d9f97ae`:
+
+- `results/server_runs/SERVER_RUN_20261007_A/CPU/`
+- `results/server_runs/SERVER_RUN_20261007_A/GPU/`
+- `results/server_runs/SERVER_RUN_20261007_A/EXPORTS/`
+- `results/server_runs/SERVER_RUN_20261007_A/SHA256_MANIFEST.csv`
+- `results/server_runs/SERVER_RUN_20261007_A/README.md`
+
+The `LOCAL_WORK` source directory was intentionally **not included**, pending review. These additions do not alter historical archives, frozen reportable OOF, the public reference analyses, or the immutable 86-part transport bundle. Fetch or check out this named branch to see the archive; it must not be treated as present in `main` until an independently reviewed merge occurs.
+
+### Verify archived file bytes
+
+`SHA256_MANIFEST.csv` contains `Path`, `Bytes`, and `SHA256` columns (4,578 records). Paths are relative to the server-run directory. Recompute a SHA-256 for each checked-out file and compare it with the manifest. For strict validation of staged or committed Git bytes, hash each underlying Git blob's raw byte stream, rather than a text-decoded PowerShell pipeline; Git's line-ending filters can otherwise obscure byte-level differences. Compare manifest row counts, completeness of expected paths, and mismatches separately.
+
+The uploader's recorded verification before push reported 4,578 matching source-copy hashes and 4,578 matching raw staged blob SHA-256 hashes (0 missing, 0 mismatched). The 70 top-level ZIPs and 68 nested ZIPs were reported readable; basic token-pattern checks reported no matches in 4,509 direct text files, 2,766 outer ZIP text entries, and 2,756 nested ZIP text entries. **These are operator-run integrity and limited pattern-screen outputs**, not a fully independent replication or complete security clearance. In particular, the archival contents have not been established to be anonymized, publication-authorized, or free from all sensitive data.
+
+### Scientific replay boundary
+
+Presence and binary integrity do not determine whether M1–M4 runs completed. Before mapping any value from this archive into paper tables, verify protocol identity, model/checkpoint precision, held-out folds, number of repeats, condition and target labels, unique case populations, row counts, output-contract compliance, and run errors. Distinguish completed from interrupted jobs; `ImportError` was observed in an M4 worker log during operator review. Do not silently supersede existing frozen/reportable analyses. The experiment-to-paper reconciliation and final independent rerun remain open.

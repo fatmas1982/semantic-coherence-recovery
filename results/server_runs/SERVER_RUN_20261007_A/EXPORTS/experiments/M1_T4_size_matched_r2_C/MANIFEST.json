@@ -1,0 +1,90 @@
+{
+  "phase": "CPU",
+  "experiment": "M1_T4_size_matched_r2_C",
+  "target": "T4",
+  "expected_n": 474,
+  "n": 474,
+  "status": "complete",
+  "analysis_timing": "post-hoc",
+  "config": {
+    "input_hashes": {
+      "P2_FINAL_SENIOR_ADJUDICATED_GOLD_v1.0.xlsx": "ccc910b7bafbfa9607e93ef2eba8605f56f7ed87460ef74892d4877c7db4de65",
+      "P2_CPU_Baselines_v1.0.xlsx": "4502e71bd6d1b6d2941b0b10650caaa433d7188bf958017d2fc646d328a31163"
+    },
+    "repeats": 5,
+    "protocol": "M1_complete_dual_and_size_matched_v1",
+    "sklearn": "1.9.1",
+    "repository_commit": "68cf52f68d5383f5b6666f49ca64bc6a58f86276",
+    "condition": "C",
+    "seed": 20260908,
+    "model": "TF-IDF + balanced LinearSVC",
+    "ngram_range": [
+      1,
+      2
+    ],
+    "min_df": 2,
+    "max_df": 0.98,
+    "max_features": 40000,
+    "sublinear_tf": true,
+    "svc_C": 1.0,
+    "random_state": 20260908,
+    "sampling_seed_scheme": "SHA256(target|fold|generator|repeat|20260928)"
+  },
+  "input_hashes": {
+    "P2_FINAL_SENIOR_ADJUDICATED_GOLD_v1.0.xlsx": "ccc910b7bafbfa9607e93ef2eba8605f56f7ed87460ef74892d4877c7db4de65",
+    "P2_CPU_Baselines_v1.0.xlsx": "4502e71bd6d1b6d2941b0b10650caaa433d7188bf958017d2fc646d328a31163"
+  },
+  "prediction_files_sha256": {
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_size_matched_r2_f0_g0.csv": "e4c667aa410697c8303bb65f2062951efe6658479dd45737b2d25f0c5e48cfdd",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_size_matched_r2_f0_g1.csv": "d33cba2e512fcc69fdd822e3bc4a018e877adac98a5346283065f6b934cb9033",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_size_matched_r2_f0_g2.csv": "c1160e2589aadc882316097cbe780be9d1708e555df525ec419668d08fe26f16",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_size_matched_r2_f0_g3.csv": "b4dc9d8840cbaf571903e285c6151002b159166d910d555e79c6aec29808c968",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_size_matched_r2_f0_g4.csv": "478152b524adbf0e06cf66ecae6e0ecae72e7a08fceb908b1e1f5f5e9ac5d7e5",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_size_matched_r2_f0_g5.csv": "912f0f5e708040e20b5a78f374c9a73497cd4cc77a7aae135f9195fc3ac8bddc",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_size_matched_r2_f1_g0.csv": "577cc40ce5b2b373bcd4a095833bef748d2c08c5c500a9101abbbbe3c096c252",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_size_matched_r2_f1_g1.csv": "05ce8f37b0b6e8b7419850b252586e8df94245667e503f0c71f62c442815e15d",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_size_matched_r2_f1_g2.csv": "f722f7d9baf086764b025f84cdbc52a2cd48f7c3cb29739f90094008ffcd6312",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_size_matched_r2_f1_g3.csv": "7f414ace422d3972750d6c32fe23d99dc76153475b32d8529619ddf872f3fb8d",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_size_matched_r2_f1_g4.csv": "198be719e6cf54f3f0902473a6f6a89232d26c2bb57c557940b8605b8655c2d6",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_size_matched_r2_f1_g5.csv": "57da84b74ec3b4007b918821288450ecdfd97fe9eb7877075f973f65c5a07b41",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_size_matched_r2_f2_g0.csv": "ada7c53fe4678f4d3bf2df03285cb60ad46c11946eefae81bc44354d24c0dfe1",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_size_matched_r2_f2_g1.csv": "c4daedd5033540d43a05159fad3f766f66cc4b0ab8935c1427ac06545bab791a",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_size_matched_r2_f2_g2.csv": "98a36e7c6ca7a15cc56d87907b9a35b95faf8b86fac8c3a5266bb57a9e67ed82",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_size_matched_r2_f2_g3.csv": "537f047f6b5a8bf07d22504f1826ac77bf13bd959a6064f0d28579c59ccb3822",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_size_matched_r2_f2_g4.csv": "6d7fcdc52557013486022b9aa6444f92789110ee4b33ac59b250df17d7af5fd0",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_size_matched_r2_f2_g5.csv": "56f0e86226de8acefb421ed3a34dc61ec468041b977a1378129a8d5087a0e917",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_size_matched_r2_f3_g0.csv": "10d2d36774f5721fe0e5487ef20c911a647fe5be1501f0624fa1fc42814d3065",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_size_matched_r2_f3_g1.csv": "3cc004e716b8d61752d8f5af4a47a0c8ce56d8409c059dc264b35ca7d68172a2",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_size_matched_r2_f3_g2.csv": "d8f98fca6e2739bd1348579103ddebf541712cd56368abf913c645aca2feda7d",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_size_matched_r2_f3_g3.csv": "9befb1868cfa58155a9abb4d27fa38bb5f092097f34c8428c307bedbda48a2f3",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_size_matched_r2_f3_g4.csv": "2dbe90d32ee6a94429944db2914ce9b47e7723a7e84aed088ad5f12a734a068f",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_size_matched_r2_f3_g5.csv": "6f6cb9559fcd3797cef4ca21af55a1c3de7d99c5d20c63ad74c2c211a6887851",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_size_matched_r2_f4_g0.csv": "38e8dfd34dd965a1d141d0bca4be1692b91030e3849d1dee3a9969e76799c88c",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_size_matched_r2_f4_g1.csv": "dff98942ce309e648dffa6e10d2faf7f695f2c89a2432ebf72eac9d1f190145e",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_size_matched_r2_f4_g2.csv": "fedc17f21cadd16637592866621a1c5e5f5b845cf7e02e506e53519c935e36db",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_size_matched_r2_f4_g3.csv": "2bf0893be910b14997a82d19724b76d0f055cdfd6f6b8485868ecdf174da4029",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_size_matched_r2_f4_g4.csv": "1e77c1ddde3490d263d97ab62685c0d693b1023e08cc96c051d9c32819c60a37",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/PART_T4_size_matched_r2_f4_g5.csv": "b2a1c01d7491a1a9bb36179fb1d323db975665e2b2fb771d51e104051d8fe9ce",
+    "results/SERVER_RUN_20261007_A/CPU/M1_COMPLETE/RUN_CONFIG.json": "14dfafd42234294211ebee3dc6028831e20aab445d1bc013a114d46f4b3fcdd2"
+  },
+  "signature": "58645b82d77982e875fc293644e45af5b09e641aea65b05af0a2099f4979fde1",
+  "report_version": "memory_safe_offload_v1",
+  "bootstrap_reps": 2000,
+  "bootstrap_seed": 20260928,
+  "bootstrap_unit": "task-stratified Prompt_ID clusters",
+  "confidence_interval": "percentile 95%; descriptive",
+  "generator_registry": {
+    "M01": "Qwen/Qwen3-0.6B",
+    "M02": "google/flan-t5-base",
+    "M03": "allenai/OLMo-2-0425-1B-Instruct",
+    "M04": "state-spaces/mamba-370m-hf",
+    "M05": "RWKV/rwkv-4-world-430m",
+    "M06": "tiiuae/Falcon-H1-0.5B-Instruct"
+  },
+  "label_map": {
+    "A": 1,
+    "B": 2,
+    "C": 3
+  },
+  "rubric": "The case is already known to contain a failure. Judge functional severity, not confidence.\nA = severity 1 (Minor): localized disruption with limited effect on the main answer.\nB = severity 2 (Moderate): materially weakens an important task-relevant relation or component.\nC = severity 3 (Severe): undermines the main answer, reverses meaning, contradicts the prompt/source, or makes the answer unreliable for the task.\nChoose only A, B, or C."
+}

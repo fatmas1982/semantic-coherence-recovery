@@ -177,3 +177,12 @@ Users remain responsible for complying with upstream model/checkpoint terms when
 ## Final-results source precedence (2026-10-14)
 
 For exact experiments archived in the author-designated `results.rar`, those archived outputs supersede older duplicate reports **only when the complete experiment identity matches**. Other experiments—including E1/E2 sensitivity and human–judge analyses—remain unchanged. This rule does not imply that `results.rar` or the latest `.docx` manuscripts have been uploaded to GitHub. See [the final-results provenance policy](docs/FINAL_RESULT_SCOPE_POLICY_20261014.md) and [scope matrix](docs/FINAL_RESULT_SCOPE_MATRIX_20261014.csv).
+
+
+## Dedicated October 2026 server-run archive (published branch, not merged)
+
+The `SERVER_RUN_20261007_A` CPU/GPU/EXPORTS archive was uploaded to the dedicated branch `publication/server-run-20261007-a` at initial commit `d9f97ae`. It contains 4,578 data files plus a per-file SHA-256 manifest and a run-specific README; `LOCAL_WORK` was deliberately excluded pending review. [Browse the uploaded archive](https://github.com/fatmas1982/semantic-coherence-recovery/tree/publication/server-run-20261007-a/results/server_runs/SERVER_RUN_20261007_A).
+
+Operator-run local verification reported zero mismatches across 4,578 raw staged Git blobs and SHA-256 manifest entries; 70 outer and 68 nested ZIP archives were readable; limited text-based credential-pattern scans returned zero flagged files. Details, exact counts, and limitations appear in [the archive README](results/server_runs/SERVER_RUN_20261007_A/README.md) and [the publication audit](docs/PUBLICATION_REPRODUCIBILITY_AUDIT.md).
+
+**Important:** This is verified archival transport **only**. It does not establish successful completion of all M1–M4 jobs, exact scientific reproduction, completeness of output coverage, clearance of every private/sensitive data type, coauthor approval, or readiness to merge to `main`. The older statement above that October FP16 CPU/GPU archives have not all been uploaded refers to completeness of the broader release; do not interpret this branch archive as closing every outstanding artifact gap. No frozen/reference estimate is silently replaced by these newer files.

@@ -1,0 +1,62 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:03,  1.02it/s]
+Loading checkpoint shards:  40%|████      | 2/5 [00:02<00:03,  1.05s/it]
+Loading checkpoint shards:  60%|██████    | 3/5 [00:02<00:01,  1.16it/s]
+Loading checkpoint shards: 100%|██████████| 5/5 [00:02<00:00,  1.83it/s]
+Some parameters are on the meta device because they were offloaded to the disk.
+LOADED unquantized FP16 Qwen/Qwen3-8B {'model.embed_tokens': '0', 'model.layers.0': '0', 'model.layers.1': '0', 'model.layers.2': '0', 'model.layers.3': '0', 'model.layers.4': '0', 'model.layers.5': '0', 'model.layers.6': '0', 'model.layers.7': '0', 'model.layers.8': '0', 'model.layers.9': '0', 'model.layers.10': '0', 'model.layers.11': '0', 'model.layers.12': '0', 'model.layers.13': '0', 'model.layers.14': '0', 'model.layers.15': '0', 'model.layers.16': '0', 'model.layers.17': '0', 'model.layers.18': 'disk', 'model.layers.19': 'disk', 'model.layers.20': 'disk', 'model.layers.21': 'disk', 'model.layers.22': 'disk', 'model.layers.23': 'disk', 'model.layers.24': 'disk', 'model.layers.25': 'disk', 'model.layers.26': 'disk', 'model.layers.27': 'disk', 'model.layers.28': 'disk', 'model.layers.29': 'disk', 'model.layers.30': 'disk', 'model.layers.31': 'disk', 'model.layers.32': 'disk', 'model.layers.33': 'disk', 'model.layers.34': 'disk', 'model.layers.35': 'disk', 'model.norm': 'disk', 'model.rotary_emb': 'disk', 'lm_head': 'disk'}
+SAVED qwen_fp16_offload T2 C 270 / 474
+Traceback (most recent call last):
+  File "/home/users/fatma/P2/P2/results/SERVER_RUN_20261007_A/LOCAL_WORK/p2_memory_safe/judge_worker.py", line 208, in <module>
+    run_judge_target(cfg,target,condition,batch_size=1)
+  File "/home/users/fatma/P2/P2/results/SERVER_RUN_20261007_A/LOCAL_WORK/p2_memory_safe/judge_worker.py", line 164, in run_judge_target
+    score=score_batch(texts,codes)
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/fatma/P2/P2/results/SERVER_RUN_20261007_A/LOCAL_WORK/p2_memory_safe/judge_worker.py", line 142, in score_batch
+    logits=model(**enc,**kwargs).logits[:,-1,:].float()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/accelerate/hooks.py", line 192, in new_forward
+    output = module._old_forward(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/transformers/utils/generic.py", line 918, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/transformers/models/qwen3/modeling_qwen3.py", line 494, in forward
+    logits = self.lm_head(hidden_states[:, slice_indices, :])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/accelerate/hooks.py", line 187, in new_forward
+    args, kwargs = module._hf_hook.pre_forward(module, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/accelerate/hooks.py", line 50, in wrapper
+    return wrapper._compiled_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py", line 1263, in _fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/accelerate/hooks.py", line 371, in pre_forward
+    value = self.weights_map[name]
+            ~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/accelerate/utils/offload.py", line 127, in __getitem__
+    return self.dataset[f"{self.prefix}{key}"]
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/accelerate/utils/offload.py", line 180, in __getitem__
+    tensor = f.get_tensor(weight_info.get("weight_name", key))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.16 GiB. GPU 0 has a total capacity of 94.97 GiB of which 341.75 MiB is free. Process 1360746 has 550.00 MiB memory in use. Process 1417675 has 15.60 GiB memory in use. Process 1417676 has 32.45 GiB memory in use. Process 1417674 has 37.62 GiB memory in use. Including non-PyTorch memory, this process has 8.29 GiB memory in use. Of the allocated memory 7.64 GiB is allocated by PyTorch, and 12.10 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)

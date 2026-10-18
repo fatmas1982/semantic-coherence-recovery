@@ -1,0 +1,255 @@
+
+Map:   0%|          | 0/360 [00:00<?, ? examples/s]
+Map: 100%|██████████| 360/360 [00:00<00:00, 4263.35 examples/s]
+
+Map:   0%|          | 0/120 [00:00<?, ? examples/s]
+Map: 100%|██████████| 120/120 [00:00<00:00, 4192.14 examples/s]
+Some weights of ModernBertForSequenceClassification were not initialized from the model checkpoint at answerdotai/ModernBERT-base and are newly initialized: ['classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+
+  0%|          | 0/184 [00:00<?, ?it/s]
+  1%|          | 1/184 [00:01<06:02,  1.98s/it]Traceback (most recent call last):
+  File "/home/users/fatma/P2/P2/results/SERVER_RUN_20261007_A/LOCAL_WORK/p2_memory_safe/m3_worker.py", line 188, in <module>
+    result=train_cell(job['target'],job['fold'],job['generator'],job['variant'],job['repeat'])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/fatma/P2/P2/results/SERVER_RUN_20261007_A/LOCAL_WORK/p2_memory_safe/m3_worker.py", line 161, in train_cell
+    trainer.train(); epochs,best_dev=selected_epoch(trainer)
+    ^^^^^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/transformers/trainer.py", line 2325, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/transformers/trainer.py", line 2674, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/transformers/trainer.py", line 4020, in training_step
+    loss = self.compute_loss(model, inputs, num_items_in_batch=num_items_in_batch)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/fatma/P2/P2/results/SERVER_RUN_20261007_A/LOCAL_WORK/p2_memory_safe/m3_worker.py", line 90, in compute_loss
+    labels=inputs.pop('labels'); out=model(**inputs)
+                                     ^^^^^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/accelerate/utils/operations.py", line 943, in forward
+    return model_forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/accelerate/utils/operations.py", line 931, in __call__
+    return convert_to_fp32(self.model_forward(*args, **kwargs))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/torch/amp/autocast_mode.py", line 44, in decorate_autocast
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/transformers/models/modernbert/modeling_modernbert.py", line 1187, in forward
+    outputs = self.model(
+              ^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/transformers/models/modernbert/modeling_modernbert.py", line 869, in forward
+    layer_outputs = encoder_layer(
+                    ^^^^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/transformers/modeling_layers.py", line 94, in __call__
+    return super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/transformers/models/modernbert/modeling_modernbert.py", line 553, in forward
+    self.compiled_mlp(hidden_states)
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py", line 1024, in compile_wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/transformers/models/modernbert/modeling_modernbert.py", line 528, in compiled_mlp
+    @torch.compile(dynamic=True)
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/torch/_dynamo/eval_frame.py", line 1263, in _fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/torch/_functorch/aot_autograd.py", line 1200, in forward
+    return compiled_fn(full_args)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py", line 2298, in __call__
+    return self.compiled_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py", line 566, in runtime_wrapper
+    all_outs = call_func_at_runtime_with_args(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/utils.py", line 138, in call_func_at_runtime_with_args
+    out = normalize_as_list(f(args))
+                            ^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/utils.py", line 105, in g
+    return f(*args)
+           ^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/torch/autograd/function.py", line 596, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py", line 2503, in forward
+    fw_outs = call_func_at_runtime_with_args(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/utils.py", line 138, in call_func_at_runtime_with_args
+    out = normalize_as_list(f(args))
+                            ^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/torch/_functorch/_aot_autograd/runtime_wrappers.py", line 783, in wrapper
+    return compiled_fn(runtime_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/torch/_inductor/output_code.py", line 656, in __call__
+    return self.current_callable(inputs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/users/fatma/research-env/lib/python3.12/site-packages/torch/_inductor/utils.py", line 3401, in run
+    out = model(new_inputs)
+          ^^^^^^^^^^^^^^^^^
+  File "/tmp/torchinductor_fatma/jp/cjpzb6xfzw5x6t4ukzogoaifz7m7wzv4lomkcwovfglu2ybuerf5.py", line 288, in call
+    buf4 = empty_strided_cuda((768, 2304), (1, 768), torch.bfloat16)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 20.00 MiB. GPU 0 has a total capacity of 94.97 GiB of which 7.25 MiB is free. Process 1250781 has 14.79 GiB memory in use. Process 1250779 has 19.39 GiB memory in use. Process 1250780 has 55.67 GiB memory in use. Including non-PyTorch memory, this process has 4.96 GiB memory in use. Of the allocated memory 4.18 GiB is allocated by PyTorch, and 136.36 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+  1%|          | 1/184 [00:03<09:36,  3.15s/it]
+
+Map:   0%|          | 0/360 [00:00<?, ? examples/s]
+Map: 100%|██████████| 360/360 [00:00<00:00, 4786.30 examples/s]
+
+Map:   0%|          | 0/120 [00:00<?, ? examples/s]
+Map: 100%|██████████| 120/120 [00:00<00:00, 4845.73 examples/s]
+Some weights of ModernBertForSequenceClassification were not initialized from the model checkpoint at answerdotai/ModernBERT-base and are newly initialized: ['classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+
+  0%|          | 0/184 [00:00<?, ?it/s]
+  1%|          | 1/184 [00:01<04:04,  1.33s/it]
+  1%|          | 2/184 [00:01<01:51,  1.64it/s]
+  2%|▏         | 4/184 [00:01<00:48,  3.70it/s]
+  3%|▎         | 6/184 [00:01<00:31,  5.67it/s]
+  4%|▍         | 8/184 [00:01<00:22,  7.73it/s]
+  5%|▌         | 10/184 [00:01<00:18,  9.48it/s]
+  7%|▋         | 12/184 [00:02<00:15, 10.91it/s]
+  8%|▊         | 14/184 [00:02<00:14, 12.03it/s]
+  9%|▊         | 16/184 [00:02<00:12, 13.05it/s]
+ 10%|▉         | 18/184 [00:02<00:11, 13.96it/s]
+ 11%|█         | 20/184 [00:02<00:11, 14.33it/s]
+                                                
+{'loss': 1.262, 'grad_norm': 9.152603149414062, 'learning_rate': 1.7934782608695654e-05, 'epoch': 0.89}
+
+ 11%|█         | 20/184 [00:02<00:11, 14.33it/s]
+ 12%|█▏        | 22/184 [00:02<00:11, 14.57it/s]
+
+  0%|          | 0/8 [00:00<?, ?it/s][A
+
+ 88%|████████▊ | 7/8 [00:00<00:00, 65.86it/s][A
+                                                
+
+                                             
+[A{'eval_loss': 0.6079928278923035, 'eval_macro_f1': 0.6419437340153453, 'eval_runtime': 0.2925, 'eval_samples_per_second': 410.196, 'eval_steps_per_second': 27.346, 'epoch': 1.0}
+
+ 12%|█▎        | 23/184 [00:03<00:11, 14.57it/s]
+
+100%|██████████| 8/8 [00:00<00:00, 65.86it/s][A
+
+                                             [A
+ 13%|█▎        | 24/184 [00:03<00:36,  4.40it/s]
+ 14%|█▍        | 26/184 [00:04<00:28,  5.62it/s]
+ 15%|█▌        | 28/184 [00:04<00:22,  6.96it/s]
+ 16%|█▋        | 30/184 [00:04<00:18,  8.32it/s]
+ 17%|█▋        | 32/184 [00:04<00:15,  9.69it/s]
+ 18%|█▊        | 34/184 [00:04<00:13, 10.91it/s]
+ 20%|█▉        | 36/184 [00:04<00:12, 12.02it/s]
+ 21%|██        | 38/184 [00:04<00:11, 12.89it/s]
+ 22%|██▏       | 40/184 [00:04<00:10, 13.94it/s]
+                                                
+{'loss': 0.9537, 'grad_norm': 19.587656021118164, 'learning_rate': 1.576086956521739e-05, 'epoch': 1.76}
+
+ 22%|██▏       | 40/184 [00:04<00:10, 13.94it/s]
+ 23%|██▎       | 42/184 [00:05<00:09, 14.40it/s]
+ 24%|██▍       | 44/184 [00:05<00:09, 14.67it/s]
+
+  0%|          | 0/8 [00:00<?, ?it/s][A
+
+ 88%|████████▊ | 7/8 [00:00<00:00, 66.49it/s][A
+                                                
+
+                                             
+[A{'eval_loss': 0.583153486251831, 'eval_macro_f1': 0.6205806266168439, 'eval_runtime': 0.1367, 'eval_samples_per_second': 877.942, 'eval_steps_per_second': 58.529, 'epoch': 2.0}
+
+ 25%|██▌       | 46/184 [00:05<00:09, 14.67it/s]
+
+100%|██████████| 8/8 [00:00<00:00, 66.49it/s][A
+
+                                             [A
+ 26%|██▌       | 47/184 [00:06<00:25,  5.44it/s]
+ 27%|██▋       | 49/184 [00:06<00:20,  6.62it/s]
+ 28%|██▊       | 51/184 [00:06<00:16,  7.87it/s]
+ 29%|██▉       | 53/184 [00:06<00:14,  9.17it/s]
+ 30%|██▉       | 55/184 [00:06<00:12, 10.40it/s]
+ 31%|███       | 57/184 [00:06<00:10, 11.55it/s]
+ 32%|███▏      | 59/184 [00:07<00:09, 12.53it/s]
+                                                
+{'loss': 0.7969, 'grad_norm': 11.028698921203613, 'learning_rate': 1.3586956521739133e-05, 'epoch': 2.62}
+
+ 33%|███▎      | 60/184 [00:07<00:09, 12.53it/s]
+ 33%|███▎      | 61/184 [00:07<00:09, 13.18it/s]
+ 34%|███▍      | 63/184 [00:07<00:08, 13.81it/s]
+ 35%|███▌      | 65/184 [00:07<00:08, 14.26it/s]
+ 36%|███▋      | 67/184 [00:07<00:08, 14.59it/s]
+
+  0%|          | 0/8 [00:00<?, ?it/s][A
+
+ 88%|████████▊ | 7/8 [00:00<00:00, 66.85it/s][A
+                                                
+
+                                             
+[A{'eval_loss': 0.7856194376945496, 'eval_macro_f1': 0.6266968325791855, 'eval_runtime': 0.1362, 'eval_samples_per_second': 881.209, 'eval_steps_per_second': 58.747, 'epoch': 3.0}
+
+ 38%|███▊      | 69/184 [00:07<00:07, 14.59it/s]
+
+100%|██████████| 8/8 [00:00<00:00, 66.85it/s][A
+
+                                             [A
+                                                
+{'train_runtime': 8.6654, 'train_samples_per_second': 332.356, 'train_steps_per_second': 21.234, 'train_loss': 0.9601182246553726, 'epoch': 3.0}
+
+ 38%|███▊      | 69/184 [00:08<00:07, 14.59it/s]
+ 38%|███▊      | 69/184 [00:08<00:14,  7.94it/s]
+
+Map:   0%|          | 0/480 [00:00<?, ? examples/s]
+Map: 100%|██████████| 480/480 [00:00<00:00, 5142.45 examples/s]
+
+Map:   0%|          | 0/24 [00:00<?, ? examples/s]
+Map: 100%|██████████| 24/24 [00:00<00:00, 6047.66 examples/s]
+Some weights of ModernBertForSequenceClassification were not initialized from the model checkpoint at answerdotai/ModernBERT-base and are newly initialized: ['classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+
+  0%|          | 0/30 [00:00<?, ?it/s]
+  7%|▋         | 2/30 [00:00<00:01, 14.09it/s]
+ 13%|█▎        | 4/30 [00:00<00:01, 15.18it/s]
+ 20%|██        | 6/30 [00:00<00:01, 15.38it/s]
+ 27%|██▋       | 8/30 [00:00<00:01, 15.67it/s]
+ 33%|███▎      | 10/30 [00:00<00:01, 15.68it/s]
+ 40%|████      | 12/30 [00:00<00:01, 15.58it/s]
+ 47%|████▋     | 14/30 [00:00<00:01, 15.41it/s]
+ 53%|█████▎    | 16/30 [00:01<00:00, 15.43it/s]
+ 60%|██████    | 18/30 [00:01<00:00, 15.47it/s]
+ 67%|██████▋   | 20/30 [00:01<00:00, 15.45it/s]
+                                               
+{'loss': 1.3003, 'grad_norm': 23.481863021850586, 'learning_rate': 7.333333333333333e-06, 'epoch': 0.67}
+
+ 67%|██████▋   | 20/30 [00:01<00:00, 15.45it/s]
+ 73%|███████▎  | 22/30 [00:01<00:00, 15.51it/s]
+ 80%|████████  | 24/30 [00:01<00:00, 15.62it/s]
+ 87%|████████▋ | 26/30 [00:01<00:00, 15.60it/s]
+ 93%|█████████▎| 28/30 [00:01<00:00, 15.51it/s]
+100%|██████████| 30/30 [00:01<00:00, 15.56it/s]
+                                               
+{'train_runtime': 1.9403, 'train_samples_per_second': 247.378, 'train_steps_per_second': 15.461, 'train_loss': 1.2272154808044433, 'epoch': 1.0}
+
+100%|██████████| 30/30 [00:01<00:00, 15.56it/s]
+100%|██████████| 30/30 [00:01<00:00, 15.46it/s]
+
+  0%|          | 0/2 [00:00<?, ?it/s]
+100%|██████████| 2/2 [00:00<00:00, 204.86it/s]
+WORKER_M3_SAVED /home/users/fatma/P2/P2/results/SERVER_RUN_20261007_A/GPU/M3_COMPLETE/PART_T1_dual_r0_f0_g1.csv

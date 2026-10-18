@@ -1,0 +1,13 @@
+{
+  "torch": "2.11.0+cu128",
+  "transformers": "4.57.6",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+  "worker_sha256": "d444f2eb6477aac68bcb565b836a0c90348612468a95d1115ff34bcea4b01fa2",
+  "pid": 3629030,
+  "process_isolation": true,
+  "seed": 20260908,
+  "train_batch": 8,
+  "eval_batch": 16,
+  "grad_accum": 2,
+  "max_length": 1024
+}
