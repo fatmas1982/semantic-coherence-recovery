@@ -1,0 +1,31 @@
+name: Verify deterministic E1E2 3000-draw lineage
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'code/analysis/verify_e1e2_3000_reanalysis_20261020.py'
+      - '.github/workflows/verify-e1e2-3000-lineage.yml'
+permissions:
+  contents: read
+jobs:
+  reproduce-archived-3000:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install analysis requirements
+        run: python -m pip install --disable-pip-version-check 'numpy<3' pandas scikit-learn scipy
+      - name: Recompute from frozen paired cases and verify archived 3000
+        run: |
+          python code/validity/reanalyse_e1e2_pairs_2026.py --data-dir data/validity_2026_10 --out /tmp/e1e2_3000_clean --bootstrap-reps 3000 --seed 20261009
+          python code/analysis/verify_e1e2_3000_reanalysis_20261020.py --fresh /tmp/e1e2_3000_clean/E1E2_PAIRED_RECOMPUTED.csv --out e1e2_3000_verification
+      - name: Preserve verification output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e1e2-cleanroom-3000-lineage
+          path: e1e2_3000_verification/
+          retention-days: 30
