@@ -41,6 +41,11 @@ All **20 main and 80 supplement original table cell strings** were compared befo
 | `P2_MAIN_MANUSCRIPT_T1_PROTOCOL_INTEGRATED_20261020.docx` | `96fa7a3272abdeb13573f013fc071e616c8b4543bffda81bbf146ed416f11ee2` |
 | `P2_SUPPLEMENT_T1_PROTOCOL_INTEGRATED_20261020.docx` | `8c2fe5d55b2d720853009140efa2843c7ede414fbb399e73c6e96b203c129dd5` |
 
+
+### Author-copy document validation (executed locally)
+
+The saved 20 October Word copies were checked against their immediately preceding October 20 editions using the same per-table row/cell text comparison in [`code/analysis/verify_t1_integrated_word.py`](../code/analysis/verify_t1_integrated_word.py). The local command returned **`PASS_DOCX_CONTENT_SCOPE_ONLY`**: both original table inventories (20+80) remained unchanged, and three integrated contextual discussion/method/result markers per document were present. Both DOCX files rendered without conversion errors: **36 main pages, 51 supplement pages**; pages surrounding the changed sections were visually inspected. This is an editorial document-integrity check, not a full accessibility or numerical-scientific certification.
+
 ## Correct conclusion and open gate
 
 - **PASS (previous archived audit evidence):** the reason original T1 FP16 and E1/rot0 **input hashes differ** is the one-line-versus-newline rubric presentation, according to the 15 October pinned-source reconstruction.
