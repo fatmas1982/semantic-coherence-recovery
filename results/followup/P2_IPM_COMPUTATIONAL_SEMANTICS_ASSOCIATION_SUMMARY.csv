@@ -1,0 +1,3 @@
+analysis,N_rows,N_prompt_clusters,rows,columns,chi_square_descriptive,cramers_v,bootstrap_ci_low,bootstrap_ci_high,bootstrap_reps,bootstrap_seed,inference_note
+T3 family x grounding status,460,120,2,2,243.888658745,0.728143349,0.674807630,0.775574606,2000,20260919,Descriptive association; no p-value is used because the corpus is purposively constructed.
+Task x mechanism family,720,120,6,4,136.228073831,0.251134531,0.226830271,0.295391977,2000,20260919,Descriptive association; no p-value is used because task allocation and the corpus are purposively constructed.

@@ -1,0 +1,8 @@
+rule,fields,cases_flagged,cases_not_flagged,total_cases,matches_documented_queue_423,note
+Any disagreement across at least one structured adjudication field,primary_label;secondary_label;boundary_zone;severity_score;href_subtype;ambiguity_flag,423,297,720,True,"Evidence spans/notes, interpretive anchors, timestamps and free-text comments are not queue triggers."
+Field-specific disagreement: primary_label,primary_label,211,509,720,,Field-specific count; overlaps other trigger fields.
+Field-specific disagreement: secondary_label,secondary_label,279,441,720,,Field-specific count; overlaps other trigger fields.
+Field-specific disagreement: boundary_zone,boundary_zone,184,536,720,,Field-specific count; overlaps other trigger fields.
+Field-specific disagreement: severity_score,severity_score,284,436,720,,Field-specific count; overlaps other trigger fields.
+Field-specific disagreement: href_subtype,href_subtype,110,610,720,,Field-specific count; overlaps other trigger fields.
+Field-specific disagreement: ambiguity_flag,ambiguity_flag,36,684,720,,Field-specific count; overlaps other trigger fields.

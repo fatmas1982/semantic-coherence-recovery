@@ -1,0 +1,10 @@
+{
+  "status": "PASS_CURRENT_R8_REVIEWER_SAFE_CHECKS",
+  "full_statistical_bootstrap_regenerated": false,
+  "slow_ci_followups_regenerated": false,
+  "statistical_bootstrap_default_mode": "frozen manuscript artifact verified; fold/class support recomputed",
+  "slow_ci_default_mode": "archived CI artifacts verified; point estimates recomputed",
+  "scientific_mutation": false,
+  "retraining": false,
+  "relabelling": false
+}

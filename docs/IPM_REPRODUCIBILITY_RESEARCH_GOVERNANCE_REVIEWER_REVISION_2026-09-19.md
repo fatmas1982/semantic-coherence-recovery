@@ -1,0 +1,22 @@
+# Reviewer 7 — Reproducibility / Research Governance revision
+
+Date: 2026-09-19
+Target: Information Processing & Management (IP&M)
+
+R8 is a governance/reproducibility revision. It does not retrain M3/M4, relabel any case, change FINAL GOLD scientific fields, change folds, or alter any frozen computational point estimate.
+
+Implemented:
+- documented the stale historical FINAL GOLD v1.0 SUMMARY value 394 and established 423 as the authoritative round-1 adjudication queue through the reproducible six-field queue rule and provenance/workflow evidence;
+- preserved the historical v1.0 source binary unchanged and created a separately named reviewer-safe derivative that corrects only governance metadata and anonymizes identifying provenance filenames;
+- created a detached reviewer-safe snapshot for double-anonymous review; the identity-bearing public GitHub repository is not used as the anonymous reviewer-access route;
+- added a current R1–R8 experiment-to-artifact matrix, execution audit, run-status record, SHA-256 follow-up manifest, and current CPU/GPU environment constraints;
+- added a one-command CPU reviewer-safe orchestrator that recomputes the lightweight/point-support checks and verifies the manuscript-used slow CI artifacts, with explicit flags for full slow 2,000-replicate regeneration;
+- strengthened AI-use governance: no annotation/adjudication decision from the separate 400-output AI-assisted companion pilot enters the present 720-output reference layer;
+- scoped CRediT Conceptualization to the present validation/recovery study and did not claim sole-author taxonomy novelty;
+- scrubbed hidden DOCX thumbnail/metadata leakage and re-rendered/visually audited the anonymized Main and Supplement.
+
+Administrative governance is now closed by author-provided factual confirmation: under institutional policy, formal ethics/IRB review is not required for this non-clinical methodological study; no separate formal exemption determination was required; the institution places no restriction on publication of the study-created data; A1–A4 participated as uncompensated volunteer research collaborators; and they agreed to research use of their judgments and de-identified public release of the corresponding records. No inference is made that these collaborators are manuscript co-authors.
+
+The reviewer-safe one-command default audit returned PASS without retraining, relabelling, fold changes, or scientific-field mutation.
+
+R8A closure record: `docs/IPM_ETHICS_DATA_RELEASE_GOVERNANCE_R8A.md`. No scientific field or result changed.

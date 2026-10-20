@@ -1,0 +1,13 @@
+dimension,pair,N_cases,N_prompt_clusters,exact_agreement,exact_ci_low,exact_ci_high,chance_corrected_metric,chance_corrected_value,metric_ci_low,metric_ci_high,within_one_agreement,within_one_ci_low,within_one_ci_high,bootstrap
+Fine-grained primary label,A1-A2,720,120,0.800000000,0.773611111,0.826388889,Cohen_kappa,0.733765417,0.699201529,0.767331937,,,,2000 task-stratified Prompt_ID-cluster resamples; seed 20260804
+Fine-grained primary label,A1-A3,720,120,0.790277778,0.756944444,0.822222222,Cohen_kappa,0.718492204,0.676166391,0.760330723,,,,2000 task-stratified Prompt_ID-cluster resamples; seed 20260804
+Fine-grained primary label,A2-A3,720,120,0.736111111,0.705555556,0.766666667,Cohen_kappa,0.660566120,0.623854209,0.697639146,,,,2000 task-stratified Prompt_ID-cluster resamples; seed 20260804
+Collapsed family,A1-A2,720,120,0.829166667,0.804166667,0.854166667,Cohen_kappa,0.733463351,0.696069197,0.770742402,,,,2000 task-stratified Prompt_ID-cluster resamples; seed 20260804
+Collapsed family,A1-A3,720,120,0.827777778,0.798576389,0.856944444,Cohen_kappa,0.730405479,0.685418842,0.774720620,,,,2000 task-stratified Prompt_ID-cluster resamples; seed 20260804
+Collapsed family,A2-A3,720,120,0.825000000,0.797222222,0.852777778,Cohen_kappa,0.729938111,0.688172572,0.770840735,,,,2000 task-stratified Prompt_ID-cluster resamples; seed 20260804
+Grounding boundary,A1-A2,720,120,0.815277778,0.791666667,0.838888889,Cohen_kappa,0.720003275,0.684802544,0.753890361,,,,2000 task-stratified Prompt_ID-cluster resamples; seed 20260804
+Grounding boundary,A1-A3,720,120,0.816666667,0.787500000,0.844479167,Cohen_kappa,0.720607819,0.679289237,0.761741767,,,,2000 task-stratified Prompt_ID-cluster resamples; seed 20260804
+Grounding boundary,A2-A3,720,120,0.819444444,0.791666667,0.847222222,Cohen_kappa,0.731212902,0.691450152,0.771282481,,,,2000 task-stratified Prompt_ID-cluster resamples; seed 20260804
+Ordinal severity 0-3,A1-A2,720,120,0.770833333,0.741666667,0.801388889,Quadratic_weighted_Cohen_kappa,0.778265126,0.738156146,0.814988738,0.890277778,0.869444444,0.911111111,2000 task-stratified Prompt_ID-cluster resamples; seed 20260804
+Ordinal severity 0-3,A1-A3,720,120,0.676388889,0.640277778,0.711111111,Quadratic_weighted_Cohen_kappa,0.737013251,0.695787490,0.775270496,0.891666667,0.869444444,0.913888889,2000 task-stratified Prompt_ID-cluster resamples; seed 20260804
+Ordinal severity 0-3,A2-A3,720,120,0.705555556,0.672222222,0.738888889,Quadratic_weighted_Cohen_kappa,0.856108909,0.831472299,0.878514799,0.945833333,0.929166667,0.961111111,2000 task-stratified Prompt_ID-cluster resamples; seed 20260804

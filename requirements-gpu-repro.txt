@@ -1,0 +1,14 @@
+# Current GPU/Colab rerun constraints for M3/M4 notebooks.
+# Historical generation-stage bit-for-bit reproduction is NOT claimed.
+pandas==2.2.3
+transformers==4.57.6
+huggingface_hub==0.36.2
+datasets>=3.0,<5
+accelerate>=1.0,<2
+evaluate>=0.4,<1
+safetensors>=0.4,<1
+scikit-learn>=1.4,<2
+bitsandbytes>=0.43,<1
+sentencepiece>=0.2,<1
+sentence-transformers>=3.0,<6
+torch>=2.4,<3

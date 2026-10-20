@@ -1,0 +1,25 @@
+task,family,n,row_total,row_pct
+explanation,Core SCF,87,120,72.500000
+explanation,OVR,4,120,3.333333
+explanation,HREF,0,120,0.000000
+explanation,NONE,29,120,24.166667
+instruction_following,Core SCF,76,120,63.333333
+instruction_following,OVR,3,120,2.500000
+instruction_following,HREF,0,120,0.000000
+instruction_following,NONE,41,120,34.166667
+multi_entity_context_tracking,Core SCF,41,120,34.166667
+multi_entity_context_tracking,OVR,37,120,30.833333
+multi_entity_context_tracking,HREF,3,120,2.500000
+multi_entity_context_tracking,NONE,39,120,32.500000
+question_answering,Core SCF,26,120,21.666667
+question_answering,OVR,34,120,28.333333
+question_answering,HREF,1,120,0.833333
+question_answering,NONE,59,120,49.166667
+source_grounded_generation,Core SCF,43,120,35.833333
+source_grounded_generation,OVR,25,120,20.833333
+source_grounded_generation,HREF,9,120,7.500000
+source_grounded_generation,NONE,43,120,35.833333
+summarisation,Core SCF,60,120,50.000000
+summarisation,OVR,24,120,20.000000
+summarisation,HREF,1,120,0.833333
+summarisation,NONE,35,120,29.166667

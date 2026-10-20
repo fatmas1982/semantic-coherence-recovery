@@ -1,0 +1,9 @@
+target,human_stratum,Case_ID,Task_Type,gold_label,M3_pred_label,predicted_class_probability,selection_rule
+T1,easy,CASE_0654,multi_entity_context_tracking,no_failure,failure,0.997,highest-confidence misclassified primary-seed Condition-C case within target x Human_Easy stratum; Case_ID ascending tie-break
+T1,hard,CASE_0531,source_grounded_generation,no_failure,failure,0.999,highest-confidence misclassified primary-seed Condition-C case within target x Human_Easy stratum; Case_ID ascending tie-break
+T2,easy,CASE_0154,question_answering,grounding_involved,semantic_only,1.000,highest-confidence misclassified primary-seed Condition-C case within target x Human_Easy stratum; Case_ID ascending tie-break
+T2,hard,CASE_0686,multi_entity_context_tracking,grounding_involved,semantic_only,1.000,highest-confidence misclassified primary-seed Condition-C case within target x Human_Easy stratum; Case_ID ascending tie-break
+T3,easy,CASE_0706,multi_entity_context_tracking,OVR,Core_SCF,0.991,highest-confidence misclassified primary-seed Condition-C case within target x Human_Easy stratum; Case_ID ascending tie-break
+T3,hard,CASE_0297,explanation,OVR,Core_SCF,0.998,highest-confidence misclassified primary-seed Condition-C case within target x Human_Easy stratum; Case_ID ascending tie-break
+T4,easy,CASE_0713,multi_entity_context_tracking,severity 2,severity 3,0.999,highest-confidence misclassified primary-seed Condition-C case within target x Human_Easy stratum; Case_ID ascending tie-break
+T4,hard,CASE_0075,summarisation,severity 2,severity 1,0.990,highest-confidence misclassified primary-seed Condition-C case within target x Human_Easy stratum; Case_ID ascending tie-break
