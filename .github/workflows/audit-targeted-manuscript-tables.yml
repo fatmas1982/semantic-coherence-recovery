@@ -1,0 +1,28 @@
+name: Audit targeted manuscript tables 10 14 17
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'code/analysis/audit_tables_10_14_17_20261020.py'
+      - 'results/validity_2026_10/MAIN_TABLES_10_14_17_MANUSCRIPT_SOURCE_AUDIT_20261020.csv'
+      - '.github/workflows/audit-targeted-manuscript-tables.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  compare-archived-summaries:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Recompute 60 display-precision comparisons
+        run: python code/analysis/audit_tables_10_14_17_20261020.py --out audit_output
+      - name: Preserve machine-readable audit output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: targeted-table-check-results
+          path: audit_output/
+          retention-days: 30
