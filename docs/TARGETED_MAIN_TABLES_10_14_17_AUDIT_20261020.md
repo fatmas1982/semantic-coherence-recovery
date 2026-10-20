@@ -34,3 +34,11 @@ Three careful post-table disclosure paragraphs have been inserted after Tables 1
 - Historical failure-to-retry provenance and rights/ethics/PII release clearance
 
 **Verdict: MAJOR REVISION / targeted 60-cell verification PASS with critical T1 protocol equivalence OPEN.** External independent human validation remains intentionally future work.
+
+## Clean GitHub Actions confirmation
+
+- Workflow: `.github/workflows/audit-targeted-manuscript-tables.yml`
+- Run [39430171858](https://github.com/fatmas1982/semantic-coherence-recovery/actions/runs/39430171858) on main commit `9f01afcacfac39756f3548096e789fd22628c930`.
+- Job `compare-archived-summaries` concluded **SUCCESS**. The job log reported `PASS_SELECTED_DISPLAY_CELLS_WITH_OPEN_T1_PROTOCOL_DISCREPANCY`.
+- Artifact: `targeted-table-check-results` (CSV comparison output and JSON status) was produced and retained with the workflow run. This is an independent **clean checkout execution of the bounded script**, NOT a new model run or independent verification of confidence interval derivation.
+
