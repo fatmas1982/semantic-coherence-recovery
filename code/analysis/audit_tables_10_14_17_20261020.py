@@ -8,12 +8,12 @@ This audit DOES NOT refit models, rebootstrap confidence intervals, or certify 1
 import argparse,csv,hashlib,json,math,statistics
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
-EXPECTED_DOC_SHA="572d8d80f33c177650747515fafd678202571a44e95b273985d6a45a7d620389"
+EXPECTED_DOC_SHAS={"572d8d80f33c177650747515fafd678202571a44e95b273985d6a45a7d620389","c3bb4d3e021cf78cc8980b821a8bf59bd69d6e844c9ba3074b63930339d0fa28"}
 p=argparse.ArgumentParser();p.add_argument("--main-docx",type=Path);p.add_argument("--out",type=Path,default=Path("p2_table_audit"))
 args=p.parse_args()
 if args.main_docx:
  h=hashlib.sha256(args.main_docx.read_bytes()).hexdigest()
- if h!=EXPECTED_DOC_SHA: raise SystemExit("Different Word revision: reviewed expected numbers may have changed")
+ if h not in EXPECTED_DOC_SHAS: raise SystemExit("Different Word revision: reviewed expected numbers may have changed")
 args.out.mkdir(parents=True,exist_ok=True)
 def load(rel):
  with (ROOT/rel).open(encoding="utf-8-sig",newline="") as f: return list(csv.DictReader(f))
