@@ -1,0 +1,25 @@
+name: Check imported September reviewer evidence
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'code/analysis/check_imported_september_20261020.py'
+      - 'results/followup/**'
+      - '.github/workflows/check-imported-september-evidence.yml'
+permissions:
+  contents: read
+jobs:
+  validate-archived-results:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check archived case counts and summary arithmetic
+        run: python code/analysis/check_imported_september_20261020.py | tee imported_followup_audit.json
+      - name: Retain evidence-scope report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: imported-september-audit
+          path: imported_followup_audit.json
+          retention-days: 30
