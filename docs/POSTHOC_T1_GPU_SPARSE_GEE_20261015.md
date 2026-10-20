@@ -30,3 +30,8 @@ The runnable CPU+GPU notebook is now deposited at `code/validity/P2_CPU_GPU_SPAR
 
 Research article and Supplement Word files were revised locally in the user's conversation to incorporate the post-hoc analyses into their proper scientific sections. Those binaries are not present in the current GitHub tree and should not be claimed as deposited.
 
+
+
+## Addendum (20 October 2026): historical serialization explanation located
+
+The original 15 October note above described T1 input serialization as unresolved. A separate archival [T1 input-serialization reconstruction](T1_HISTORICAL_SERIALIZATION_RESOLVED_20261015.md) subsequently reported 2,880/2,880 reproduced input hashes and localized the FP16-reference-versus-E1/rot0 difference to a newline before “Choose only A or B.”. This **resolves the input-provenance question only**, not a causal explanation for nine Mistral and four Qwen changed historical decisions. For the E1/E2 paired contrasts retain E1/rot0, not the historical FP16 reference, as control.
