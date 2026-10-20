@@ -12,7 +12,7 @@ Using the manuscript whose SHA-256 is `572d8d80f33c177650747515fafd678202571a44e
 - Sources: `PUBLIC_METRICS_RECOMPUTED.csv`; `results/server_runs/SERVER_RUN_20261007_A/EXPORTS/CPU_summary/ALL_METRICS.csv`; `results/validity/m3_dual_block/P2_81_M3_DUAL_BLOCKED_SUMMARY.csv`; the eight `M4_{qwen,mistral}_fp16_offload_T{1..4}_C/METRICS_AND_CLUSTER_CI.csv` files under `results/server_runs/SERVER_RUN_20261007_A/EXPORTS/experiments/`.
 - Grounding of Table 14 M3 dual point estimates additionally supported by case-level independent OOF recomputation `results/validity_2026_10/M3_DUAL_OOF_INDEPENDENT_RECALC_20261020.csv`.
 
-## CRITICAL OPEN: T1 FP16 reference is not input-equivalent to E1/rot0
+## T1 FP16 reference is not input-equivalent to E1/rot0: input formatting identified; model-decision causality open
 
 The separate deposited `data/validity_2026_10/FP16_BASELINE_INPUT_HASH_COMPARISON.csv` shows this exact discrepancy:
 
@@ -42,3 +42,9 @@ Three careful post-table disclosure paragraphs have been inserted after Tables 1
 - Job `compare-archived-summaries` concluded **SUCCESS**. The job log reported `PASS_SELECTED_DISPLAY_CELLS_WITH_OPEN_T1_PROTOCOL_DISCREPANCY`.
 - Artifact: `targeted-table-check-results` (CSV comparison output and JSON status) was produced and retained with the workflow run. This is an independent **clean checkout execution of the bounded script**, NOT a new model run or independent verification of confidence interval derivation.
 
+
+## Historical serialization resolution incorporated (20 October 2026)
+
+The previously open **cause of the T1 input-hash divergence** had in fact already been addressed by [the historical serialization reconstruction, dated 15 October](T1_HISTORICAL_SERIALIZATION_RESOLVED_20261015.md). This audit reports 2,880/2,880 exact in-protocol input-hash reconstructions; it isolates the cross-protocol wording layout to one newline between “Do not classify the subtype.” and “Choose only A or B.”. **This prior evidence was missed in the earlier October 20 narrative and has now been explicitly reconciled.** Qwen T1: 0/720 changes in token counts, four different decisions; Mistral T1: 720/720 token-count differences, nine different decisions. There were no zero-token outputs implied by those numbers.
+
+Status split: **PASS (archived provenance report): byte-level origin of differing T1 prompt hashes explained**; **OPEN: causal attribution of changed model decisions to newline alone** and fresh prospectively controlled whitespace sensitivity. The 2,880 provenance checks do not constitute a fresh experiment rerun in this documentation update. In both protocols, original performance figures are retained; E1/rot0 is the internally paired control, not a clone of FP16 Reference.
