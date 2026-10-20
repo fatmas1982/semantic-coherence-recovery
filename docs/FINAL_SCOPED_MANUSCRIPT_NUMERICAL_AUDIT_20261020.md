@@ -51,3 +51,15 @@ The corrected author Word copies retain all **20 + 80 original table cell string
 - Independent external human validation remains prospective/deferred and must not be claimed completed.
 
 **This report records manuscript author-copy inspection and newly executed CI on archived paired cases, not a fresh GPU inference or a human ethics authorization.**
+
+## Delivered author-review DOCX candidate fingerprints (not deposited on GitHub)
+
+The locally rendered/rechecked author-review copies resulting from this pass are:
+
+| File | SHA-256 | Tables | Rendered pages |
+|---|---|---:|---:|
+| `P2_MAIN_NUMERICAL_RECONCILIATION_20261020.docx` | `19273cb00cfa90dff228ea7bf5484c1f09458a03d121bbdf5f25ca022f7dbb58` | 20 | 37 |
+| `P2_SUPPLEMENT_NUMERICAL_RECONCILIATION_20261020.docx` | `06f8e7eb4afe948d730249ae9b62051b23452124871dc10a75774738b46245e3` | 80 | 51 |
+
+The **exact cell text** of all 100 original tables was checked against the immediately preceding Word files and preserved. The supplemental Table S47 caption was added (not a data modification), and the manual page-break defect was corrected. The Word files are distributed as separate author-facing downloads in the working conversation and are **not** asserted to be stored in the public repository. The locally generated 100-row audit includes a SHA-256 of each source table's text; this GitHub registry is a reduced path/caption/status summary rather than the full local fingerprint ledger. The main/supplement were rendered; a professional independent editorial pass is not claimed.
+
