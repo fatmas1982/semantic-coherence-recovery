@@ -1,0 +1,31 @@
+name: Compare historical E1E2 250-draw intervals
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'code/analysis/compare_e1e2_250_to_paper_20261020.py'
+      - '.github/workflows/compare-e1e2-250-vs-paper.yml'
+permissions:
+  contents: read
+jobs:
+  reconcile-historical-cis:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install bounded analysis dependencies
+        run: python -m pip install pandas numpy scikit-learn scipy
+      - name: Refit 250-draw variant from archived paired cases
+        run: |
+          python code/validity/reanalyse_e1e2_pairs_2026.py --data-dir data/validity_2026_10 --out /tmp/e1e2_250 --bootstrap-reps 250 --seed 20261009
+          python code/analysis/compare_e1e2_250_to_paper_20261020.py --fresh /tmp/e1e2_250/E1E2_PAIRED_RECOMPUTED.csv --out ci_audit
+      - name: Archive case-level CI comparison
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: historical-250-versus-supplement-ci
+          path: ci_audit/
+          retention-days: 30
