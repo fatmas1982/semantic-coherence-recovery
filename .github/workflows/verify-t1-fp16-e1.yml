@@ -1,0 +1,26 @@
+name: Verify historical T1 FP16 versus E1 control
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'code/analysis/verify_t1_fp16_e1_baseline_20261020.py'
+      - 'data/validity_2026_10/paired_cases_part_*.csv'
+      - 'results/server_runs/SERVER_RUN_20261007_A/GPU/M4_NEW/**/OOF_*_T1_C.csv'
+      - '.github/workflows/verify-t1-fp16-e1.yml'
+permissions:
+  contents: read
+jobs:
+  verify-archived-decisions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reconcile T1 decisions and macro-F1 from archived CSVs
+        run: python code/analysis/verify_t1_fp16_e1_baseline_20261020.py | tee t1_fp16_e1_run_report.json
+      - name: Archive report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: t1-fp16-vs-e1-reconciliation
+          path: t1_fp16_e1_run_report.json
+          retention-days: 30
