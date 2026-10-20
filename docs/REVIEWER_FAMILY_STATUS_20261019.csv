@@ -1,0 +1,24 @@
+id,family,state,limitation
+S01,Human pre-resolution reliability,ARCHIVED_SCOPE_ONLY,Fresh independent full statistic and interval replay unverified
+S02,Senior adjudication and targeted re-review,PARTIAL_RECORDED,Historical routing not fully replayed
+S03,Frozen corpus and generation,FROZEN_OUTPUTS_PRESENT,Five exact historical checkpoint reruns not possible
+S04,M0-M2 archived OOF and retraining,REFERENCE_OOF_PRESENT,Historical trainer not preserved
+S05,M3 A/B/C seeds and LOTO,ARCHIVED_SCOPE_ONLY,Full raw LOTO case outputs not universally retained
+S06,M4 forced-choice Qwen reference,ARCHIVED_SCOPE_ONLY,Judge contract serialization needs run-level check
+S07,M3-M4 paired bootstrap and McNemar,UNVERIFIED_TABLE_EXACTNESS,Every current manuscript CI not recomputed
+S08,Leakage near-duplicate and semantic review,POST_HOC_ARCHIVED,No universal zero-leakage guarantee
+S09,Generator signature and metadata-only,POST_HOC_ARCHIVED,No unseen-generator external validity
+S10,M1 dual and five size-matched controls,OOF_PRESENT,Exact trainer lineage pending
+S11,M3 dual and five size-matched controls,OOF_PRESENT,Historical version precedence and CI pending
+S12,ModernBERT token and source-bearing B-C,POST_HOC_ARCHIVED,Exact history and causal interpretation limited
+S13,M4 P1-P2 and T4 twelve mappings,POST_HOC_ARCHIVED,No posthoc best-mapping selection
+S14,Qwen and Mistral FP16 condition C,OOF_PRESENT,T1 input discrepancy unclosed
+S15,E1-E2 answer code and order perturbations,POST_HOC_ARCHIVED,Distinct from FP16 reference baseline
+S16,HJI bootstrap corrected and 60 GEE refits,SCOPED_RECOMPUTATION,Rare-event bias and simultaneous CI unsupported
+S17,ML Model-Engineering Reviewer follow-up,ORIGINAL_PACKAGE_NOT_REVIEWED_IN_THIS_PASS,Original reviewer ZIP and commits need verification
+S18,RAR result precedence,SCOPED_POLICY_PRESENT,Protocol key mapping required per claim
+S19,Colab audits and GOLD T1-T4 reconstruction,OPERATOR_REPORTED,Version-pinned unified independent CI not deposited
+S20,Server-run transport and hash,OPERATOR_PASS,No full release-rights review
+S21,Run recovery from log errors,UNRESOLVED,Missing exact retry-success linkage
+S22,Latest manuscript and supplement tables,EXTRACTED_NOT_NUMERICALLY_VERIFIED,100-table exact numeric replay pending
+S23,Publication governance and coauthor approval,UNRESOLVED,Human approvals required
