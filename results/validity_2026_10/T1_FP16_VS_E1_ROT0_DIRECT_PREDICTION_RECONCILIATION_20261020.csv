@@ -1,0 +1,3 @@
+judge,fp16_case_count,e1_case_count,changed_n,matched_case_and_gold,changed_case_ids
+qwen_fp16_offload,720,720,4,true,CASE_0318;CASE_0330;CASE_0461;CASE_0556
+mistral_fp16_offload,720,720,9,true,CASE_0023;CASE_0039;CASE_0082;CASE_0334;CASE_0369;CASE_0395;CASE_0548;CASE_0658;CASE_0695
