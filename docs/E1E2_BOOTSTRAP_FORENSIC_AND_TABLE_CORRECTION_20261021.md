@@ -33,4 +33,6 @@ The Word files and historical-versus-corrected CI crosswalk are author-facing lo
 - **OPEN:** exact historical 250-draw source chain; explanation of alternate 3,000-draw CI lineage; all other tables beyond previously tested scoped values; full run-level/inner-CV checks and rights/coauthor approval.
 - **Do not relabel older R14 16-table submission audit as validation of the current 20-main/80-supplement-table revision.**
 
+The latest [23-family reviewer-status matrix](REVIEWER_FAMILY_STATUS_20261021.csv) distinguishes this scoped CI evidence from still-open historical and manuscript-wide gates.
+
 **Verdict: SCOPED S-E1E2 CI CORRECTION RELEASE CANDIDATE; overall manuscript remains PARTIALLY VERIFIED / MAJOR REVISION.**
