@@ -1,3 +1,7 @@
+> **22 OCTOBER 2026 UPDATE:** The historical *multirater* severity CI gate left open below was **subsequently resolved at numeric replay scope** by recovering the P2_38 and P2_45 original bootstrap code. Independent replays match 15/15 and 19/19 archived interval records, including all six published severity intervals (tolerance <1e-10). See [source recovery](P2_20261022_HISTORICAL_MULTIRATER_CI_REPLAY_RECOVERY.md). The original P2_38 input binary, six-field adjudication reconstruction and external human validation remain open. This October 21 source-column audit is preserved as a dated snapshot, not silently rewritten.
+
+---
+
 # P2 — independently recomputed pre-resolution human reliability from frozen GOLD (21 October 2026)
 
 **Status: 5/5 Krippendorff alpha POINT estimates PASS; 12/12 pairwise Cohen κ / QWK and 2,000-cluster-bootstrap CI rows PASS; historical three-rater CI lineage OPEN.** This is not a claim of complete annotation provenance or external validity.
