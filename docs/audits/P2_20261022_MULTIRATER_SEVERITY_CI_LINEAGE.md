@@ -1,3 +1,7 @@
+> **SUPERSEDED STATUS NOTICE — 22 October 2026:** The earlier negative replication below is retained as a dated diagnostic, but its conclusion that the six human multirater severity intervals were not reproducible is **no longer the current finding**. Historical P2_38 and P2_45 bootstrap implementations were subsequently recovered and independently replayed: **15/15 and 19/19 interval records, including 6/6 reportable human severity CIs, match under tolerance 1e-10**. The earlier attempts omitted the historical per-resample redefinition of the majority-failure group and did not replicate the exact input task/prompt ordering. P2_40 is excluded as a non-authoritative intermediate snapshot, not erased. Original P2_38 input **binary identity** and external validation are still open. **Current report:** [recovered historical replay](P2_20261022_HISTORICAL_MULTIRATER_CI_REPLAY_RECOVERY.md).
+
+---
+
 # Independent historical bootstrap CI lineage check — multirater severity (22 October 2026)
 
 **Decision: Historical multi-rater CI PROVENANCE STILL OPEN; point estimates and pair-specific CI reproduction PASS. This is a scoped negative/reconciliation audit, not a blanket manuscript certification.**
