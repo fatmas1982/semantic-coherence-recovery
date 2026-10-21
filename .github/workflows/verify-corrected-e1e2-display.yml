@@ -1,0 +1,25 @@
+name: Check corrected E1E2 table CI display
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'code/analysis/verify_s_e1e2_corrected_ci_20261021.py'
+      - 'results/validity_2026_10/S_E1E2_CORRECTED_CI_3000_20261021.csv'
+      - '.github/workflows/verify-corrected-e1e2-display.yml'
+permissions:
+  contents: read
+jobs:
+  audit-displayed-intervals:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify table display crosswalk
+        run: python code/analysis/verify_s_e1e2_corrected_ci_20261021.py | tee corrected_e1e2_display_check.json
+      - name: Preserve scope-limited CI audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: corrected-e1e2-display-crosswalk
+          path: corrected_e1e2_display_check.json
+          retention-days: 30
