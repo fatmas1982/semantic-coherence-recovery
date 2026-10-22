@@ -1,0 +1,32 @@
+name: Verify pinned public transport hashes
+on:
+  push:
+    paths:
+      - 'code/analysis/verify_pinned_transport_hashes_20261022.py'
+      - 'code/analysis/prepare_followup_archived_inputs_20261022.py'
+      - 'UNPACK_RELEASE.py'
+      - 'release_bundle/**'
+      - '.github/workflows/verify-pinned-public-transport.yml'
+  pull_request:
+    paths:
+      - 'code/analysis/verify_pinned_transport_hashes_20261022.py'
+      - 'UNPACK_RELEASE.py'
+      - 'release_bundle/**'
+      - '.github/workflows/verify-pinned-public-transport.yml'
+  workflow_dispatch:
+jobs:
+  pinned-archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify immutable historical bundle members
+        run: python code/analysis/verify_pinned_transport_hashes_20261022.py
+      - name: Safely unpack absent historical data without overwriting current checkout
+        run: python UNPACK_RELEASE.py
+      - name: Install CSV dependency for aggregate-to-shard preflight
+        run: python -m pip install pandas
+      - name: Derive M4 shard and frozen baseline aliases without private GOLD
+        run: python code/analysis/prepare_followup_archived_inputs_20261022.py
