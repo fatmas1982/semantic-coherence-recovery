@@ -24,6 +24,8 @@ jobs:
           python-version: '3.12'
       - name: Verify immutable historical bundle members
         run: python code/analysis/verify_pinned_transport_hashes_20261022.py
+      - name: Safely unpack absent historical data without overwriting current checkout
+        run: python UNPACK_RELEASE.py
       - name: Install CSV dependency for aggregate-to-shard preflight
         run: python -m pip install pandas
       - name: Derive M4 shard and frozen baseline aliases without private GOLD
