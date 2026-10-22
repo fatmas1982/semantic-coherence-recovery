@@ -26,6 +26,13 @@ However, the archival `code/analysis/verify_release.py` initially **FAILED** wit
 
 This old archival pass does not demonstrate that **all 4,960 current main-branch files**, whole Git history, latest 100 paper tables, latest GitHub HEAD actions, or entire GPU training/LLM inference can be reproduced from one clean checkout. No such claim is made.
 
+
+## Bounded technical privacy/security preflight of historical 186-member transport
+
+A new text-pattern scan was executed on the author-supplied historical 186-member transport. **13 Python files parsed successfully (0 syntax errors)**. Patterns screened: GitHub personal access token prefixes, AWS access-key identifiers, PEM private-key headers, assignment-like static secrets/passwords, email addresses and IPv4 strings. No matches to the tested credential/private-key/IPv4 patterns were observed. **Two email-address occurrences were detected in one historical supplementary Markdown file, `paper/P2_57_Submission_Candidate_SUPPLEMENT.md`.** This means that archived document cannot be called fully anonymous. The author independently asserts permission for public release, but that is a different matter from the existence of personally identifying details; it also cannot be reused unchanged for double-anonymized peer review. No emails or names are reprinted in this public report.
+
+**Strong boundary:** This was a **heuristic text/content scan of the historical frozen transport**, not a check of all current main-branch GitHub files, nested server archives, commit history, generated notebooks, third-party binaries or semantic indirect identifiers. A zero-match result in the narrow rules above is not a guarantee that there are no secrets or sensitive information elsewhere.
+
 ## Existing scope unchanged
 - 100/100 current Word scientific tables structurally retained and syntax-screened. **Full every-numeric-cell recomputation remains open**.
 - Previous 210/210 bounded result-display/derived checks are still separate; the S61 correctness checks are newly upgraded from display-level arithmetic to **case-level** proof. Do not count every repeated display as a distinct experiment.
