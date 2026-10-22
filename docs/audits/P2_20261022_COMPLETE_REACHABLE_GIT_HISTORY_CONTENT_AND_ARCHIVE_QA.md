@@ -8,6 +8,9 @@
 - Source main and review-candidate HEAD: `14833ea7c47befab5846aefa46068508552c5af5`. **21 refs** (11 branches, 9 pull-request refs and HEAD), **0 tags** in bundle, **350 reachable commits**, **6,368 Git objects**, comprising **5,094 unique blobs, 924 trees and 350 commits**. **5,094/5,094 blob bodies read**; zero truncated/unavailable objects.
 - This snapshot predates the public-verifier code fix and this audit publication, so it is not a scan of subsequent commits.
 
+## Commit-object metadata privacy scan
+All **350/350 reachable Git commit objects** were additionally inspected for credential/private-key token signatures in their metadata and commit messages: **zero tested token/key matches**. The commit objects intrinsically contain **three distinct author/committer email strings**, repeated **692** times across the historical records. Email-bearing Git history and a named public repository are **not anonymized reviewer deposits** merely because Word manuscripts omit names. Do not expose this Git mirror to reviewers under any assumption of double-anonymity; confirm IP&M's actual review route and use a separate author-neutral code snapshot if needed.
+
 ## Archives — content actually read
 - **278 ZIP-compatible archive versions** including nested archives and DOCX package variants, **11,238/11,238 contained file members read** with full-read ZIP CRC validation.
 - One historical `results.rar`: RAR5 independent second-pass verification of **4,584/4,584 regular members**, matching file sizes and per-file CRC-32 (0 mismatches) and normal EOF. An initial scanner warning after processing all files was traced to misclassification of a directory entry as a regular member; **resolved**, not evidence of archive damage.
