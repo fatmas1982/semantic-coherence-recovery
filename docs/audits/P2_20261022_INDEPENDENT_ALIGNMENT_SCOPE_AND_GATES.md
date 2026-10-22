@@ -18,13 +18,25 @@ Status: **REVIEW BRANCH; NOT FINAL, NOT AUTHOR APPROVAL, NOT A JOURNAL DEPOSIT.*
 - 720/720 generated case alignment, 2,160 locked pre-resolution human ratings and archived OOF row integrity checks passed.
 - `python code/analysis/verify_pinned_transport_hashes_20261022.py` directly checks **151/151 pinned transport members** without confusing historical immutable files with a checkout containing newer files. This does NOT certify private historical source XLSX content.
 
-## Remaining blocking gates
+## Remaining blocking gates (after verified archived-input recovery)
 
 1. **86 citations: still not certified sentence-by-sentence.** Existing bibliography and DOI discovery, primary landing pages, or topical agreement with abstracts are not proof that all cited claims are entailed by the actual publications. Restricted-access primary full text and compound multi-citation prose require item-level manual adjudication.
 2. All reported results across 100 tables, narrative interpretations and all human agreement CIs require an explicit `claim -> frozen artifact -> reproducible calculation -> manuscript cell` ledger. Selective metric and CI replays cannot be generalized.
-3. The orchestrator `code/followup/P2_IPM_REPRODUCE_ALL_CURRENT_RESULTS.py` does **not** complete on the unpacked public checkout: after locally supplying the SHA-confirmed private GOLD file, it stops at missing `OOF_M4_SENS_T1_P1_identity.csv`. This M4 sensitivity-file source must be reconciled; do not silently replace it with another model run.
+3. **RESOLVED, WITH PROVENANCE LIMITS:** An archived combined case-level M4 export has **18 named source_file groups, 9,460 rows and no duplicate (source_file, Case_ID)**. A new preparation script reconstructs these 18 logical OOF shards and creates **4 byte-identical aliases** from existing `10_OOF_T1.csv` through `13_OOF_T4.csv`. With the SHA-confirmed original private GOLD provided **locally only**, `code/followup/P2_IPM_REPRODUCE_ALL_CURRENT_RESULTS.py` completed the default reviewer-safe checks with **PASS**, and its `--recompute-slow-ci-followups` mode independently recomputed the adjudication-exclusion intervals and target human-reference checks with **PASS**. This is **archived-output reconstruction, not original M4 per-shard byte identity, inference, or retraining**. Follow-up pre-resolution annotator ambiguity counts of **36** are historical and must not be confused with FINAL GOLD's **35** flags.
 4. Historical source-binary identities that are only attested by SHA lines, fully fresh model training/generation and coauthor authorization are separate gates.
 5. The `code/analysis/verify_release_public_20261012.py` in recent main already recognizes mixed worktree versions; retained original files and current checkout checks are different tests. Additional pinned-transport integrity script in this branch is explicit about that distinction.
+
+## Archived R8 reproducibility command (private run only)
+
+```bash
+python UNPACK_RELEASE.py
+python code/analysis/prepare_followup_archived_inputs_20261022.py
+# PRIVATELY copy user-owned checksum-confirmed GOLD v1.0 into data/frozen;
+# never add it to Git or a public pull request.
+python code/followup/P2_IPM_REPRODUCE_ALL_CURRENT_RESULTS.py --recompute-slow-ci-followups
+```
+
+Source report records 22 prepared files (18 M4 shards + four named baseline aliases). No historical per-shard byte-level equivalence is claimed. The slow-CI run was independently exercised in a private local copy and completed PASS.
 
 ## Publication instructions
 
