@@ -27,8 +27,32 @@ for filename,sha in expected.items():
         print("PASS_SOURCE_BINARY_SHA256",filename)
     else:
         print("NOT_VERIFIED_SOURCE_BINARY",filename,"source SHA recorded; original binary not distributed")
-manifest=list(csv.DictReader((ROOT/".frozen_reference_2026/SHA256SUMS.csv").open(newline="")))
-assert len(manifest)==151
+# CI builds an isolated frozen tree; ordinary \`python UNPACK_RELEASE.py\` does not.
+# Prefer the historical tree for full 151/151 checks. A standard worktree may
+# deliberately preserve newer files at colliding paths and is audited separately.
+frozen = ROOT / ".frozen_reference_2026"
+reference = frozen if (frozen / "SHA256SUMS.csv").is_file() else ROOT
+with (reference / "SHA256SUMS.csv").open(newline="") as f:
+    manifest = list(csv.DictReader(f))
+assert len(manifest) == 151
+matches = []
+mismatches = []
+for entry in manifest:
+    target = reference / entry["path"]
+    actual = hashlib.sha256(target.read_bytes()).hexdigest() if target.is_file() else None
+    if actual == entry["sha256"] and target.stat().st_size == int(entry["bytes"]):
+        matches.append(entry["path"])
+    else:
+        mismatches.append(entry["path"])
+if reference == frozen:
+    assert not mismatches, ("frozen reference archive changed", mismatches)
+    print("PASS_FROZEN_REFERENCE_SHA256_151_OF_151")
+else:
+    print("WORKTREE_FROZEN_MANIFEST_MATCH", len(matches), "/ 151")
+    if mismatches:
+        print("NONFROZEN_PRESERVED_CURRENT_FILES", len(mismatches),
+              "— NOT 151/151 archive-bitwise certification")
+
 for path in ("data/publication/canonical_publication_dataset_720.csv",
  "data/raw/generated_outputs_720.csv",
  "data/annotation/locked_core_ratings/locked_pre_resolution_core_ratings_long_2160.csv",
@@ -41,5 +65,6 @@ for command in [
  [sys.executable,str(ROOT/"code/analysis/verify_all_frozen_case_layers_20261012.py")]
 ]:
     subprocess.run(command,cwd=ROOT,check=True)
-print("PASS_PUBLIC_NUMERICAL_ARCHIVE: 151-byte-verified source files, frozen primary outputs and OOF linkage")
+print("PASS_PUBLIC_NUMERICAL_ARCHIVE: frozen primary outputs and OOF linkage; "
+      f"frozen manifest matched {len(matches)}/151 in reference {reference.relative_to(ROOT)}")
 print("IMPORTANT: historical original XLSX/PDF source-binary identity is not certified by the public release alone.")
