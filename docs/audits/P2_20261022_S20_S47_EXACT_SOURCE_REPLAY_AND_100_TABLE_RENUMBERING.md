@@ -1,0 +1,26 @@
+# P2 — S20/S47 exact source replay and 100-table journal renumbering
+
+**22 Oct 2026 — source-closed scoped defects; full 100-table claim verification remains OPEN. Do not release as FINAL.**
+
+## S20 issue resolved: `Resolution` was an imprecise header, not wrong task counts
+Independent aggregation from the CURRENT FINAL GOLD 720-case canonical mirror of original A1–A3 pre-resolution primary, boundary and severity decisions reproduces task counts **70/48/62/41/54/62**, totaling **337** cases with at least one core-axis disagreement. Corresponding task percentages are **58.3/40.0/51.7/34.2/45.0/51.7%**, matching all S20 values. All 337 are within the recorded **423** senior-adjudication cases; the additional **86** were queued on other recorded structured fields. Hence S20 was not describing the entire A4 route. The author-only revised Supplement renames the header **Core-axis disagreement** and explains the denominator and field criteria. The main Methods likewise distinguishes 337 and 423. No S20 numeric data were changed.
+Original A1–A3 task-specific family/boundary Krippendorff nominal alpha and ordinal-severity alpha were independently recomputed from source ratings, reproducing **18/18 displayed coefficients** at 3 decimals; current-GOLD task failure, severity >=2 and 35-flag ambiguity rates reproduce at one decimal. A4 was not added as a fourth rater.
+
+## S47 issue resolved: a distinct known bootstrap protocol, not undocumented intervals
+The original existing `code/reviewer_20260928/m4_generator_stratum_audit.py` was executed on the exact unpacked public frozen M4-C OOF predictions and the six-checkpoint prompt plan, with **2,000 task-stratified Prompt_ID-cluster draws, seed 20260928**. **All 32 subgroup rows** (N, macro-F1, 95% CI endpoints) reproduce the prior S47 table at its precision. Its full-case confidence intervals differ slightly from the primary original Main Table 10 / Supplement S35 because the generator-stratum audit used a separate seeded bootstrap calculation. The author-side draft describes both correctly; S47 was given a caption and becomes **S80** after journal renumbering. Do not relabel the S80 estimates as the primary-reference interval protocol.
+
+## Article and supplement edits (private; not committed as non-anonymous Word files)
+- 20/20 main scientific tables renumbered sequentially from **Table 1** through **Table 20**.
+- 80/80 supplementary scientific tables renumbered sequentially from **Table S1** through **Table S80**.
+- **166** recorded cross-reference replacement actions across manuscript/cells; independently extracted **185** table-reference tokens: **0** outside 1–20 or S1–S80.
+- Corrected four pre-existing, semantically invalid main/supp paired references in the original supplementary crosswalk by actual topic: now pairs **13/S59**, **14/S60**, **15/S63**, **16/S68**. These are not merely arithmetic renumberings.
+- Scientific numeric table values were preserved. Text changes include the former S20 header, supplementary cross-reference cells, author prose, new explanatory notes and S80 caption. No GOLD label or model prediction changed.
+- Rendered for editorial visual QA: **33-page MAIN** and **47-page SUPPLEMENT**. S80 caption now stays with its table on the last page.
+- Blinded Word prose was screened for direct KUber/coauthor name mentions and date-stamped October audit commentary; no tested direct-name hits were found. This is not a complete semantic deanonymization guarantee.
+
+## Verifier and coverage — numbers must not be inflated
+An independent current source-to-Word verification ledger records **112/112 passing S20/S47 display-cell comparisons**: 48 task-metric cells in S20 and 64 N/F1-with-CI cells in S47, 0 mismatches. The current 4,103 nonempty-cell cumulative ledger de-duplicates overlaps: **373** old distinct source-checked cells not supplanted by this pass, **48** task data cells newly recomputed, **64** M4 generator-stratum rows' N/F1-CI cells newly replayed = **485 unique cells with source-linked verification**. **1,685** other nonempty cells have numeric-like tokens but lack a fresh direct source replay in the cumulative ledger, and **1,933** are plain text / no recognized numeric token. Numeric-token cells can include model IDs, article numbers and configuration metadata — these are not 1,685 confirmed faulty numerical findings.
+All-scientific-value full-source validation, narrative numerical claim traceability, per-reference DOI/source check, publisher figures' artwork compliance, anonymous reviewer repository access, and exact-final-file authorship consent remain open. Do not count previous 453 checks, additional 36 cross-document comparisons, and these 112 new records as mutually independent cells.
+
+## Release decision
+**S20/S47 SOURCE GATES CLOSED, JOURNAL TABLE NUMBERING AND BOUNDED CROSS-REF CHECK PASS; OVERALL MANUSCRIPT FINAL-SUBMISSION GATE OPEN.** The latest author Word files and private title page are intentionally separate from the public GitHub tree and require six-author review. No FINAL tag/DOI was made.
