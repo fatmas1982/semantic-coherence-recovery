@@ -1,0 +1,25 @@
+name: Verify pinned public transport hashes
+on:
+  push:
+    paths:
+      - 'code/analysis/verify_pinned_transport_hashes_20261022.py'
+      - 'UNPACK_RELEASE.py'
+      - 'release_bundle/**'
+      - '.github/workflows/verify-pinned-public-transport.yml'
+  pull_request:
+    paths:
+      - 'code/analysis/verify_pinned_transport_hashes_20261022.py'
+      - 'UNPACK_RELEASE.py'
+      - 'release_bundle/**'
+      - '.github/workflows/verify-pinned-public-transport.yml'
+  workflow_dispatch:
+jobs:
+  pinned-archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify immutable historical bundle members
+        run: python code/analysis/verify_pinned_transport_hashes_20261022.py
